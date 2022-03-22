@@ -1,7 +1,12 @@
 .tomato-logo {
-    filter: invert(54%) sepia(56%) saturate(4325%) hue-rotate(330deg) brightness(100%) contrast(96%);
+    filter: invert(41%) sepia(39%) saturate(1429%) hue-rotate(322deg) brightness(107%) contrast(96%);
 }
 
 .white-hover:hover {
     filter: none !important;
 }
+
+.gold-hover:hover{
+    filter: invert(41%) sepia(29%) saturate(535%) hue-rotate(355deg) brightness(91%) contrast(90%);
+}
+

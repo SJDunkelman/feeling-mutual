@@ -2,7 +2,6 @@ import * as React from "react"
 import { Link } from "gatsby"
 import "../styles/logo-filters.css";
 
-import fullLogo from "../images/logo-full-tomato.png";
 import logoSVG from "../images/full-logo-white.svg";
 
 const NavigationBar = () => (

@@ -1,11 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import symbol from "../images/symbol-white.svg";
+
 function Footer() {
   return (
     <footer className="flex flex-col space-y-6 items-center pt-10 pb-4 text-gold">
       <Link to="/">
-        <div className="w-16 h-16 bg-black rounded-full" />
+        <img className="h-auto w-16 tomato-logo gold-hover" src={symbol} alt="Feeling Mutual Icon" />
       </Link>
       <ul className="hidden lg:flex items-center w-auto space-x-12 pt-4">
         <li><a href="#" className="text-md no-underline text-light hover:text-white">BLOG</a></li>
