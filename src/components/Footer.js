@@ -5,7 +5,6 @@ function Footer() {
   return (
     <footer className="flex flex-col space-y-6 items-center pt-10 pb-4 text-gold">
       <Link to="/">
-        {/*<img className="icon" src={flatpackLogo} alt="Flatpack Fintech Logo of a box being opened" />*/}
         <div className="w-16 h-16 bg-black rounded-full" />
       </Link>
       <ul className="hidden lg:flex items-center w-auto space-x-12 pt-4">

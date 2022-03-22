@@ -1,6 +1,4 @@
 import * as React from "react"
-
-import NavigationBar from "./NavigationBar"
 import Seo from "./Seo"
 
 const Layout = ({ children }) => {
