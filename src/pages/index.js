@@ -61,32 +61,38 @@ function IndexPage () {
         <p className="font-light pb-6 text-gold">How We Work</p>
         <h2 className="text-5xl font-semibold pb-16 text-gold text-center">We inform agile workflows, with authentic insights that inspire better decisions</h2>
         <div className="grid grid-cols-3 space-x-6">
-          <div className="flex flex-col items-center space-y-6 text-center w-72 text-gold">
-            <i className="fa-light fa-forward-fast text-6xl"></i>
-            <h3 className="text-4xl font-semibold text-maroon">Agile</h3>
-            <p className="font-light text-lg">Research is only agile if it is <span
-              className="font-semibold">collaborative</span></p>
-          </div>
+          <Link to="/">
+            <div className="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
+              <i className="fa-light fa-forward-fast text-6xl"></i>
+              <h3 className="text-4xl font-semibold text-maroon">Agile</h3>
+              <p className="font-light text-lg">Research is only agile if it is <span
+                className="font-semibold">collaborative</span></p>
+            </div>
+          </Link>
 
-          <div className="flex flex-col items-center space-y-6 text-center w-72 text-gold">
-            <i className="fa-light fa-lightbulb-on text-6xl"></i>
-            <h3 className="text-4xl font-semibold text-maroon">Authentic</h3>
-            <p className="font-light text-lg">Research can only be <span className="font-semibold">trusted</span> if it
-              is authentic</p>
-          </div>
+          <Link to="/">
+            <div className="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
+              <i className="fa-light fa-lightbulb-on text-6xl"></i>
+              <h3 className="text-4xl font-semibold text-maroon">Authentic</h3>
+              <p className="font-light text-lg">Research can only be <span className="font-semibold">trusted</span> if it
+                is authentic</p>
+            </div>
+          </Link>
 
-          <div className="flex flex-col items-center space-y-6 text-center w-72 text-gold">
-            <i className="fa-light fa-brain text-6xl"></i>
-            <h3 className="text-4xl font-semibold text-maroon">Inspiring</h3>
-            <p className="font-light text-lg">Research is only valuable if it inspires <span className="font-semibold">better decisions</span>
-            </p>
-          </div>
+          <Link to="/">
+            <div className="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
+              <i className="fa-light fa-brain text-6xl"></i>
+              <h3 className="text-4xl font-semibold text-maroon">Inspiring</h3>
+              <p className="font-light text-lg">Research is only valuable if it inspires <span className="font-semibold">better decisions</span>
+              </p>
+            </div>
+          </Link>
 
           {/*<BenefitGrid title="Agile" iconClasses="fa-light fa-forward-fast" description="Research is only agile if it is collaborative" />*/}
           {/*<BenefitGrid title="Authentic" iconClasses="fa-light fa-lightbulb-on" description="Research can only be trusted if it is authentic" />*/}
           {/*<BenefitGrid title="Inspiring" iconClasses="fa-light fa-award" description="Research is only valuable if it inspires better decisions" />*/}
         </div>
-        {/*<CaseStudyGrid />*/}
+        <CaseStudyGrid />
       </Section>
 
       <Section id="our-customers" cNames="py-16 bg-blue">
