@@ -14,7 +14,6 @@
     "gatsby-plugin-image": "^2.9.1",
     "gatsby-plugin-manifest": "^4.9.1",
     "gatsby-plugin-mdx": "^3.10.1",
-    "gatsby-plugin-offline": "^5.9.1",
     "gatsby-plugin-react-helmet": "^5.10.0",
     "gatsby-plugin-sharp": "^4.9.1",
     "gatsby-source-filesystem": "^4.9.1",
@@ -27,6 +26,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
+    "gatsby-plugin-netlify": "^4.1.0",
     "gatsby-plugin-postcss": "^5.9.0",
     "postcss": "^8.4.8",
     "prettier": "^2.5.1",
