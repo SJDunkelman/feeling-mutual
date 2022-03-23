@@ -5,6 +5,7 @@ module.exports = {
       center: true,
     },
     screens: {
+      'mobile-only': {'max': '480px'},
       'sm': '480px',
       'md': '768px',
       'lg': '1150px',
