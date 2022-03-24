@@ -20,7 +20,7 @@ const insertIntoArray = (arr, value) => {
 };
 
 function AwardsMarquee() {
-  const awardSize = "h-16 max-w-20"
+  const awardSize = "h-24 max-w-20"
   let awardImgs = [
     <img src={awardQuirks2020} alt="Award finalist MRS 2017" className={awardSize} />,
     <img src={awardMRS2017} alt="Award finalist MRS 2017" className={awardSize} />,

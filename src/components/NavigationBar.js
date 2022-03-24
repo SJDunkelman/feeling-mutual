@@ -2,7 +2,6 @@ import * as React from "react"
 import { Link } from "gatsby"
 import "../styles/logo-filters.css";
 import logoSVG from "../images/full-logo-white.svg";
-import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 function NavigationBar () {
 
@@ -23,10 +22,13 @@ function NavigationBar () {
           </Link>
 
           <ul className="hidden lg:flex items-center w-auto whitespace-nowrap lg:space-x-12">
-            <li><AnchorLink to="/#what-we-do" title="WHAT WE DO" className="no-underline font-light hover:text-white" /></li>
-            <li><AnchorLink to="/#how-we-work" title="HOW WE WORK" className="no-underline font-light hover:text-white" /></li>
-            <li><AnchorLink to="/#who-we-are" title="WHO WE ARE" className="no-underline font-light hover:text-white" /></li>
-            <li><AnchorLink to="/#our-customers" title="OUR CUSTOMERS" className="no-underline font-light hover:text-white" /></li>
+            <a href="#what-we-do"><li className="no-underline font-light hover:text-white">WHAT WE DO</li></a>
+            <a href="#how-we-work"><li className="no-underline font-light hover:text-white">HOW WE WORK</li></a>
+            <a href="#who-we-are"><li className="no-underline font-light hover:text-white">WHO WE ARE</li></a>
+            <a href="#our-customers"><li className="no-underline font-light hover:text-white">OUR CUSTOMERS</li></a>
+            {/*<li><AnchorLink to="/#how-we-work" title="HOW WE WORK" className="no-underline font-light hover:text-white" /></li>*/}
+            {/*<li><AnchorLink to="/#who-we-are" title="WHO WE ARE" className="no-underline font-light hover:text-white" /></li>*/}
+            {/*<li><AnchorLink to="/#our-customers" title="OUR CUSTOMERS" className="no-underline font-light hover:text-white" /></li>*/}
           </ul>
           <button className="hidden lg:flex rounded-lg py-2 px-4 whitespace-nowrap bg-blue text-sandybrown hover:text-white">Say Hello</button>
         </div>

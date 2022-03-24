@@ -4,7 +4,7 @@ import React from "react"
 function NewsletterSignup() {
   return (
     <section className="pt-10">
-      <div className="flex flex-col flex-wrap items-center justify-center text-gold">
+      <div className="flex flex-col space-y-4 flex-wrap items-center justify-center text-gold">
         <h3 className="text-5xl font-semibold font-heading pb-4">Sign up to our newsletter</h3>
         <p className="pb-4 font-light text-xl">Stay up-to-date with the cutting edge of online qualitative research</p>
         <div className="flex mobile-only:flex-col mobile-only:items-center w-full lg:w-2/5">

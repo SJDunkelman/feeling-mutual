@@ -11,6 +11,10 @@ import Footer from "../components/Footer"
 import NewsletterSignup from "../components/NewsletterSignup"
 import NavigationBar from "../components/NavigationBar"
 
+import TimWhirledgeProfile from "../images/profiles/tim-whirledge.png";
+import TomStazickerProfile from "../images/profiles/tom-stazicker.png";
+import FranWaltonProfile from "../images/profiles/fran-walton.png";
+
 function IndexPage () {
   return (
     <Layout>
@@ -38,14 +42,14 @@ function IndexPage () {
       <Section id="what-we-do" cNames="flex mobile-only:flex-col py-20 bg-green mobile-only:text-center">
         <div className="flex flex-col w-full lg:w-1/2 space-y-6 text-sandybrown lg:pr-8">
           <p className="font-light">What We Do</p>
-          <h2 className="text-5xl font-semibold">Curating authentic conversations between brands and people.</h2>
+          <h2 className="text-5xl font-semibold">Curate authentic conversations between brands and people.</h2>
           <p className="text-lg font-light">A network of award winning senior consultants with the expertise in qualitative research to help you
             inspire more mutual relationships between brands and people.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 w-full lg:w-1/2 pt-6">
           <ServiceCard slug="/" iconClasses="fa-solid fa-bell-concierge" title="Full Service"
                        description="Cover all stages of research using cutting edge methods" />
-          <ServiceCard slug="/" iconClasses="fa-solid fa-compass-drafting" title="Project Design"
+          <ServiceCard slug="/" iconClasses="fa-solid fa-compass-drafting" title="Project Design / Set Up"
                        description="Cover all stages of research using cutting edge methods" />
           <ServiceCard slug="/" iconClasses="fa-solid fa-people-group" title="Moderation / Reporting"
                        description="Cover all stages of research using cutting edge methods" />
@@ -100,21 +104,21 @@ function IndexPage () {
           <p>Read More <i className="fa-solid fa-arrow-right-long pl-2"></i></p>
         </div>
         <div className="flex mobile-only:flex-col mobile-only:space-y-6 lg:space-x-6 pt-10 lg:px-12">
-          <CustomerReviewCard headline="Feeling Mutual were able to reduce our product-to-market by weeks."
-                              subheading="Their novel approach to asynchronous concept testing was the key to warp speed progress"
-                              name="John Smith"
-                              jobRole="VP Product"
-                              company="Apple" />
-          <CustomerReviewCard headline="Feeling Mutual were able to reduce our product-to-market by weeks."
-                              subheading="Their novel approach to asynchronous concept testing was the key to warp speed progress"
-                              name="John Smith"
-                              jobRole="VP Product"
-                              company="Apple" />
-          <CustomerReviewCard headline="Feeling Mutual were able to reduce our product-to-market by weeks."
-                              subheading="Their novel approach to asynchronous concept testing was the key to warp speed progress"
-                              name="John Smith"
-                              jobRole="VP Product"
-                              company="Apple" />
+          <CustomerReviewCard headline="Feeling Mutual’s work resulted in an uplift of over 50% in website sales and the reengineering of our retention strategy."
+                              name="Tom Stazicker"
+                              jobRole="CEO"
+                              imageSrc={TomStazickerProfile}
+                              company="Virgin Pure" />
+          <CustomerReviewCard headline="Feeling Mutual’s research, helped inspire advertising, which achieved a Cannes Gold Lion and rapid growth for our client"
+                              name="Tim Whirledge"
+                              imageSrc={TimWhirledgeProfile}
+                              jobRole="Head of Strategy"
+                              company="McCann Manchester" />
+          <CustomerReviewCard headline="Feeling Mutual truly get how insight can inspire agile innovation.  Their training has helped us upskill in digital ethnography."
+                              name="Fran Walton"
+                              imageSrc={FranWaltonProfile}
+                              jobRole="Head of Insight"
+                              company="Publicis Sapient" />
         </div>
       </Section>
 
