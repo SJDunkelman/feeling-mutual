@@ -16,3 +16,9 @@
         left: 50%;
     }
 }
+
+ul.tick-list li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Pro";
+    padding: 0 10px 0 0;
+}

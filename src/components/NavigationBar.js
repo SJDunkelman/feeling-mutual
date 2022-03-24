@@ -1,15 +1,22 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { HashLink} from "react-router-hash-link"
 import "../styles/logo-filters.css";
 import logoSVG from "../images/full-logo-white.svg";
 
-function NavigationBar () {
+export default function NavigationBar (props) {
 
   const [isOpen, setisOpen] = React.useState(false);
 
   function handleClick() {
     setisOpen(!isOpen);
+  }
+
+  let helloBtn = null;
+  if (props.helloButton) {
+    helloBtn = <button
+      className="hidden lg:flex rounded-lg py-2 px-4 whitespace-nowrap bg-blue text-sandybrown hover:text-white">Say
+      Hello
+    </button>;
   }
 
   return (
@@ -23,17 +30,28 @@ function NavigationBar () {
           </Link>
 
           <ul className="hidden lg:flex items-center w-auto whitespace-nowrap lg:space-x-12">
-            <Link to="/"><li className="no-underline font-light hover:text-white">SERVICES</li></Link>
-            <Link to="/"><li className="no-underline font-light hover:text-white">TRAINING</li></Link>
-            <Link to="/"><li className="no-underline font-light hover:text-white">CLIENTS</li></Link>
-            <Link to="/"><li className="no-underline font-light hover:text-white">INSIGHTS</li></Link>
+            <Link to="/services">
+              <li className="no-underline font-light hover:text-white">SERVICES</li>
+            </Link>
+            <Link to="/">
+              <li className="no-underline font-light hover:text-white">TRAINING</li>
+            </Link>
+            <Link to="/">
+              <li className="no-underline font-light hover:text-white">CLIENTS</li>
+            </Link>
+            <Link to="/">
+              <li className="no-underline font-light hover:text-white">INSIGHTS</li>
+            </Link>
           </ul>
-
-          <button className="hidden lg:flex rounded-lg py-2 px-4 whitespace-nowrap bg-blue text-sandybrown hover:text-white">Say Hello</button>
+          {helloBtn}
         </div>
       </nav>
     </header>
   )
 }
 
-export default NavigationBar;
+NavigationBar.defaultProps = {
+  helloButton: true,
+  helloBg: "blue",
+  helloText: "sandybrown"
+}
