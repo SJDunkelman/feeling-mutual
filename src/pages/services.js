@@ -36,13 +36,6 @@ function Services() {
         <NavigationBar helloButton={false} />
         <h1 className="text-5xl mt-10 mb-10 px-4">Our Services</h1>
         <div className="flex w-full px-8">
-          <div className="flex flex-col justify-center px-6 py-4 w-1/2">
-            <h2 className="text-4xl font-semibold">{service}</h2>
-            <ul className="py-4 tick-list">
-              {servicePoints.map(o => <li key={o}>{o}</li>)}
-            </ul>
-            <p>{serviceText}</p>
-          </div>
           <div className="w-1/2 text-right text-3xl">
             <div className="p-4 font-light">
               <button onClick={() => setService("Full Service")}
@@ -68,6 +61,13 @@ function Services() {
                 Training
               </button>
             </div>
+          </div>
+          <div className="flex flex-col justify-center px-6 py-4 w-1/2">
+            <h2 className="text-4xl font-semibold">{service}</h2>
+            <ul className="py-4 tick-list">
+              {servicePoints.map(o => <li key={o}>{o}</li>)}
+            </ul>
+            <p>{serviceText}</p>
           </div>
         </div>
         <div className="flex items-center">
