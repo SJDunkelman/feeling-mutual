@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 
 function NewsletterSignup() {
@@ -11,7 +12,7 @@ function NewsletterSignup() {
           <input className="w-full mb-4 lg:mb-0 lg:mr-4 py-3 pl-4 text-sm text-white bg-transparent border border-blue rounded" type="text" placeholder="e.g tom@feelingmutual.com" />
           <button className="w-full mobile-only:w-3/5 lg:w-auto py-4 px-6 text-sm text-white font-medium leading-normal bg-red-400 hover:bg-red-300 rounded transition duration-200">Sign&nbsp;up</button>
         </div>
-        <p className="font-extralight text-sm pt-2">Your <a href="/" className="underline hover:font-semibold">Privacy</a> is important to us. No Spam. Just Insight.</p>
+        <p className="font-extralight text-sm pt-2">Your <Link to="/privacy-policy" className="underline hover:font-semibold">Privacy</Link> is important to us. No Spam. Just Insight.</p>
         </div>
     </section>)
 }

@@ -27,8 +27,8 @@ const CaseStudyGrid = (props) => {
           <div className="flex items-center justify-center w-60 h-40 lg:group-hover:hidden mobile-only:mb-8">
             <GatsbyImage image={study.frontmatter.showcaseImage.childImageSharp.gatsbyImageData} className="object-fit w-full h-auto" />
           </div>
-          <div className="flex mobile-only:flex-col mobile-only:items-center mobile-only:space-y-4 lg:hidden lg:group-hover:block lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 w-full text-sandybrown">
-            <h2 className="text-sandybrown font-bold text-3xl">{study.frontmatter.showcaseTitle}</h2>
+          <div className="flex mobile-only:flex-col mobile-only:items-center mobile-only:space-y-2 lg:hidden lg:group-hover:block lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 w-full text-sandybrown">
+            <h2 className="hidden lg:block text-sandybrown font-bold text-3xl">{study.frontmatter.showcaseTitle}</h2>
             <p className="font-light text-lg">{study.frontmatter.showcaseDesc}</p>
             <p className="font-semibold text-sm">Read the Case Study <i className="fa-solid fa-arrow-right-long" /></p>
           </div>

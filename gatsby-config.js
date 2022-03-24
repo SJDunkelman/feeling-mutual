@@ -11,7 +11,9 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     'gatsby-plugin-netlify',
-    `gatsby-plugin-scroll-to-anchor`,
+    {
+      resolve: 'gatsby-plugin-netlify-cms'
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,7 +25,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `featured-posts`,
-        path: `${__dirname}/src/content/featured-case-studies`,
+        path: `${__dirname}/content/featured-case-studies`,
       },
     },
     {
