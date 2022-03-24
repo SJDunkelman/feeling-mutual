@@ -10,7 +10,7 @@ const ServiceCard = (props) => {
 
   return (
     <Link to={linkSlug} className="no-underline">
-      <div className="group flex flex-col px-4 pt-8 pb-4 w-full h-48 lg:h-full rounded-lg max-w-32 lg:max-w-72 space-y-2 bg-white/[0.75] text-maroon hover:bg-pink hover:text-gold hover:drop-shadow-lg">
+      <div className="group flex flex-col px-4 pt-8 pb-4 w-full max-w-2/5 h-48 lg:h-56 rounded-lg max-w-32 lg:max-w-72 space-y-2 bg-white/[0.75] text-maroon hover:bg-pink hover:text-gold hover:drop-shadow-lg">
         <i className={`${fontAwesomeIcon} text-5xl text-tomato`}></i>
         <h4 className="font-semibold text-xl">{cardTitle}</h4>
         <p className="font-light group-hover:hidden">{description}</p>

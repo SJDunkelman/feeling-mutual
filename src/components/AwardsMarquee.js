@@ -32,7 +32,7 @@ function AwardsMarquee() {
     <img src={awardMRS2019} alt="Award finalist MRS 2019" className={awardSize} />];
 
   // Insert a filler dot between each image
-  let spacerElement = <div className="rounded-full w-2 h-2 bg-white/50 mx-12" />;
+  let spacerElement = <div className="rounded-full w-2 h-2 bg-sandybrown/[0.75] mx-12" />;
   awardImgs = insertIntoArray(awardImgs, spacerElement);
   awardImgs.push(spacerElement);
 
