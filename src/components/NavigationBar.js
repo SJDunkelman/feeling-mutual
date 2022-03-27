@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import "../styles/logo-filters.css";
-import logoSVG from "../images/full-logo-white.svg";
+import logoSVG from "../images/full-logo-black.svg";
 
 export default function NavigationBar (props) {
 
@@ -14,19 +14,30 @@ export default function NavigationBar (props) {
   let helloBtn = null;
   if (props.helloButton) {
     helloBtn = <button
-      className="hidden lg:flex rounded-lg py-2 px-4 whitespace-nowrap bg-blue text-sandybrown hover:text-white">Say
+      className={`hidden lg:flex rounded-lg py-2 px-4 whitespace-nowrap bg-${props.helloBg} text-${props.helloText} hover:text-white`}>Say
       Hello
     </button>;
+  }
+
+  var logo;
+  switch (props.logoColour) {
+    case "tomato":
+      logo = <img className="h-auto w-40 tomato-logo white-hover" src={logoSVG} alt="Logo" />
+      break;
+    case "maroon":
+      logo = <img className="h-auto w-40 maroon-logo gold-hover" src={logoSVG} alt="Logo" />
+      break;
+    default:
+      logo = <img className="h-auto w-40 blue-logo white-hover" src={logoSVG} alt="Logo" />
+      break;
   }
 
   return (
     <header className="min-w-screen px-4">
       <nav className="py-4 ">
         <div className="flex justify-between items-center">
-          {/*<h3 className="font-bold text-3xl hover:text-white"><Link to="/">Feeling Mutual</Link></h3>*/}
-          {/*<img className="w-32 h-auto" src={fullLogo} alt="Feeling Mutual logo" />*/}
           <Link to="/">
-            <img className="h-auto w-40 tomato-logo white-hover" src={logoSVG} alt="Logo" />
+            {logo}
           </Link>
 
           <ul className="hidden lg:flex items-center w-auto whitespace-nowrap lg:space-x-12">
@@ -39,8 +50,8 @@ export default function NavigationBar (props) {
             <Link to="/">
               <li className="no-underline font-light hover:text-white">CLIENTS</li>
             </Link>
-            <Link to="/">
-              <li className="no-underline font-light hover:text-white">INSIGHTS</li>
+            <Link to="/blog">
+              <li className="no-underline font-light hover:text-white">BLOG</li>
             </Link>
           </ul>
           {helloBtn}
@@ -51,7 +62,8 @@ export default function NavigationBar (props) {
 }
 
 NavigationBar.defaultProps = {
-  helloButton: true,
+  helloButton: false,
   helloBg: "blue",
-  helloText: "sandybrown"
+  helloText: "sandybrown",
+  logoColour: "tomato"
 }

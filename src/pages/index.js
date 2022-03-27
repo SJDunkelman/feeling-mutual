@@ -20,7 +20,7 @@ function IndexPage () {
     <Layout>
       {/* Hero Above the Fold */}
       <Section cNames="bg-maroon text-pink">
-        <NavigationBar />
+        <NavigationBar helloButton />
 
         <div className="flex flex-col justify-center items-center py-8 md:py-32 lg:py-[9rem] space-y-4 min-h-[70vh]">
           <h1 className="text-6xl md:text-[4rem] text-center md:text-left font-semibold text-sandybrown">Agile Online Qualitative Research</h1>

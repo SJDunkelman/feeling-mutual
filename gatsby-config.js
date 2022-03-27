@@ -29,13 +29,19 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog-posts`,
+        path: `${__dirname}/content/blog`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-mdx`,
       options: {
         extensions: [`.mdx`, `.md`],
         // defaultLayout: require.resolve('./src/templates/BlogPost.js'),
       },
     },
-    `gatsby-plugin-fontawesome-css`,
     'gatsby-plugin-postcss',
   ],
 }

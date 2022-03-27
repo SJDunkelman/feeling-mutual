@@ -1,13 +1,24 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import symbol from "../images/symbol-white.svg";
+import symbol from "../images/symbol-black.svg";
 
-function Footer() {
+export default function Footer(props) {
+
+  var logo;
+  switch (props.logoColour){
+    case "tomato":
+      logo = <img className="h-auto w-16 tomato-logo gold-hover" src={symbol} alt="Feeling Mutual Icon" />
+      break;
+    case "maroon":
+      logo = <img className="h-auto w-16 maroon-logo gold-hover" src={symbol} alt="Feeling Mutual Icon" />
+      break;
+  }
+
   return (
     <footer className="flex flex-col space-y-6 items-center pt-10 pb-4 text-gold">
       <Link to="/">
-        <img className="h-auto w-16 tomato-logo gold-hover" src={symbol} alt="Feeling Mutual Icon" />
+        {logo}
       </Link>
       <ul className="hidden lg:flex items-center w-auto space-x-12 pt-4">
         <li><a href="#" className="text-md no-underline text-light hover:text-white">BLOG</a></li>
@@ -25,4 +36,6 @@ function Footer() {
   )
 }
 
-export default Footer;
+Footer.defaultProps = {
+  logoColour: "tomato"
+}
