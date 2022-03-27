@@ -43,5 +43,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-postcss',
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Neue Haas Unica"],
+          urls: ["/fonts/fonts.css"],
+        },
+      },
+    },
   ],
 }
