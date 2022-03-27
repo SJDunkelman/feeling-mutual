@@ -5,6 +5,7 @@ import Layout from "../components/Layout"
 import { graphql, useStaticQuery } from "gatsby"
 import BlogPostCard from "../components/BlogPostCard"
 import Footer from "../components/Footer"
+import NewsletterSignup from "../components/NewsletterSignup"
 
 function Blog(){
   const articleData = useStaticQuery(graphql `
@@ -82,7 +83,10 @@ function Blog(){
             <p>No more results</p>
           )}
         </div>
-        <Footer logoColour="maroon" />
+      </Section>
+      <Section cNames="bg-maroon py-6">
+        <NewsletterSignup textColour="offwhite" />
+        <Footer textColour="offwhite" />
       </Section>
     </Layout>
   )

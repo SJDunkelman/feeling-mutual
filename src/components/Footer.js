@@ -16,12 +16,12 @@ export default function Footer(props) {
   }
 
   return (
-    <footer className="flex flex-col space-y-6 items-center pt-10 pb-4 text-gold">
+    <footer className={`flex flex-col space-y-6 items-center pt-10 pb-4 text-${props.textColour}`}>
       <Link to="/">
         {logo}
       </Link>
       <ul className="hidden lg:flex items-center w-auto space-x-12 pt-4">
-        <li><a href="#" className="text-md no-underline text-light hover:text-white">BLOG</a></li>
+        <li><Link to="/blog" className="text-md no-underline text-light hover:text-white">BLOG</Link></li>
         <li><a href="#" className="text-md no-underline text-light hover:text-white">WHAT WE DO</a></li>
         <li><a href="#" className="text-md no-underline text-light hover:text-white">HOW WE WORK</a></li>
         <li><a href="#" className="text-md no-underline text-light hover:text-white">WHO WE ARE</a></li>
@@ -37,5 +37,6 @@ export default function Footer(props) {
 }
 
 Footer.defaultProps = {
-  logoColour: "tomato"
+  logoColour: "tomato",
+  textColour: "gold"
 }
