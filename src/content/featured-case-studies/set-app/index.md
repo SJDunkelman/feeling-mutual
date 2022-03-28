@@ -1,12 +1,12 @@
 ---
-title: Easy Jet
-showcaseTitle: Easy Jet
+title: Set App
+showcaseTitle: Set App
 description: lorem ipsum
 showcaseDesc: A short description on the case
 articleImage: ./image.png
-showcaseImage: ./brand.png
+showcaseImage: brand.png
 category: case-study
-subCategory: Customer Research
+subCategory: UX Design
 ---
 
 # Title

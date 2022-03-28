@@ -2,6 +2,8 @@
 title: New Beginnings
 date: 2016-02-01
 description: This is an optional description for SEO and Open Graph purposes, rather than the default generated excerpt.
+category: article
+tags: ["UX", "Research"]
 ---
 
 As concerns over travel and inter-personal contact intensify, interest in online and mobile qualitative research continues to grow. But at what cost? What do you gain and what do you lose when you move from face-to-face to online qualitative research?

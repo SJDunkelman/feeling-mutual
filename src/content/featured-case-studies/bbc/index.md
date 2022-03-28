@@ -1,12 +1,12 @@
 ---
-title: Set App
-showcaseTitle: Set App
+title: BBC
+showcaseTitle: BBC
 description: lorem ipsum
 showcaseDesc: A short description on the case
 articleImage: ./image.png
-showcaseImage: ./brand.png
+showcaseImage: brand.png
 category: case-study
-subCategory: UX Design
+subCategory: Web Development
 ---
 
 # Title

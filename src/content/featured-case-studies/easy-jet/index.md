@@ -1,12 +1,12 @@
 ---
-title: Sony Electronics
-showcaseTitle: Sony Electronics
+title: Easy Jet
+showcaseTitle: Easy Jet
 description: lorem ipsum
 showcaseDesc: A short description on the case
 articleImage: ./image.png
-showcaseImage: ./brand.png
+showcaseImage: brand.png
 category: case-study
-subCategory: Concept Testing
+subCategory: Customer Research
 ---
 
 # Title

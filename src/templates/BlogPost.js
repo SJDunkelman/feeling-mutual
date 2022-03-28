@@ -9,12 +9,13 @@ import Img from 'gatsby-image';
 
 
 const BlogPost = ({ pageContext }) => {
-  const { blogTitle, blogCategory, blogDate, featureImage, imageAlt, body } = pageContext;
+  const { blogTitle, blogCategory, blogDate, body } = pageContext; // featureImage, imageAlt,
 
   function getDateString(date) {
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     let pattern = /(\d{2})-(\d{2})-(\d{4})/;
-    let dateStr = date.toString();
+    let dateStr = date.toString()
+    ;
     let processedDate = new Date(dateStr.replace(pattern, '$3-$2-$1'));
     return months[processedDate.getMonth()] + " " + processedDate.getFullYear()
   }
@@ -49,8 +50,8 @@ const BlogPost = ({ pageContext }) => {
               </div>
             </div>
           </div>
-          <div className="lg:w-1/2 lg:mt-20 lg:pl-8">
-            <Img fixed={featureImage} alt={imageAlt} />
+          <div className="lg:w-1/2 lg:mt-20 lg:pl-8 bg-black">
+            {/*<Img fixed={featureImage} alt={imageAlt} />*/}
           </div>
         </div>
 

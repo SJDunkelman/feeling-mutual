@@ -12,11 +12,14 @@ function Blog(){
     query BlogPosts {
       data: allFile(filter: {sourceInstanceName: {eq: "blog-posts"}}) {
         nodes {
-          childMdx {
+          childMarkdownRemark {
             frontmatter {
               title
               description
               date
+            }
+            fields {
+              slug
             }
           }
         }
@@ -56,9 +59,9 @@ function Blog(){
 
   let articleCards = list.map(function(article, i) {
     if (i % 5 === 0) {
-      return <BlogPostCard wide post={article.childMdx.frontmatter} />
+      return <BlogPostCard wide post={article.childMarkdownRemark.frontmatter} slug={article.childMarkdownRemark.fields.slug} />
     }
-    return <BlogPostCard post={article.childMdx.frontmatter} />
+    return <BlogPostCard post={article.childMarkdownRemark.frontmatter} slug={article.childMarkdownRemark.fields.slug} />
   })
 
   return (
@@ -92,4 +95,4 @@ function Blog(){
   )
 }
 
-export default Blog
+export default Blog;
