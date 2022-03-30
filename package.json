@@ -18,6 +18,7 @@
     "gatsby-plugin-react-helmet": "5.10.0",
     "gatsby-plugin-sharp": "4.9.1",
     "gatsby-plugin-web-font-loader": "1.0.4",
+    "gatsby-remark-classes": "^1.0.2",
     "gatsby-remark-images": "6.10.2",
     "gatsby-source-filesystem": "4.9.1",
     "gatsby-transformer-remark": "5.10.2",

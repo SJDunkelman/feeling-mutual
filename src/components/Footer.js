@@ -27,10 +27,10 @@ export default function Footer(props) {
         <li><a href="#" className="text-md no-underline text-light hover:text-white">WHO WE ARE</a></li>
         <li><a href="#" className="text-md no-underline text-light hover:text-white">OUR CUSTOMERS</a></li>
       </ul>
-      <div className="space-x-8 pb-6">
-        <Link to="/"><i className="fa-brands fa-twitter text-2xl text-gold opacity-25 hover:opacity-100"></i></Link>
-        <Link to="/"><i className="fa-brands fa-linkedin text-2xl opacity-25 hover:opacity-100"></i></Link>
-        <Link to="/"><i className="fa-solid fa-envelope text-2xl opacity-25 hover:opacity-100"></i></Link>
+      <div className={`space-x-8 pb-6 text-${props.textColour}`}>
+        <Link to="/"><i className="fa-brands fa-twitter text-2xl opacity-50 hover:opacity-100"></i></Link>
+        <Link to="/"><i className="fa-brands fa-linkedin text-2xl opacity-50 hover:opacity-100"></i></Link>
+        <Link to="/"><i className="fa-solid fa-envelope text-2xl opacity-50 hover:opacity-100"></i></Link>
       </div>
     </footer>
   )

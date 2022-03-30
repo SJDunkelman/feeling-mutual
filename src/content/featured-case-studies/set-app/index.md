@@ -3,10 +3,10 @@ title: Set App
 showcaseTitle: Set App
 description: lorem ipsum
 showcaseDesc: A short description on the case
-articleImage: ./image.png
 showcaseImage: brand.png
 category: case-study
-subCategory: UX Design
+date: 2020-01-01
+tags: []
 ---
 
 # Title

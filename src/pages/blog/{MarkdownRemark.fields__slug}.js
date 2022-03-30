@@ -4,12 +4,27 @@ import Layout from "../../components/Layout";
 import Section from "../../components/Section";
 import NavigationBar from "../../components/NavigationBar"
 import ProfilePicture from "../../components/ProfilePicture"
+import ActionBanner from "../../components/ActionBanner"
+import Footer from "../../components/Footer"
 
 import TomProfilePic from "../../images/tom_profile.jpg";
+import NewsletterSignup from "../../components/NewsletterSignup"
 
 export default function BlogPostTemplate({ data: { markdownRemark } }) {
   const { frontmatter, html } = markdownRemark;
-  const articleCategory = frontmatter.category.charAt(0).toUpperCase() + frontmatter.category.slice(1);
+  let articleCategory = frontmatter.category.charAt(0).toUpperCase() + frontmatter.category.slice(1);
+  articleCategory = articleCategory.replace("-", " ");
+
+  var actionBanner;
+  switch (frontmatter.category) {
+    case "article":
+      actionBanner = <NewsletterSignup textColour="white" signUpButtonColour="pink" />;
+      break;
+    case "case-study":
+      actionBanner = <ActionBanner textColour="pink" />;
+      break;
+  }
+
   return (
     <Layout>
       <Section cNames="bg-maroon">
@@ -44,8 +59,12 @@ export default function BlogPostTemplate({ data: { markdownRemark } }) {
           </div>
         </div>
       </Section>
-      <Section>
+      <Section cNames="bg-offwhite py-8">
         <div className="post-body" dangerouslySetInnerHTML={{ __html: html }} />
+      </Section>
+      <Section cNames="bg-blue py-6">
+        {actionBanner}
+        <Footer textColour="pink" logoColour="maroon" />
       </Section>
     </Layout>
   );

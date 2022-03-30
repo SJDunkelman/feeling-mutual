@@ -47,7 +47,7 @@ export default function NavigationBar (props) {
             <Link to="/">
               <li className="no-underline font-light hover:text-white">TRAINING</li>
             </Link>
-            <Link to="/">
+            <Link to="/case-studies">
               <li className="no-underline font-light hover:text-white">CLIENTS</li>
             </Link>
             <Link to="/blog">

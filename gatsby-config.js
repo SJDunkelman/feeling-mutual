@@ -35,6 +35,13 @@ module.exports = {
         path: `${__dirname}/src/content/blog`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `reviews`,
+        path: `${__dirname}/src/content/reviews`,
+      },
+    },
     `gatsby-remark-images`,
     {
       resolve: `gatsby-transformer-remark`,
@@ -48,6 +55,16 @@ module.exports = {
               // base for generating different widths of each image.
               maxWidth: 800,
             },
+          },
+          {
+            resolve: `gatsby-remark-classes`,
+            options: {
+              classMap: {
+                "heading[depth=1]": "text-2xl",
+                "heading[depth=2]": "text-xl",
+                "paragraph": "text-base"
+              }
+            }
           },
         ],
       },

@@ -2,7 +2,7 @@
 title: The golden rule of great online qualitative research
 date: 2016-02-01
 description: This is an optional description for SEO and Open Graph purposes, rather than the default generated excerpt.
-category: article
+category: case-study
 tags: ["Research"]
 ---
 # 10 Crack Commandments

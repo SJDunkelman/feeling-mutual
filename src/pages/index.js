@@ -146,7 +146,7 @@ function IndexPage () {
 
       <Section cNames="bg-pink py-6">
         <NewsletterSignup />
-        <Footer />
+        <Footer textColour="gold" />
       </Section>
     </Layout>
   )
