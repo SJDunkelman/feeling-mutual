@@ -26,12 +26,16 @@ function IndexPage () {
           <h1 className="text-6xl md:text-[4rem] text-center md:text-left font-semibold text-sandybrown">Agile Online Qualitative Research</h1>
           <h4 className="text-2xl font-extralight text-center md:text-left">Inspiring more mutualistic relationships between brands and people</h4>
           <div className="space-x-6 pt-6">
-            <button className="rounded-md font-semibold py-2 px-4 bg-sandybrown text-maroon hover:bg-sandybrown/75 hover:text-white">
-              Research
-            </button>
-            <button className="rounded-md font-semibold py-2 px-4 bg-pink text-maroon hover:bg-pink/75 hover:text-white">
-              Training
-            </button>
+            <Link to="/services">
+              <button className="rounded-md font-semibold py-2 px-4 bg-sandybrown text-maroon hover:bg-sandybrown/75 hover:text-white">
+                Research
+              </button>
+            </Link>
+            <Link to="/training">
+              <button className="rounded-md font-semibold py-2 px-4 bg-pink text-maroon hover:bg-pink/75 hover:text-white">
+                Training
+              </button>
+            </Link>
           </div>
         </div>
       </Section>

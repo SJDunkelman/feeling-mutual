@@ -11,25 +11,6 @@ import BlogReviewCard from "../components/BlogReviewCard"
 export default function CaseStudies(){
   const caseStudyData = useStaticQuery(graphql `
     query CaseStudyAndReviews {
-    reviews: allFile(
-      filter: {sourceInstanceName: {eq: "reviews"}, extension: {eq: "md"}}) {
-      nodes {
-        childMarkdownRemark {
-          frontmatter {
-            name
-            headline
-            subheading
-            company
-            jobRole
-            profileImage {
-              childImageSharp {
-                 gatsbyImageData
-              }
-            }
-          }
-        }
-      }
-    }
     caseStudies: allMarkdownRemark(
       filter: {frontmatter: {category: {eq: "case-study"}}}) {
       nodes {
@@ -40,6 +21,20 @@ export default function CaseStudies(){
         }
         fields {
           slug
+        }
+      }
+    }
+    reviews: allReviewsJson {
+      nodes {
+        name
+        jobRole
+        headline
+        company
+        subheading
+        profileImage {
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
     }
@@ -88,7 +83,7 @@ export default function CaseStudies(){
         let review = allReviews[reviewCounter];
         reviewCounter += 1;
         // console.log(review);
-        return <BlogReviewCard review={review.childMarkdownRemark.frontmatter} key={i} />
+        return <BlogReviewCard review={review} key={i} />
       }
       else {
         return <BlogPostCard post={article.frontmatter} slug={article.fields.slug} key={i} />

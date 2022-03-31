@@ -1,8 +1,0 @@
----
-name: John Smith
-jobRole: CEO
-company: Apple
-headline: Our sales improved by 50%
-subheading: Tom did an excellent job on improving sales via a new concept strategy.
-profileImage: profile.png 
----
