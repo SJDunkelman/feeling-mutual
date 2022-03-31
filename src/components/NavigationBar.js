@@ -27,6 +27,9 @@ export default function NavigationBar (props) {
     case "maroon":
       logo = <img className="h-auto w-40 maroon-logo gold-hover" src={logoSVG} alt="Logo" />
       break;
+    case "pink":
+      logo = <img className="h-auto w-40 pink-logo tomato-hover" src={logoSVG} alt="Logo" />
+      break;
     default:
       logo = <img className="h-auto w-40 blue-logo white-hover" src={logoSVG} alt="Logo" />
       break;
@@ -44,7 +47,7 @@ export default function NavigationBar (props) {
             <Link to="/services">
               <li className="no-underline font-light hover:text-white">SERVICES</li>
             </Link>
-            <Link to="/">
+            <Link to="/training">
               <li className="no-underline font-light hover:text-white">TRAINING</li>
             </Link>
             <Link to="/case-studies">

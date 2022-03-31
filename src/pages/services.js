@@ -28,7 +28,7 @@ function Services() {
       break;
   }
 
-  const activeClasses = ' underline underline-offset-8 decoration-sandybrown';
+  const activeClasses = ' underline-offset-8 decoration-sandybrown';
 
   return (
     <Layout>

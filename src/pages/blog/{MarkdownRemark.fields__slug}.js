@@ -27,7 +27,7 @@ export default function BlogPostTemplate({ data: { markdownRemark } }) {
 
   return (
     <Layout>
-      <Section cNames="bg-maroon">
+      <Section cNames="bg-maroon text-pink">
         <NavigationBar helloButton />
         <div className="flex mobile-only:flex-col flex-row py-6">
           <div className="w-full lg:w-1/2">

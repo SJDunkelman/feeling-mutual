@@ -1,5 +1,8 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  safelist: [
+    'bg-tomato'
+  ],
   theme: {
     container: {
       center: true,
