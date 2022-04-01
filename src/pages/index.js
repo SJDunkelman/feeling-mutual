@@ -18,11 +18,10 @@ import FranWaltonProfile from "../images/profiles/fran-walton.png";
 function IndexPage () {
   return (
     <Layout>
-      {/* Hero Above the Fold */}
       <Section cNames="bg-maroon text-pink">
         <NavigationBar helloButton />
 
-        <div className="flex flex-col justify-center items-center py-8 md:py-32 lg:py-[9rem] space-y-4 min-h-[70vh]">
+        <div className="flex flex-col justify-center items-center py-8 md:py-32 lg:py-[9rem] space-y-4 min-h-[60vh] md:min-h-[70vh]">
           <h1 className="text-6xl md:text-[4rem] text-center md:text-left font-semibold text-sandybrown">Agile Online Qualitative Research</h1>
           <h4 className="text-2xl font-extralight text-center md:text-left">Inspiring more mutualistic relationships between brands and people</h4>
           <div className="space-x-6 pt-6">
@@ -48,17 +47,17 @@ function IndexPage () {
         <div className="flex flex-col w-full lg:w-1/2 space-y-6 text-sandybrown lg:pr-8">
           <p className="font-light">What We Do</p>
           <h2 className="text-5xl font-semibold">Curate authentic conversations between brands and people.</h2>
-          <p className="text-lg font-light">We provide a range of online qualitative research services through our international network of senior consultants and specialist partners.</p>
+          <p className="text-lg font-light">We provide a range of online qualitative research services through our international network of senior consultants and specialist partners</p>
           <p className="text-lg font-light">We tackle diverse research briefs, from brand and strategic development to communications development, innovation, customer experience, service design and UX.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 w-full lg:w-1/2 pt-6">
-          <ServiceCard slug="/" iconClasses="fa-light fa-bell-concierge" title="Full Service"
+          <ServiceCard slug="/services" iconClasses="fa-light fa-bell-concierge" title="Full Service"
                        description="We can offer everything, from design, to set up, moderation and reporting" />
-          <ServiceCard slug="/" iconClasses="fa-light fa-compass-drafting" title="Project Design / Set Up"
+          <ServiceCard slug="/services" iconClasses="fa-light fa-compass-drafting" title="Project Design / Set Up"
                        description="Our set-up and design, inspires deep engagement, vivid colour and strong validity" />
-          <ServiceCard slug="/" iconClasses="fa-light fa-comment-arrow-up-right" title="Moderation / Reporting"
+          <ServiceCard slug="/services" iconClasses="fa-light fa-comment-arrow-up-right" title="Moderation / Reporting"
                        description="We make strategic discussions and craft directional reports" />
-          <ServiceCard slug="/" iconClasses="fa-light fa-graduation-cap" title="Training"
+          <ServiceCard slug="/services" iconClasses="fa-light fa-graduation-cap" title="Training"
                        description="We upskill researchers to do more insightful and profitable online qual" />
         </div>
       </Section>
@@ -66,7 +65,7 @@ function IndexPage () {
       <Section id="how-we-work" cNames="flex flex-col justify-center items-center py-12 bg-offwhite mobile-only:text-center">
         <p className="font-light pb-6 text-gold">How We Work</p>
         <h2 className="text-5xl font-semibold pb-16 text-gold text-center">We inform agile workflows, with authentic insights that inspire better decisions</h2>
-        <div className="grid grid-cols-1 mobile-only:space-y-4 lg:grid-cols-3 lg:space-x-6">
+        <div className="grid grid-cols-1 justify-center mobile-only:space-y-4 md:grid-cols-3 md:space-x-6">
 
           <Link to="/">
             <div className="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
@@ -95,22 +94,32 @@ function IndexPage () {
             </div>
           </Link>
         </div>
+        <div className="text-xl font-light text-maroon pt-4">
+          <p className="text-center font-bold text-gold underline">TOOLS:</p>
+          <ul className="tool-list pt-4 text-left pl-0 ml-0">
+            <li>Webcam groups and depths</li>
+            <li>Mobile video and photos</li>
+            <li>Collages, mapping and concept scoring</li>
+            <li>Screen recording with audio</li>
+            <li>Forums, diaries and communities</li>
+          </ul>
+        </div>
       </Section>
 
       <Section cNames="py-16 bg-gold">
-        <p className="font-light pb-6 text-offwhite">Case Studies</p>
+        <p id="clients" className="font-light pb-6 text-offwhite">Case Studies</p>
         <h2 className="mobile-only:text-4xl text-5xl text-offwhite font-semibold pb-6">Our Success Stories</h2>
         <CaseStudyGrid />
         <p className="font-light text-xl text-center text-offwhite">We work across categories, from Technology to media, FMCG. retail and more.</p>
       </Section>
 
-      <Section id="our-customers" cNames="py-16 bg-blue">
+      <Section cNames="py-16 bg-blue">
         <p className="font-light pb-6 text-pink">Our Clients</p>
         <div className="flex mobile-only:space-x-4 justify-between items-center text-pink">
           <h2 className="mobile-only:text-4xl text-5xl font-semibold">What clients say about us</h2>
-          <p>Read More <i className="fa-solid fa-arrow-right-long pl-2"></i></p>
+          <p>Read More <i className="fa-solid fa-arrow-right-long pl-2" /></p>
         </div>
-        <div className="flex mobile-only:flex-col mobile-only:space-y-6 lg:space-x-6 pt-10 lg:px-12">
+        <div className="flex no-desktop:flex-col no-desktop:space-y-6 space-x-2 lg:space-x-6 pt-10 lg:px-12">
           <CustomerReviewCard headline="50% increase in sales"
                               subheading="After acting on their recommendations we had an uplift of over 50% in website sales and reengineered our retention strategy."
                               name="Tom Stazicker"

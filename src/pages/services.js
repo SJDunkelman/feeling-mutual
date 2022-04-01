@@ -23,20 +23,20 @@ function Services() {
       servicePoints = ['Qual research', 'UX design', 'Web'];
       break;
     default:
-      serviceText = "This is a description of the full service";
+      serviceText = "We take your brief and then design the most robust sample and method.  We also assemble an expert team for moderation and reporting.  ";
       servicePoints = ['Qual research', 'UX design', 'Web'];
       break;
   }
 
-  const activeClasses = ' underline-offset-8 decoration-sandybrown';
+  const activeClasses = ' underline underline-offset-8 decoration-sandybrown';
 
   return (
     <Layout>
       <Section cNames="bg-blue text-tomato h-full">
         <NavigationBar helloButton={false} />
         <h1 className="text-5xl mt-10 mb-10 px-4">Our Services</h1>
-        <div className="flex w-full px-8">
-          <div className="w-1/2 text-right text-3xl">
+        <div className="flex w-full px-20">
+          <div className="w-1/2 text-left text-3xl">
             <div className="p-4 font-light">
               <button onClick={() => setService("Full Service")}
                       className={`font-bold text-tomato${service==="Full Service" ? activeClasses : '/50'}`}>
@@ -63,7 +63,6 @@ function Services() {
             </div>
           </div>
           <div className="flex flex-col justify-center px-6 py-4 w-1/2">
-            <h2 className="text-4xl font-semibold">{service}</h2>
             <ul className="py-4 tick-list">
               {servicePoints.map(o => <li key={o}>{o}</li>)}
             </ul>

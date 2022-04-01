@@ -9,6 +9,7 @@ module.exports = {
     },
     screens: {
       'mobile-only': {'max': '480px'},
+      'no-desktop': {'max': '1149px'},
       'sm': '480px',
       'md': '768px',
       'lg': '1150px',

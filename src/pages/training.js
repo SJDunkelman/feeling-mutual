@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Layout from "../components/Layout"
 import NavigationBar from "../components/NavigationBar"
 import Section from "../components/Section"
-
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import CoverPhoto from "../images/splash/team-meeting.jpeg";
 import CustomerProfileImage from "../images/profiles/fran-walton.png"
 import Footer from "../components/Footer"
@@ -71,11 +71,16 @@ export default function Training(){
             </div>
             <p className="font-light text-xl">Subheading about why this is the greatest course on the internet</p>
             <div className="flex space-x-6 items-end justify-center">
-              <button className="mt-4 py-2 px-4 bg-tomato text-offwhite rounded-full font-semibold hover:bg-tomato/50">Enroll Now!</button>
-              <div className="flex items-center hover:text-white">
-                <i className="fa-solid fa-circle-play text-4xl"></i>
-                <p className="text-xl pl-3 ">Watch Video</p>
-              </div>
+              <AnchorLink to="/training#contact">
+                <button className="mt-4 py-2 px-4 bg-tomato text-offwhite rounded-full font-semibold hover:bg-tomato/50">Enroll Now!</button>
+              </AnchorLink>
+
+              <AnchorLink to="/training#video">
+                <div className="flex items-center hover:text-white">
+                  <i className="fa-solid fa-circle-play text-4xl"></i>
+                  <p className="text-xl pl-3 ">Watch Video</p>
+                </div>
+              </AnchorLink>
             </div>
             <div className="flex space-x-10 justify-center py-8 text-offwhite">
               <div className="flex flex-col text-center w-32 ">
@@ -130,7 +135,7 @@ export default function Training(){
           <div className="py-6 px-12 w-3/5 bg-blue rounded-lg justify-center text-offwhite">
             {moduleText}
           </div>
-          <div className="flex justify-center relative py-6 bg-black">
+          <div id="video" className="flex justify-center relative py-6 bg-black">
             <div className="w-full h-72" />
             <i className="fa-solid fa-play-pause absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 text-4xl"></i>
           </div>
@@ -161,7 +166,7 @@ export default function Training(){
             <i className="fa-solid fa-chevron-right text-xl" />
           </button>
         </div>
-        <div className="flex items-center">
+        <div id="contact" className="flex items-center">
           <div className="py-16 flex w-full px-4 justify-center">
             <div className="w-2/5">
               <h2 className="text-5xl font-semibold">LET'S LEARN TOGETHER</h2>

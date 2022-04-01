@@ -21,16 +21,16 @@ export default function Footer(props) {
         {logo}
       </Link>
       <ul className="hidden lg:flex items-center w-auto space-x-12 pt-4">
-        <li><Link to="/blog" className="text-md no-underline text-light hover:text-white">BLOG</Link></li>
-        <li><a href="#" className="text-md no-underline text-light hover:text-white">WHAT WE DO</a></li>
-        <li><a href="#" className="text-md no-underline text-light hover:text-white">HOW WE WORK</a></li>
-        <li><a href="#" className="text-md no-underline text-light hover:text-white">WHO WE ARE</a></li>
-        <li><a href="#" className="text-md no-underline text-light hover:text-white">OUR CUSTOMERS</a></li>
+        <li><Link to="/services" className="text-md no-underline text-light hover:text-white">SERVICES</Link></li>
+        <li><Link to="" className="text-md no-underline text-light hover:text-white">TRAINING</Link></li>
+        <li><Link to="" className="text-md no-underline text-light hover:text-white">CLIENTS</Link></li>
+        <li><Link to="" className="text-md no-underline text-light hover:text-white">BLOG</Link></li>
+        <li><Link to="" className="text-md no-underline text-light hover:text-white">OUR CUSTOMERS</Link></li>
       </ul>
       <div className={`space-x-8 pb-6 text-${props.textColour}`}>
-        <Link to="/"><i className="fa-brands fa-twitter text-2xl opacity-50 hover:opacity-100"></i></Link>
-        <Link to="/"><i className="fa-brands fa-linkedin text-2xl opacity-50 hover:opacity-100"></i></Link>
-        <Link to="/"><i className="fa-solid fa-envelope text-2xl opacity-50 hover:opacity-100"></i></Link>
+        <a href="/"><i className="fa-brands fa-twitter text-2xl opacity-50 hover:opacity-100"></i></a>
+        <a href="/"><i className="fa-brands fa-linkedin text-2xl opacity-50 hover:opacity-100"></i></a>
+        <a href="/"><i className="fa-solid fa-envelope text-2xl opacity-50 hover:opacity-100"></i></a>
       </div>
     </footer>
   )

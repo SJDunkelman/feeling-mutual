@@ -5,7 +5,7 @@ function CustomerReviewCard(props) {
   if (props.subheading) {
     return (
       <div className="flex flex-col rounded-lg text-midnight pt-6 pb-2 px-4 space-y-2 bg-pink hover:drop-shadow-2xl">
-        <i className="fa-solid fa-quote-left text-6xl opacity-25"></i>
+        <i className="fa-solid fa-quote-left text-6xl opacity-25" />
         <p className="font-semibold text-lg">{props.headline}</p>
         <p className="font-light">{props.subheading}</p>
         <div className="flex items-center pt-4">
@@ -21,7 +21,7 @@ function CustomerReviewCard(props) {
   else {
     return (
       <div className="flex flex-col rounded-lg text-midnight pt-6 pb-2 px-4 space-y-2 bg-pink hover:drop-shadow-2xl">
-        <i className="fa-solid fa-quote-left text-6xl opacity-25"></i>
+        <i className="fa-solid fa-quote-left text-6xl opacity-25" />
         <p className="font-semibold">{props.headline}</p>
         <div className="flex items-center pt-4">
           <ProfilePicture imageSrc={props.imageSrc} />

@@ -24,3 +24,13 @@ ul.tick-list li::before {
     font-family: "Font Awesome 6 Pro";
     padding: 0 10px 0 0;
 }
+
+ul.tool-list li::before {
+    content: "\f7d9";
+    font-family: "Font Awesome 6 Pro";
+    padding: 0 10px 0 0;
+}
+
+ul.tool-list li:nth-child(2n+1) {
+    color: #313978;
+}

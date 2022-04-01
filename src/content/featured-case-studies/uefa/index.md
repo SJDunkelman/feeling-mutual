@@ -2,9 +2,9 @@
 title: UEFA
 showcaseTitle: UEFA
 description: lorem ipsum
-showcaseDesc: A short description on the case
 showcaseImage: brand.png
 category: case-study
+subCategory: UX
 date: 2020-01-01
 tags: []
 ---
