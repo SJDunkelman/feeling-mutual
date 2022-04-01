@@ -14,7 +14,7 @@ export default function NavigationBar (props) {
   let helloBtn = null;
   if (props.helloButton) {
     helloBtn = <button
-      className={`hidden md:flex rounded-lg py-2 px-4 whitespace-nowrap bg-${props.helloBg} text-${props.helloText} hover:text-white`}>Say
+      className={`hidden lg:flex rounded-lg py-2 px-4 whitespace-nowrap bg-${props.helloBg} text-${props.helloText} hover:text-white`}>Say
       Hello
     </button>;
   }
@@ -38,13 +38,13 @@ export default function NavigationBar (props) {
   var mobileText;
   var hoverMobileText;
   switch (props.mobileNavText) {
-    case "pink":
-      mobileText = "pink";
-      hoverMobileText = "offwhite";
-      break;
     case "blue":
       mobileText = "blue";
-      hoverMobileText = "offwhite";
+      hoverMobileText = "white";
+      break;
+    default:
+      mobileText = "pink";
+      hoverMobileText = "white";
       break;
   }
 
@@ -73,24 +73,27 @@ export default function NavigationBar (props) {
           {helloBtn}
 
           {/* Mobile */}
-          <button className="md:hidden" onClick={handleClick}>
+          <button className="lg:hidden" onClick={handleClick}>
             {isOpen && (<i className="fa-solid fa-xmark text-3xl menu-button"></i>)}
             {!isOpen && (<i className="fa-solid fa-bars text-2xl"></i>)}
           </button>
         </div>
-        <div className={`md:hidden space-y-4 mt-4 ${isOpen ? "flex flex-col" : "hidden"}`}>
+        <div className={`lg:hidden space-y-4 mt-4 ${isOpen ? "flex flex-col" : "hidden"}`}>
           <ul className="bg-primary rounded-lg w-full text-center">
             <Link to="/services">
-              <li className="py-2 font-bold text-offwhite hover:text-pink border-b-[1px] border-white">SERVICES</li>
+              <li className={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>SERVICES</li>
             </Link>
             <Link to="/training">
-              <li className="py-2 font-bold text-offwhite hover:text-pink border-b-[1px] border-white">TRAINING</li>
+              <li className={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>TRAINING</li>
             </Link>
             <Link to="/#clients">
-              <li className="py-2 font-bold text-offwhite hover:text-pink border-b-[1px] border-white">CLIENTS</li>
+              <li className={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>CLIENTS</li>
             </Link>
             <Link to="/blog">
-              <li className={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText}`}>BLOG</li>
+              <li className={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>BLOG</li>
+            </Link>
+            <Link to="/blog">
+              <li className={`py-2 font-bold bg-${props.helloBg} rounded-lg text-${mobileText} hover:text-${hoverMobileText}`}>SAY HELLO</li>
             </Link>
           </ul>
         </div>
