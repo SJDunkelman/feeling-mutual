@@ -50,7 +50,7 @@ function IndexPage () {
           <p className="text-lg font-light">We provide a range of online qualitative research services through our international network of senior consultants and specialist partners</p>
           <p className="text-lg font-light">We tackle diverse research briefs, from brand and strategic development to communications development, innovation, customer experience, service design and UX.</p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 w-full lg:w-1/2 pt-6">
+        <div className="no-desktop:flex no-desktop:flex-col justify-center items-center lg:grid lg:grid-cols-2 gap-2 w-full lg:w-1/2 pt-6">
           <ServiceCard slug="/services" iconClasses="fa-light fa-bell-concierge" title="Full Service"
                        description="We can offer everything, from design, to set up, moderation and reporting" />
           <ServiceCard slug="/services" iconClasses="fa-light fa-compass-drafting" title="Project Design / Set Up"
