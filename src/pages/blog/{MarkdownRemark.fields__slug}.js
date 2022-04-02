@@ -6,12 +6,12 @@ import NavigationBar from "../../components/NavigationBar"
 import ProfilePicture from "../../components/ProfilePicture"
 import ActionBanner from "../../components/ActionBanner"
 import Footer from "../../components/Footer"
-
+import GatsbyImage from "gatsby-image"
 import TomProfilePic from "../../images/tom_profile.jpg";
 import NewsletterSignup from "../../components/NewsletterSignup"
 
 export default function BlogPostTemplate({ data: { markdownRemark } }) {
-  const { frontmatter, html } = markdownRemark;
+  const { frontmatter, showcaseImage, html } = markdownRemark;
   let articleCategory = frontmatter.category.charAt(0).toUpperCase() + frontmatter.category.slice(1);
   articleCategory = articleCategory.replace("-", " ");
 
@@ -32,17 +32,17 @@ export default function BlogPostTemplate({ data: { markdownRemark } }) {
         <div className="flex mobile-only:flex-col flex-row py-6">
           <div className="w-full lg:w-1/2">
             <div className="flex flex-wrap mb-6 lg:pt-10 md:flex-col text-sandybrown">
-              <div className="flex items-center justify-center mb-8">
-                <div className="flex items-center justify-center text-xs text-pink font-semibold">
+              <div className="flex items-center justify-start mb-8">
+                <div className="flex items-center text-xs text-pink font-semibold">
                   <Link to="/">Home</Link>
                   <span className="inline-block px-1">/</span>
-                  <Link to="/articles">Blog</Link>
+                  <Link to="/blog">Blog</Link>
                   <span className="inline-block px-1">/</span>
-                  <Link to="#">{articleCategory}</Link>
+                  <Link to={`/category/${frontmatter.category}`}>{articleCategory}</Link>
                 </div>
               </div>
               <h1 className="mb-10 text-4xl font-semibold text-center lg:text-left">{frontmatter.title}</h1>
-              <div className="flex items-center justify-center">
+              <div className="flex items-center justify-start">
                 <div className="mr-6">
                   <ProfilePicture imageSrc={TomProfilePic} />
                 </div>
@@ -54,9 +54,9 @@ export default function BlogPostTemplate({ data: { markdownRemark } }) {
               </div>
             </div>
           </div>
-          <div className="lg:w-1/2 lg:mt-20 lg:pl-8 bg-black">
-            {/*<Img fixed={featureImage} alt={imageAlt} />*/}
-          </div>
+          {/*<div className="lg:w-1/2 h-auto lg:mt-20 lg:pl-8 bg-black">*/}
+          {/*  /!*<GatsbyImage image={articleImage} alt="Article" className="object-fit w-full h-auto" />*!/*/}
+          {/*</div>*/}
         </div>
       </Section>
       <Section cNames="bg-offwhite py-8">

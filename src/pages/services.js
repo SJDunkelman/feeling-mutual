@@ -13,43 +13,43 @@ function Services() {
     {
       name: 'Training',
       serviceText: 'We also offer training to upskill researchers so they can win, plan and run online and mobile qualitative studies that are more insightful and profitable.',
-      servicePoints: ['Qual research', 'UX design', 'Web']
+      serviceLogo: 'fa-light fa-bell-concierge'
     },
     {
       name: 'Project Design / Set Up',
       serviceText: 'If you can moderate and report, we can just design the method and sample, and / or set up the platform, and / or recruit and incentivise participants.',
-      servicePoints: ['Qual research', 'UX design', 'Web']
+      serviceLogo: 'fa-light fa-compass-drafting'
     },
     {
       name: 'Moderation / Reporting',
       serviceText: 'If you set up the project yourself, we can provide expert moderators in any market and if required, we can analyse and report.',
-      servicePoints: ['Qual research', 'UX design', 'Web']
+      serviceLogo: 'fa-light fa-comment-arrow-up-right'
     },
     {
       name: 'Full Service',
       serviceText: 'We take your brief and then design the most robust sample and method.  We also assemble an expert team for moderation and reporting.',
-      servicePoints: ['Qual research', 'UX design', 'Web']
+      serviceLogo: 'fa-light fa-graduation-cap'
     }
   ]
 
   var serviceText;
-  var servicePoints;
+  var serviceLogo;
   switch(service) {
     case "Training":
       serviceText = serviceData[0].serviceText;
-      servicePoints = serviceData[0].servicePoints;
+      serviceLogo = serviceData[0].serviceLogo;
       break;
     case "Project Design":
       serviceText = serviceData[1].serviceText;
-      servicePoints = serviceData[1].servicePoints;
+      serviceLogo = serviceData[1].serviceLogo;
       break;
     case "Moderation / Reporting":
       serviceText = serviceData[2].serviceText;
-      servicePoints = serviceData[2].servicePoints;
+      serviceLogo = serviceData[2].serviceLogo;
       break;
     default:
       serviceText = serviceData[3].serviceText;
-      servicePoints = serviceData[3].servicePoints;
+      serviceLogo = serviceData[3].serviceLogo;
       break;
   }
 
@@ -89,9 +89,7 @@ function Services() {
             </div>
           </div>
           <div className="flex flex-col justify-center px-6 py-4 w-1/2">
-            <ul className="py-4 tick-list">
-              {servicePoints.map(o => <li key={o}>{o}</li>)}
-            </ul>
+            <i className={`${serviceLogo} text-7xl pb-4 text-center`} />
             <p>{serviceText}</p>
           </div>
         </div>
@@ -99,27 +97,15 @@ function Services() {
         {/* Mobile/Tablet */}
         <div className="lg:hidden flex flex-col">
           <Accordion title={serviceData[3].name}>
-            <ul className="py-4 tick-list">
-              {servicePoints.map(o => <li key={o}>{o}</li>)}
-            </ul>
             <p>{serviceData[3].serviceText}</p>
           </Accordion>
           <Accordion title={serviceData[0].name}>
-            <ul className="py-4 tick-list">
-              {servicePoints.map(o => <li key={o}>{o}</li>)}
-            </ul>
             <p>{serviceData[0].serviceText}</p>
           </Accordion>
           <Accordion title={serviceData[1].name}>
-            <ul className="py-4 tick-list">
-              {servicePoints.map(o => <li key={o}>{o}</li>)}
-            </ul>
             <p>{serviceData[1].serviceText}</p>
           </Accordion>
           <Accordion title={serviceData[2].name}>
-            <ul className="py-4 tick-list">
-              {servicePoints.map(o => <li key={o}>{o}</li>)}
-            </ul>
             <p>{serviceData[2].serviceText}</p>
           </Accordion>
         </div>
@@ -156,7 +142,7 @@ function Services() {
         </div>
       </Section>
       <Section cNames="py-6 bg-blue">
-        <Footer textColour="gold" />
+        <Footer textColour="tomato" />
       </Section>
     </Layout>
   )

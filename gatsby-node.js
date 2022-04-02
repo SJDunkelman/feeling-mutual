@@ -12,66 +12,107 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-function dedupeTags(allMarkdownRemark) {
-  const uniqueTags = new Set()
-  // Iterate over all articles
-  allMarkdownRemark.edges.forEach(({ node }) => {
-    // Iterate over each category in an article
-    node.frontmatter.tags.forEach(tag => {
-      uniqueTags.add(tag)
-    })
-  })
-  // Create new array with duplicates removed
-  return Array.from(uniqueTags)
-}
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const result = await graphql(`
+    {
+    uniqueCategories: allMarkdownRemark {
+      distinct(field: frontmatter___category)
+    }
+    article: allMarkdownRemark(
+      filter: {frontmatter: {category: {eq: "article"}}}) {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter{
+          title
+          description
+          date
+        }
+      }
+    }
+    
+    caseStudy: allMarkdownRemark(
+      filter: {frontmatter: {category: {eq: "case-study"}}}) {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter{
+          title
+          description
+          date
+        }
+      }
+    }
+    
+    training: allMarkdownRemark(
+      filter: {frontmatter: {category: {eq: "training"}}}) {
+      nodes {
+        fields {
+          slug
+        }
+        frontmatter{
+          title
+          description
+          date
+        }
+      }
+    }
+  }
+  `);
 
-// exports.createPages = async ({ graphql, actions, reporter }) => {
-//   // Query markdown files including data from frontmatter
-//   const {
-//     data: { allMarkdownRemark },
-//   } = await graphql(`
-//     query {
-//       allMarkdownRemark {
-//         edges {
-//           node{
-//           id
-//           frontmatter {
-//             title
-//             description
-//             date
-//           }
-//           fields {
-//             slug
-//           }
-//         }
-//       }
-//     }
-//   }
-//   `)
-//
-//   const posts = allMarkdownRemark.edges;
-//   const uniqueCategories = [...new Set(posts.map(function({ node }) {
-//     return node.frontmatter.category;
-//   }))];
-//
-//   // Create array of every category without duplicates
-//   const uniqueTags = dedupeTags(allMarkdownRemark)
-//   // Iterate over categories and create page for each
-//   uniqueTags.forEach(tag => {
-//     reporter.info(`Creating page: tag/${tag}`)
-//     createPage({
-//       path: `category/${tag}`,
-//       component: require.resolve("./src/templates/CategoryList.js"),
-//       // Create props for our CategoryList.js component
-//       context: {
-//         tag,
-//         // Create an array of ids of articles in this category
-//         ids: allMarkdownRemark.edges
-//           .filter(({ node }) => {
-//             return node.frontmatter.categories.includes(tag)
-//           })
-//           .map(({node}) => node.id),
-//       },
-//     })
-//   })
-// }
+  if (result.errors) {
+    reporter.panic("failed to create posts ", result.errors);
+  }
+
+  const categories = result.data.uniqueCategories.distinct;
+
+  const CategoryPageData = [
+    {
+      title: 'Articles',
+      upperHeading: 'Lorem',
+      subHeading: 'Lorem ipsum subheading',
+      posts: result.data.article.nodes,
+    },
+    {
+      title: 'Case Studies',
+      upperHeading: 'Lorem',
+      subHeading: 'Lorem ipsum subheading',
+      posts: result.data.caseStudy.nodes,
+    },
+    {
+      title: 'Training',
+      upperHeading: 'Lorem',
+      subHeading: 'Lorem ipsum subheading',
+      posts: result.data.training.nodes,
+    },
+  ]
+
+  categories.forEach((category) => {
+    var categoryData;
+
+    switch(category) {
+      case "case-study":
+        categoryData = CategoryPageData[1]
+        break;
+      case "training":
+        categoryData = CategoryPageData[2]
+        break;
+      default:
+        categoryData = CategoryPageData[0]
+        break;
+    }
+
+    actions.createPage({
+      path: `/category/${category}`,
+      component: require.resolve("./src/templates/CategoryIndex.js"),
+      context: {
+        posts: categoryData.posts,
+        categoryTitle: categoryData.title,
+        upperHeading: categoryData.upperHeading,
+        subHeading: categoryData.subHeading,
+      },
+    });
+  });
+}

@@ -13,10 +13,12 @@ export default function NavigationBar (props) {
 
   let helloBtn = null;
   if (props.helloButton) {
-    helloBtn = <button
-      className={`hidden lg:flex rounded-lg py-2 px-4 whitespace-nowrap bg-${props.helloBg} text-${props.helloText} hover:text-white`}>Say
-      Hello
-    </button>;
+    helloBtn = <a href="mailto:tom@feelingmutual.com">
+        <button
+        className={`hidden lg:flex rounded-lg py-2 px-4 whitespace-nowrap bg-${props.helloBg} text-${props.helloText} hover:text-white`}>Say
+        Hello
+      </button>
+    </a>;
   }
 
   var logo;
@@ -92,9 +94,9 @@ export default function NavigationBar (props) {
             <Link to="/blog">
               <li className={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>BLOG</li>
             </Link>
-            <Link to="/blog">
+            <a href="mailto:tom@feelingmutual.com">
               <li className={`py-2 font-bold bg-${props.helloBg} rounded-lg text-${mobileText} hover:text-${hoverMobileText}`}>SAY HELLO</li>
-            </Link>
+            </a>
           </ul>
         </div>
       </nav>

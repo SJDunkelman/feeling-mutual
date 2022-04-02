@@ -67,7 +67,7 @@ export default function BlogIndex({posts, title, upperHeading, subHeading}) {
 }
 
 BlogIndex.defaultProps = {
-  upperHeading: 'this is a header',
-  title: 'Insights',
-  subHeading: 'this is a subheading'
+  upperHeading: 'Articles',
+  title: 'Thinking',
+  subHeading: 'The latest insights in Qual Research'
 }

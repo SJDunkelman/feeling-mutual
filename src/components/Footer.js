@@ -22,10 +22,10 @@ export default function Footer(props) {
       </Link>
       <ul className="hidden lg:flex items-center w-auto space-x-12 pt-4">
         <li><Link to="/services" className="text-md no-underline text-light hover:text-white">SERVICES</Link></li>
-        <li><Link to="" className="text-md no-underline text-light hover:text-white">TRAINING</Link></li>
-        <li><Link to="" className="text-md no-underline text-light hover:text-white">CLIENTS</Link></li>
-        <li><Link to="" className="text-md no-underline text-light hover:text-white">BLOG</Link></li>
-        <li><Link to="" className="text-md no-underline text-light hover:text-white">OUR CUSTOMERS</Link></li>
+        <li><Link to="/training" className="text-md no-underline text-light hover:text-white">TRAINING</Link></li>
+        <li><Link to="/#clients" className="text-md no-underline text-light hover:text-white">CLIENTS</Link></li>
+        <li><Link to="/blog" className="text-md no-underline text-light hover:text-white">BLOG</Link></li>
+        <li><a href="mailto:tom@feelingmutual.com" className="text-md no-underline text-light hover:text-white">SAY HELLO</a></li>
       </ul>
       <div className="lg:hidden">
         <ul className="flex justify-center items-center w-auto space-x-6 md:space-x-12 pt-2">
@@ -35,7 +35,7 @@ export default function Footer(props) {
         </ul>
         <ul className="flex justify-center items-center w-auto space-x-6 md:space-x-12 pt-2">
           <li><Link to="" className="text-md no-underline text-light hover:text-white">BLOG</Link></li>
-          <li><Link to="" className="text-md no-underline text-light hover:text-white">SAY HELLO</Link></li>
+          <li><a href="mailto:tom@feelingmutual.com" className="text-md no-underline text-light hover:text-white">SAY HELLO</a></li>
         </ul>
       </div>
       <div className={`space-x-8 pb-6 text-${props.textColour}`}>
