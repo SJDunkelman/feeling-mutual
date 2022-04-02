@@ -99,14 +99,14 @@ function Services() {
           <Accordion title={serviceData[3].name}>
             <p>{serviceData[3].serviceText}</p>
           </Accordion>
-          <Accordion title={serviceData[0].name}>
-            <p>{serviceData[0].serviceText}</p>
-          </Accordion>
           <Accordion title={serviceData[1].name}>
             <p>{serviceData[1].serviceText}</p>
           </Accordion>
           <Accordion title={serviceData[2].name}>
             <p>{serviceData[2].serviceText}</p>
+          </Accordion>
+          <Accordion title={serviceData[0].name}>
+            <p>{serviceData[0].serviceText}</p>
           </Accordion>
         </div>
 

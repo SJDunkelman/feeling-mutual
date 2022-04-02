@@ -3,6 +3,7 @@ title: 4 Tips for crafting colourful online qual reports
 date: 2016-02-01
 description: This is an optional description for SEO and Open Graph purposes, rather than the default generated excerpt.
 category: article
+showcaseImage: team-meeting.jpeg
 tags: ["Tips", "Reports"]
 ---
 One of the biggest assets of online qualitative research also represents one of its biggest challenges, namely how to analyse large volumes of feedback. These seven tips will help moderators manage the load and make it easier to write a thorough and insightful report as quickly as possible.

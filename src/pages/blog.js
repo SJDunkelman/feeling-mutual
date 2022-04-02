@@ -12,18 +12,22 @@ function Blog(){
   query BlogPosts {
     data: allMarkdownRemark {
       nodes {
-          frontmatter {
-            title
-            description
-            date
+        frontmatter {
+          title
+          description
+          date
+          showcaseImage {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
-          fields {
-            slug
-          }
+        }
+        fields {
+          slug
         }
       }
     }
-  `)
+  }`)
 
   const allBlogPosts = articleData.data.nodes
 

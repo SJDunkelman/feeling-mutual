@@ -3,7 +3,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
 export default function BlogPostCard(props){
-  const containerClasses = `w-full ${props.wide ? 'lg:w-2/3' : 'lg:w-1/3'} px-4 mb-12`
+  const containerClasses = `w-full h-[30rem] px-2 my-4`
 
   function getDateString(date) {
     if (date === null) {
@@ -19,25 +19,32 @@ export default function BlogPostCard(props){
 
   const processedDate = getDateString(props.post.date)
 
+  const truncatedDesc = props.post.description.slice(0,50) + "...";
+
   return (
       <div className={containerClasses}>
         <Link to={`/blog${props.slug}`}>
-          <div className="flex h-96 mb-6">
-            <div className="w-full h-full bg-black rounded-lg" />
-          </div>
-          <span className="text-xs font-bold text-gray-500">{processedDate}</span>
-          <h2 className="mb-2 text-3xl font-bold font-heading">{props.post.title}</h2>
-          <p className="mb-4 text-lg text-gray-500 leading-loose">{props.post.description}</p>
-
-            <div className="flex items-center">
-              <span>Read More</span>
-              <span>
-              <svg className="ml-1 w-5 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                   stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-              </svg>
-            </span>
+          <div className="flex flex-col justify-between space-y-4 h-full">
+            <div className="h-full flex justify-center items-center">
+              <div className="">
+                <GatsbyImage className={`object-contain rounded-lg`} alt="Article" image={props.post.showcaseImage.childImageSharp.gatsbyImageData} />
+              </div>
             </div>
+            <div className="h-content">
+              <span className="text-xs font-bold text-gray-500">{processedDate}</span>
+              <h2 className="text-2xl font-bold font-heading">{props.post.title}</h2>
+              <p className="text-lg text-gray-500 leading-loose overflow-hidden max-h-32">{truncatedDesc}</p>
+              <div className="flex items-center">
+                <span>Read More</span>
+                <span>
+                  <svg className="ml-1 w-5 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                       stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+              </span>
+              </div>
+            </div>
+          </div>
         </Link>
       </div>
   )

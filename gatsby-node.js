@@ -28,6 +28,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           title
           description
           date
+          showcaseImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }
@@ -42,6 +47,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           title
           description
           date
+          showcaseImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }
@@ -56,6 +66,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           title
           description
           date
+          showcaseImage {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
         }
       }
     }
