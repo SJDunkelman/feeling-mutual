@@ -4,9 +4,9 @@ showcaseTitle: UEFA
 description: lorem ipsum
 showcaseImage: brand.png
 category: case-study
-subCategory: UX
+subCategory: client workshop
 date: 2020-01-01
-tags: []
+tags: ["Hello"]
 ---
 
 # Title

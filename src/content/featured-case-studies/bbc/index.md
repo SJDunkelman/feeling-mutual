@@ -4,9 +4,9 @@ showcaseTitle: BBC
 description: lorem ipsum
 showcaseImage: brand.png
 category: case-study
-subCategory: UX
+subCategory: media consumption
 date: 2020-01-01
-tags: []
+tags: ["Hello"]
 ---
 
 # Title

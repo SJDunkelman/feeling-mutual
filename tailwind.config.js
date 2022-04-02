@@ -13,6 +13,7 @@ module.exports = {
       'sm': '480px',
       'md': '768px',
       'lg': '1150px',
+      'xl': '2400px'
     },
     extend: {
       colors: {

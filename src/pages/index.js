@@ -108,7 +108,7 @@ function IndexPage () {
 
       <Section cNames="py-16 bg-gold">
         <p id="clients" className="font-light pb-6 text-offwhite">Case Studies</p>
-        <h2 className="mobile-only:text-4xl text-5xl text-offwhite font-semibold pb-6">Our Success Stories</h2>
+        <h2 className="mobile-only:text-4xl text-5xl text-offwhite font-semibold pb-6">Examples of our work</h2>
         <CaseStudyGrid />
         <p className="font-light text-xl text-center text-offwhite">We work across categories, from Technology to media, FMCG. retail and more.</p>
       </Section>

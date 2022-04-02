@@ -2,29 +2,54 @@ import React, { useState } from "react"
 import Layout from "../components/Layout"
 import Section from "../components/Section"
 import NavigationBar from "../components/NavigationBar"
+import Footer from "../components/Footer"
+import Accordion from "../components/Accordion"
 
 
 function Services() {
   const [service, setService] = useState("Full Service");
 
+  const serviceData = [
+    {
+      name: 'Training',
+      serviceText: 'We also offer training to upskill researchers so they can win, plan and run online and mobile qualitative studies that are more insightful and profitable.',
+      servicePoints: ['Qual research', 'UX design', 'Web']
+    },
+    {
+      name: 'Project Design / Set Up',
+      serviceText: 'If you can moderate and report, we can just design the method and sample, and / or set up the platform, and / or recruit and incentivise participants.',
+      servicePoints: ['Qual research', 'UX design', 'Web']
+    },
+    {
+      name: 'Moderation / Reporting',
+      serviceText: 'If you set up the project yourself, we can provide expert moderators in any market and if required, we can analyse and report.',
+      servicePoints: ['Qual research', 'UX design', 'Web']
+    },
+    {
+      name: 'Full Service',
+      serviceText: 'We take your brief and then design the most robust sample and method.  We also assemble an expert team for moderation and reporting.',
+      servicePoints: ['Qual research', 'UX design', 'Web']
+    }
+  ]
+
   var serviceText;
   var servicePoints;
   switch(service) {
     case "Training":
-      serviceText = "This is a description of the training service";
-      servicePoints = ['Qual research', 'UX design', 'Web'];
+      serviceText = serviceData[0].serviceText;
+      servicePoints = serviceData[0].servicePoints;
       break;
     case "Project Design":
-      serviceText = "This is a description of project design";
-      servicePoints = ['Qual research', 'UX design', 'Web'];
+      serviceText = serviceData[1].serviceText;
+      servicePoints = serviceData[1].servicePoints;
       break;
     case "Moderation / Reporting":
-      serviceText = "This is a description of the moderation service";
-      servicePoints = ['Qual research', 'UX design', 'Web'];
+      serviceText = serviceData[2].serviceText;
+      servicePoints = serviceData[2].servicePoints;
       break;
     default:
-      serviceText = "We take your brief and then design the most robust sample and method.  We also assemble an expert team for moderation and reporting.  ";
-      servicePoints = ['Qual research', 'UX design', 'Web'];
+      serviceText = serviceData[3].serviceText;
+      servicePoints = serviceData[3].servicePoints;
       break;
   }
 
@@ -32,30 +57,31 @@ function Services() {
 
   return (
     <Layout>
-      <Section cNames="bg-blue text-tomato h-full">
+      <Section cNames="bg-blue text-tomato h-full xl:h-screen">
         <NavigationBar helloButton={false} />
-        <h1 className="text-5xl mt-10 mb-10 px-4">Our Services</h1>
-        <div className="flex w-full px-20">
-          <div className="w-1/2 text-left text-3xl">
-            <div className="p-4 font-light">
+        <h1 className="text-5xl mt-10 mb-16 px-4 no-desktop:text-center">Our Services</h1>
+        {/* Desktop */}
+        <div className="flex no-desktop:hidden w-full px-20">
+          <div className="w-2/5 text-left text-3xl">
+            <div className="lg:p-4 py-4 font-light">
               <button onClick={() => setService("Full Service")}
                       className={`font-bold text-tomato${service==="Full Service" ? activeClasses : '/50'}`}>
                 Full Service
               </button>
             </div>
-            <div className="p-4">
+            <div className="lg:p-4 py-4">
               <button onClick={() => setService("Project Design")}
                       className={`font-bold text-tomato${service==="Project Design" ? activeClasses : '/50'}`}>
                 Project Design
               </button>
             </div>
-            <div className="p-4">
+            <div className="lg:p-4 py-4">
               <button onClick={() => setService("Moderation / Reporting")}
                       className={`font-bold text-tomato${service==="Moderation / Reporting" ? activeClasses : '/50'}`}>
                 Moderation & Reporting
               </button>
             </div>
-            <div className="p-4">
+            <div className="lg:p-4 py-4">
               <button onClick={() => setService("Training")}
                       className={`font-bold text-tomato${service==="Training" ? activeClasses : '/50'}`}>
                 Training
@@ -69,11 +95,40 @@ function Services() {
             <p>{serviceText}</p>
           </div>
         </div>
+
+        {/* Mobile/Tablet */}
+        <div className="lg:hidden flex flex-col">
+          <Accordion title={serviceData[3].name}>
+            <ul className="py-4 tick-list">
+              {servicePoints.map(o => <li key={o}>{o}</li>)}
+            </ul>
+            <p>{serviceData[3].serviceText}</p>
+          </Accordion>
+          <Accordion title={serviceData[0].name}>
+            <ul className="py-4 tick-list">
+              {servicePoints.map(o => <li key={o}>{o}</li>)}
+            </ul>
+            <p>{serviceData[0].serviceText}</p>
+          </Accordion>
+          <Accordion title={serviceData[1].name}>
+            <ul className="py-4 tick-list">
+              {servicePoints.map(o => <li key={o}>{o}</li>)}
+            </ul>
+            <p>{serviceData[1].serviceText}</p>
+          </Accordion>
+          <Accordion title={serviceData[2].name}>
+            <ul className="py-4 tick-list">
+              {servicePoints.map(o => <li key={o}>{o}</li>)}
+            </ul>
+            <p>{serviceData[2].serviceText}</p>
+          </Accordion>
+        </div>
+
         <div className="flex items-center">
-          <div className="py-16 flex w-full px-4 justify-center">
-            <div className="w-2/5">
-              <h2 className="text-5xl font-semibold">LET'S WORK TOGETHER</h2>
-              <p className="text-lg font-extralight py-4">Like what you see? Send a message to get in touch!</p>
+          <div className="pt-16 flex no-desktop:flex-col w-full px-4 justify-center">
+            <div className="w-full lg:w-2/5 no-desktop:pb-6 pr-4">
+              <h2 className="text-5xl font-semibold">Get in touch to find out more</h2>
+              <p className="text-lg font-extralight py-4">Fill in the form to set up a call.</p>
             </div>
             <div>
               <form action="">
@@ -99,6 +154,9 @@ function Services() {
             </div>
           </div>
         </div>
+      </Section>
+      <Section cNames="py-6 bg-blue">
+        <Footer textColour="gold" />
       </Section>
     </Layout>
   )

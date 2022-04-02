@@ -4,25 +4,48 @@ import NavigationBar from "../components/NavigationBar"
 import Section from "../components/Section"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 import CoverPhoto from "../images/splash/team-meeting.jpeg";
-import CustomerProfileImage from "../images/profiles/fran-walton.png"
 import Footer from "../components/Footer"
+import ProfilePicture from "../components/ProfilePicture"
+
+import Customer1ProfileImage from "../images/profiles/caroline-hayter.jpeg"
+import Customer2ProfileImage from "../images/profiles/jill-elston.jpeg"
+import Accordion from "../components/Accordion"
 
 export default function Training(){
-  const [courseModule, setModule] = useState("Plan");
+  const [courseModule, setModule] = useState("Win");
+
+  const courseModuleData = [
+    {
+      name: 'Run',
+      description: "This covers what you need to know during fieldwork, including:\nBest practice in moderation, management and analysis",
+    },
+    {
+      name: 'Win',
+      description: `This covers what you need to know at proposal stage, including:\nBest practice in choosing method, technology and doing costs`,
+    },
+    {
+      name: 'Psychology',
+      description: "Inspired by a literature review of psychology; learn how to increase engagement, strengthen validity and inspire more emotional disclosure in online qual.",
+    },
+    {
+      name: 'Full Service',
+      description: "This covers what you need to know before the project is live, including:\nBest practice in designing the project, sample, tasks and questions",
+    },
+  ]
 
   var moduleText;
   switch(courseModule) {
     case "Run":
-      moduleText = "This is a description of the run module";
+      moduleText = courseModuleData[0].description;
       break;
     case "Win":
-      moduleText = "This is a description of win module";
+      moduleText = courseModuleData[1].description;
       break;
     case "Psychology":
-      moduleText = "This is a description of the psychology module";
+      moduleText = courseModuleData[2].description;
       break;
     default:
-      moduleText = "This is a description of the plan module";
+      moduleText = courseModuleData[3].description;
       break;
   }
 
@@ -30,9 +53,17 @@ export default function Training(){
 
   const [reviewQuote, setQuote] = useState(0);
   const quotes = [
-    {name: 'John Smith', job: 'CEO', company: 'Apple', quote: "Tom's insight has been a breakthrough for our marketing team"},
-    {name: 'Jane Doe', job: 'COO', company: 'Samsung', quote: "I loved this course!!"},
-    {name: 'Adam Harvard', job: 'VP of Sales', company: 'BBC', quote: "10/10 would recommend again"},
+    {name: 'Caroline Hayter',
+      job: 'Founder',
+      company: 'Acacia Avenue',
+      quote: "The online qual training embraced the latest thinking on the subject and included a plethora of practical tips.  It really allowed us to sharpen our focus",
+      image: Customer1ProfileImage,
+    },
+    {name: 'Jill Elston',
+      job: 'Founder',
+      company: 'Insightful Research',
+      quote: "A few years ago, I attended the course having never used online qual before.  It gave me a fantastic grounding and lots of practical tips.  Online qual is now a central part of my offer to clients.",
+      image: Customer2ProfileImage},
   ]
 
   const increaseQuoteCount = () => {
@@ -53,77 +84,73 @@ export default function Training(){
     }
   }
 
+  let quoteCircles = [];
+  for (var i = 0; i < quotes.length; i++) {
+    quoteCircles.push(<i className={`fa-solid ${reviewQuote === i ? 'fa-circle-dot' : 'fa-circle'}`} />)
+  }
+
   return(
     <Layout>
       <Section cNames="bg-gold text-tomato min-h-[95vh]">
         {/*<NavigationBar helloButton helloBg="offwhite" helloText="tomato" />*/}
         <NavigationBar />
-        <div className="flex h-auto pt-20">
-          <div className="w-1/2 h-full text-left justify-center items-center px-4">
-            <h1 className="text-[3rem] leading-snug font-bold text-offwhite">Mastering Online Qualitative Research</h1>
-            <div className="flex space-x-2 py-4 items-center">
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star"></i>
-              <i className="fa-solid fa-star text-offwhite"></i>
-              <p>(35+)</p>
-            </div>
-            <p className="font-light text-xl">Subheading about why this is the greatest course on the internet</p>
-            <div className="flex space-x-6 items-end justify-center">
-              <AnchorLink to="/training#contact">
-                <button className="mt-4 py-2 px-4 bg-tomato text-offwhite rounded-full font-semibold hover:bg-tomato/50">Enroll Now!</button>
-              </AnchorLink>
-
-              <AnchorLink to="/training#video">
-                <div className="flex items-center hover:text-white">
-                  <i className="fa-solid fa-circle-play text-4xl"></i>
-                  <p className="text-xl pl-3 ">Watch Video</p>
+          <div className="flex no-desktop:flex-col no-desktop:space-y-6 min-h-[80vh] pt-16 pb-10 items-center">
+            <div className="w-full lg:w-1/2 h-full text-left justify-center items-center px-4 text-offwhite">
+              <h1 className="text-6xl leading-snug font-bold">Online Qual Mastery</h1>
+              <p className="font-light text-xl py-4">This video series will help researchers do online qual that is more insightful, valid and profitable.</p>
+              <div className="flex space-x-6 items-end justify-center py-4 text-tomato">
+                <AnchorLink to="/training#contact">
+                  <button className="mt-4 py-2 px-4 bg-tomato text-offwhite rounded-full font-semibold hover:bg-tomato/50">Enroll Now!</button>
+                </AnchorLink>
+                <AnchorLink to="/training#video">
+                  <div className="flex items-center hover:text-white">
+                    <i className="fa-solid fa-circle-play text-4xl" />
+                    <p className="text-xl pl-3 ">Watch Video</p>
+                  </div>
+                </AnchorLink>
+              </div>
+              <div className="flex space-x-4 lg:space-x-10 justify-center py-4 text-offwhite">
+                <div className="flex flex-col text-center w-32">
+                  <h4 className="font-semibold text-2xl md:text-3xl">100+</h4>
+                  <p className="text-lg md:text-xl">Researchers Taught</p>
                 </div>
-              </AnchorLink>
-            </div>
-            <div className="flex space-x-10 justify-center py-8 text-offwhite">
-              <div className="flex flex-col text-center w-32 ">
-                <h4 className="font-semibold text-3xl">15+</h4>
-                <p className="text-xl">Hours Content</p>
-              </div>
-              <div className="flex flex-col text-center w-32 ">
-                <h4 className="font-semibold text-3xl">20+</h4>
-                <p className="text-xl">Happy Businesses</p>
-              </div>
-              <div className="flex flex-col text-center w-32 ">
-                <h4 className="font-semibold text-3xl">9</h4>
-                <p className="text-xl">Awards & Nominations</p>
+                <div className="flex flex-col text-center w-32 ">
+                  <h4 className="font-semibold text-2xl md:text-3xl">4+</h4>
+                  <p className="text-lg md:text-xl">Hours Video</p>
+                </div>
+                <div className="flex flex-col text-center w-32 ">
+                  <h4 className="font-semibold text-2xl md:text-3xl">20+</h4>
+                  <p className="text-lg md:text-xl">Valuable Downloads</p>
+                </div>
               </div>
             </div>
+            <div className="w-full lg:w-1/2 h-full">
+              <img className="object-cover h-full rounded-md" src={CoverPhoto} alt="A qual research meeting of happy people around a computer" />
+            </div>
           </div>
-          <div className="w-1/2">
-            <img className="object-cover h-full rounded-md" src={CoverPhoto} alt="A qual research meeting of happy people around a computer" />
-          </div>
-        </div>
       </Section>
       <Section cNames="bg-offwhite text-tomato h-auto py-8">
         <div className="flex flex-col justify-center items-center text-center">
-          <h2 className="text-5xl font-semibold pt-8">Learn from an award winning team</h2>
-          <p className="text-xl font-light pt-4 pb-12">This is a subheading summarising the course benefits</p>
-          <div className="flex text-5xl space-x-12 justify-center text-tomato py-4">
+          <h2 className="text-5xl font-semibold pt-8"> 4 modules that will inspire better Online Qual</h2>
+          <p className="text-2xl font-light pt-4 pb-12">Choose one or more of the following training modules</p>
+          <div className="no-desktop:hidden flex text-5xl space-x-12 justify-center text-tomato py-4">
+            <button onClick={() => setModule("Win")}
+                    className={`flex flex-col space-y-4 items-center rounded-lg p-4 w-32 ${courseModule==="Win" ? activeClasses : "bg-offwhite"}`}>
+              <i className="fa-solid fa-trophy-star"></i>
+              <h4 className="text-2xl font-semibold1">Win</h4>
+              <i className={`fa-solid fa-angle-right rotate-90 ${courseModule==="Win" ? "visible" : "invisible"}`}></i>
+            </button>
             <button onClick={() => setModule("Plan")}
               className={`flex flex-col space-y-4 items-center rounded-lg p-4 w-32 ${courseModule==="Plan" ? activeClasses : "bg-offwhite"}`}>
-              <i className="fa-solid fa-chalkboard-user"></i>
+              <i className="fa-solid fa-sitemap"></i>
               <p className="text-2xl font-semibold1">Plan</p>
               <i className={`fa-solid fa-angle-right rotate-90 ${courseModule==="Plan" ? "visible" : "invisible"}`}></i>
             </button>
             <button onClick={() => setModule("Run")}
               className={`flex flex-col space-y-4 items-center rounded-lg p-4 w-32 ${courseModule==="Run" ? activeClasses : "bg-offwhite"}`}>
-              <i className="fa-solid fa-people-group"></i>
+              <i className="fa-solid fa-gears"></i>
               <h4 className="text-2xl font-semibold1">Run</h4>
               <i className={`fa-solid fa-angle-right rotate-90 ${courseModule==="Run" ? "visible" : "invisible"}`}></i>
-            </button>
-            <button onClick={() => setModule("Win")}
-              className={`flex flex-col space-y-4 items-center rounded-lg p-4 w-32 ${courseModule==="Win" ? activeClasses : "bg-offwhite"}`}>
-              <i className="fa-solid fa-trophy-star"></i>
-              <h4 className="text-2xl font-semibold1">Win</h4>
-              <i className={`fa-solid fa-angle-right rotate-90 ${courseModule==="Win" ? "visible" : "invisible"}`}></i>
             </button>
             <button onClick={() => setModule("Psychology")}
               className={`flex flex-col space-y-4 items-center rounded-lg p-4 w-32 ${courseModule==="Psychology" ? activeClasses : "bg-offwhite"}`}>
@@ -132,10 +159,24 @@ export default function Training(){
               <i className={`fa-solid fa-angle-right rotate-90 ${courseModule==="Psychology" ? "visible" : "invisible"}`}></i>
             </button>
           </div>
-          <div className="py-6 px-12 w-3/5 bg-blue rounded-lg justify-center text-offwhite">
+          <div className="no-desktop:hidden py-6 px-12 w-3/5 bg-blue rounded-lg justify-center text-offwhite whitespace-pre-wrap">
             {moduleText}
           </div>
-          <div id="video" className="flex justify-center relative py-6 bg-black">
+          <div className="lg:hidden flex flex-col w-full min-h-72">
+            <Accordion title="Win" >
+              <p className="whitespace-pre-line">{courseModuleData[0].description}</p>
+            </Accordion>
+            <Accordion title="Plan" >
+              <p className="whitespace-pre-line">{courseModuleData[1].description}</p>
+            </Accordion>
+            <Accordion title="Run" >
+              <p className="whitespace-pre-line">{courseModuleData[2].description}</p>
+            </Accordion>
+            <Accordion title="Psychology" >
+              <p className="whitespace-pre-line">{courseModuleData[3].description}</p>
+            </Accordion>
+          </div>
+          <div id="video" className=" flex justify-center relative py-6 bg-black">
             <div className="w-full h-72" />
             <i className="fa-solid fa-play-pause absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 text-4xl"></i>
           </div>
@@ -147,18 +188,17 @@ export default function Training(){
             className="p-2 hover:text-blue">
             <i className="fa-solid fa-chevron-left text-xl" />
           </button>
-          <div className="mt-16 flex flex-col py-4 px-4 bg-maroon/50 rounded-lg text-pink items-center w-3/5">
-            <p className="text-xl font-light">"{quotes[reviewQuote].quote}"</p>
-            <div className="flex items-center text-center pt-4">
-              <div className="flex flex-col font-semibold">
+          <div className="mt-16 flex flex-col py-4 px-4 bg-maroon/50 rounded-lg text-pink items-center w-full lg:w-3/5">
+            <p className="no-desktop:pb-4 text-xl font-light">"{quotes[reviewQuote].quote}"</p>
+            <div className="flex no-desktop:flex-col items-center text-center pt-4">
+              <ProfilePicture imageSrc={quotes[reviewQuote].image} />
+              <div className="flex flex-col font-semibold ml-4">
                 <p className="text-lg">{quotes[reviewQuote].name}</p>
                 <p className="text-lg">{quotes[reviewQuote].job}, {quotes[reviewQuote].company}</p>
               </div>
             </div>
             <div className="flex space-x-4 justify-between py-4 text-xs">
-              <i className={`fa-solid ${reviewQuote === 0 ? 'fa-circle-dot' : 'fa-circle'}`}></i>
-              <i className={`fa-solid ${reviewQuote === 1 ? 'fa-circle-dot' : 'fa-circle'}`}></i>
-              <i className={`fa-solid ${reviewQuote === 2 ? 'fa-circle-dot' : 'fa-circle'}`}></i>
+              {quoteCircles}
             </div>
           </div>
           <button onClick={increaseQuoteCount}
@@ -167,8 +207,8 @@ export default function Training(){
           </button>
         </div>
         <div id="contact" className="flex items-center">
-          <div className="py-16 flex w-full px-4 justify-center">
-            <div className="w-2/5">
+          <div className="py-16 flex no-desktop:flex-col w-full px-4 justify-center">
+            <div className="w-full lg:w-2/5">
               <h2 className="text-5xl font-semibold">LET'S LEARN TOGETHER</h2>
               <p className="text-lg font-extralight py-4">Like what you see? Send a message to get in touch!</p>
             </div>
@@ -188,7 +228,7 @@ export default function Training(){
           </div>
         </div>
       </Section>
-      <Section cNames="bg-offwhite">
+      <Section cNames="bg-offwhite relative xl:h-72">
         <Footer />
       </Section>
     </Layout>

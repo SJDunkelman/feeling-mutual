@@ -1,13 +1,13 @@
 @font-face {
     font-family: "Neue Haas Unica";
-    src: url("NeueHaasUnicaPro-UltraLight.ttf") format("truetype");
+    src: url("NeueHaasUnicaPro-Thin.ttf") format("truetype");
     font-weight: 200;
     font-style: normal;
 }
 
 @font-face {
     font-family: "Neue Haas Unica";
-    src: url("NeueHaasUnicaPro-UltLightIt.ttf") format("truetype");
+    src: url("NeueHaasUnicaPro-ThinItalic.ttf") format("truetype");
     font-weight: 200;
     font-style: italic;
 }

@@ -4,9 +4,9 @@ showcaseTitle: Virgin Pure
 description: lorem ipsum
 showcaseImage: brand.png
 category: case-study
-subCategory: Concept Testing
+subCategory: advertising, UX and retention
 date: 2020-01-01
-tags: []
+tags: ["Hello"]
 ---
 
 # Title

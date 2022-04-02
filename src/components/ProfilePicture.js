@@ -1,6 +1,4 @@
 import React from "react"
-import Img from 'gatsby-image';
-
 
 export default function ProfilePicture(props) {
   if (props.imageSrc) {

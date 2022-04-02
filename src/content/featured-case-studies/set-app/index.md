@@ -4,9 +4,9 @@ showcaseTitle: Set App
 description: lorem ipsum
 showcaseImage: brand.png
 category: case-study
-subCategory: UI
+subCategory: brand strategy development
 date: 2020-01-01
-tags: []
+tags: ["Hello"]
 ---
 
 # Title

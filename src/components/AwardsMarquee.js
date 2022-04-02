@@ -22,14 +22,14 @@ const insertIntoArray = (arr, value) => {
 function AwardsMarquee() {
   const awardSize = "h-24 max-w-20"
   let awardImgs = [
-    <img src={awardQuirks2020} alt="Award finalist MRS 2017" className={awardSize} />,
-    <img src={awardMRS2017} alt="Award finalist MRS 2017" className={awardSize} />,
-    <img src={awardQuirks2021} alt="Award winning agency Q Awards 2020" className={awardSize} />,
-    <img src={awardMRS2021} alt="Award finalist MRS 2017" className={awardSize} />,
-    <img src={awardAQR2021} alt="Award winning agency Q Awards 2020" className={awardSize} />,
-    <img src={awardMRS2021} alt="Award finalist MRS 2017" className={awardSize} />,
-    <img src={awardAMap} alt="Award winning agency AMap 2013" className={awardSize} />,
-    <img src={awardMRS2019} alt="Award finalist MRS 2019" className={awardSize} />];
+    <img src={awardQuirks2020} alt="Award finalist MRS 2017" className={awardSize} key={1} />,
+    <img src={awardMRS2017} alt="Award finalist MRS 2017" className={awardSize} key={2} />,
+    <img src={awardQuirks2021} alt="Award winning agency Q Awards 2020" className={awardSize} key={3} />,
+    <img src={awardMRS2021} alt="Award finalist MRS 2017" className={awardSize} key={4} />,
+    <img src={awardAQR2021} alt="Award winning agency Q Awards 2020" className={awardSize} key={5} />,
+    <img src={awardMRS2021} alt="Award finalist MRS 2017" className={awardSize} key={6} />,
+    <img src={awardAMap} alt="Award winning agency AMap 2013" className={awardSize} key={7} />,
+    <img src={awardMRS2019} alt="Award finalist MRS 2019" className={awardSize} key={8} />];
 
   // Insert a filler dot between each image
   let spacerElement = <div className="rounded-full w-2 h-2 bg-sandybrown/[0.75] mx-12" />;
