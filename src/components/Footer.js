@@ -39,9 +39,9 @@ export default function Footer(props) {
         </ul>
       </div>
       <div className={`space-x-8 pb-6 text-${props.textColour}`}>
-        <a href="/"><i className="fa-brands fa-twitter text-2xl opacity-50 hover:opacity-100"></i></a>
-        <a href="/"><i className="fa-brands fa-linkedin text-2xl opacity-50 hover:opacity-100"></i></a>
-        <a href="/"><i className="fa-solid fa-envelope text-2xl opacity-50 hover:opacity-100"></i></a>
+        <a href="https://twitter.com/tomwoodnutt"><i className="fa-brands fa-twitter text-2xl opacity-50 hover:opacity-100"></i></a>
+        <a href="https://www.linkedin.com/company/feeling-mutual-limited/"><i className="fa-brands fa-linkedin text-2xl opacity-50 hover:opacity-100"></i></a>
+        <a href="mailto:tom@feelingmutual.com"><i className="fa-solid fa-envelope text-2xl opacity-50 hover:opacity-100"></i></a>
       </div>
     </footer>
   )

@@ -14,6 +14,7 @@ import NavigationBar from "../components/NavigationBar"
 import TimWhirledgeProfile from "../images/profiles/tim-whirledge.png";
 import TomStazickerProfile from "../images/profiles/tom-stazicker.png";
 import FranWaltonProfile from "../images/profiles/fran-walton.png";
+import TomWoodnuttProfile from "../images/tom_full.jpg";
 
 function IndexPage () {
   return (
@@ -47,7 +48,7 @@ function IndexPage () {
         <div className="flex flex-col w-full lg:w-1/2 space-y-6 text-sandybrown lg:pr-8">
           <p className="font-light">What We Do</p>
           <h2 className="text-5xl font-semibold">Curate authentic conversations between brands and people.</h2>
-          <p className="text-lg font-light">We provide a range of online qualitative research services through our international network of senior consultants and specialist partners</p>
+          <p className="text-lg font-light">We provide a range of online qualitative research services through our international network of senior consultants and specialist partners.</p>
           <p className="text-lg font-light">We tackle diverse research briefs, from brand and strategic development to communications development, innovation, customer experience, service design and UX.</p>
         </div>
         <div className="no-desktop:flex no-desktop:flex-col justify-center items-center lg:grid lg:grid-cols-2 gap-2 w-full lg:w-1/2 pt-6">
@@ -95,14 +96,7 @@ function IndexPage () {
           </Link>
         </div>
         <div className="text-xl font-light text-maroon pt-4">
-          <p className="text-center font-bold text-gold underline">TOOLS:</p>
-          <ul className="tool-list pt-4 text-left pl-0 ml-0">
-            <li>Webcam groups and depths</li>
-            <li>Mobile video and photos</li>
-            <li>Collages, mapping and concept scoring</li>
-            <li>Screen recording with audio</li>
-            <li>Forums, diaries and communities</li>
-          </ul>
+          <p className="text-center font-light text-gold">We test and develop concepts and designs, through <span className="font-semibold">real-time conversations (via webcam)</span> and <span className="font-semibold">asynchronous online qualitative (via communities, diaries and forum technologies)</span>. We map customer journeys for service design and innovation, through <span className="font-semibold">in-context mobile video, screen recordings and collaborative reporting</span> in miro or mural. </p>
         </div>
       </Section>
 
@@ -110,14 +104,14 @@ function IndexPage () {
         <p id="clients" className="font-light pb-6 text-offwhite">Case Studies</p>
         <h2 className="mobile-only:text-4xl text-5xl text-offwhite font-semibold pb-6">Examples of our work</h2>
         <CaseStudyGrid />
-        <p className="font-light text-xl text-center text-offwhite">We work across categories, from Technology to media, FMCG. retail and more.</p>
+        <p className="font-light text-xl text-center text-offwhite">We work across categories, from <span className="font-semibold">Technology</span> to <span className="font-semibold">media</span>, <span className="font-semibold">FMCG</span>, <span className="font-semibold">retail</span>  and more.</p>
       </Section>
 
       <Section cNames="py-16 bg-blue">
         <p className="font-light pb-6 text-pink">Our Clients</p>
         <div className="flex mobile-only:space-x-4 justify-between items-center text-pink">
           <h2 className="mobile-only:text-4xl text-5xl font-semibold">What clients say about us</h2>
-          <p>Read More <i className="fa-solid fa-arrow-right-long pl-2" /></p>
+          <Link to="/category/case-study"><p>Read More <i className="fa-solid fa-arrow-right-long pl-2" /></p></Link>
         </div>
         <div className="flex no-desktop:flex-col no-desktop:space-y-6 space-x-2 lg:space-x-6 pt-10 lg:px-12">
           <CustomerReviewCard headline="50% increase in sales"
@@ -141,19 +135,26 @@ function IndexPage () {
         </div>
       </Section>
 
-      <Section cNames="flex py-16 px-12 justify-center bg-sandybrown mobile-only:text-center">
+      <Section cNames="flex flex-col py-16 px-12 items-center justify-center bg-sandybrown mobile-only:text-center">
         <div className="w-full lg:w-2/5 lg:mr-6 space-y-2 items-start text-green">
             <h4 className="text-5xl font-semibold">Tom Woodnutt</h4>
           <p className="text-lg font-bold">Founder</p>
-          <div className="flex justify-center relative py-6">
-            <div className="w-full h-72 bg-white/50" />
-            <i className="fa-solid fa-play-pause absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 text-4xl"></i>
+          {/*<div className="flex justify-center relative py-6">*/}
+          {/*  <div className="w-full h-72 bg-white/50" />*/}
+          {/*  <i className="fa-solid fa-play-pause absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 text-4xl"></i>*/}
+          {/*</div>*/}
+          <div className="flex justify-center">
+            <img className="object-contain h-auto w-48 rounded-lg" src={TomWoodnuttProfile} alt="Tom Woodnutt founder of Feeling Mutual" />
           </div>
+          <p className="font-light text-justify">
+            My name is Tom Woodnutt founder of Feeling Mutual.   We are an award-winning insight consultancy, specialising in online and mobile qualitative research.
 
-          <p className="font-light text-justify">Through empathy, brands can create more value for people. In return, they earn trust,
-            loyalty and attention.</p>
-          <p className="font-bold text-center text-2xl mobile-only:my-6">This is mutuality.</p>
-          <p className="font-light">At Feeling Mutual we gather insight that help brands nurture more mutual relationships with people.</p>
+            Our purpose is to help brands nurture more mutualistic relationships with people.  In nature, mutuality refers to symbiotic relationships between two species.  Each of them creates and shares value with the other - which results in a sustainable, mutually beneficial relationship.  I believe this is a useful metaphor for the way insight should be used by brands to build better relationships with people.
+
+            Mutuality requires authentic insight into what people actually need, think and feel. We believe digital qualitative research tools are more effective at getting insight than traditional focus groups.  When used properly they can make findings more valid, vivid and feeds into agile workflows far more effectively.
+
+            If you’d like to find out more about our qualitative research services or online qual training, please get in touch…!
+          </p>
         </div>
       </Section>
 

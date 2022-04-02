@@ -28,7 +28,7 @@ export default function Training(){
       description: "Inspired by a literature review of psychology; learn how to increase engagement, strengthen validity and inspire more emotional disclosure in online qual.",
     },
     {
-      name: 'Full Service',
+      name: 'Plan',
       description: "This covers what you need to know before the project is live, including:\nBest practice in designing the project, sample, tasks and questions",
     },
   ]
@@ -164,16 +164,16 @@ export default function Training(){
           </div>
           <div className="lg:hidden flex flex-col w-full min-h-72">
             <Accordion title="Win" >
-              <p className="whitespace-pre-line">{courseModuleData[0].description}</p>
-            </Accordion>
-            <Accordion title="Plan" >
               <p className="whitespace-pre-line">{courseModuleData[1].description}</p>
             </Accordion>
+            <Accordion title="Plan" >
+              <p className="whitespace-pre-line">{courseModuleData[3].description}</p>
+            </Accordion>
             <Accordion title="Run" >
-              <p className="whitespace-pre-line">{courseModuleData[2].description}</p>
+              <p className="whitespace-pre-line">{courseModuleData[0].description}</p>
             </Accordion>
             <Accordion title="Psychology" >
-              <p className="whitespace-pre-line">{courseModuleData[3].description}</p>
+              <p className="whitespace-pre-line">{courseModuleData[2].description}</p>
             </Accordion>
           </div>
           <div id="video" className=" flex justify-center relative py-6 bg-black">
