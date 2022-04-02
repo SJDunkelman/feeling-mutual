@@ -27,6 +27,17 @@ export default function Footer(props) {
         <li><Link to="" className="text-md no-underline text-light hover:text-white">BLOG</Link></li>
         <li><Link to="" className="text-md no-underline text-light hover:text-white">OUR CUSTOMERS</Link></li>
       </ul>
+      <div className="lg:hidden">
+        <ul className="flex justify-center items-center w-auto space-x-6 md:space-x-12 pt-2">
+          <li><Link to="/services" className="text-md no-underline text-light hover:text-white">SERVICES</Link></li>
+          <li><Link to="" className="text-md no-underline text-light hover:text-white">TRAINING</Link></li>
+          <li><Link to="" className="text-md no-underline text-light hover:text-white">CLIENTS</Link></li>
+        </ul>
+        <ul className="flex justify-center items-center w-auto space-x-6 md:space-x-12 pt-2">
+          <li><Link to="" className="text-md no-underline text-light hover:text-white">BLOG</Link></li>
+          <li><Link to="" className="text-md no-underline text-light hover:text-white">SAY HELLO</Link></li>
+        </ul>
+      </div>
       <div className={`space-x-8 pb-6 text-${props.textColour}`}>
         <a href="/"><i className="fa-brands fa-twitter text-2xl opacity-50 hover:opacity-100"></i></a>
         <a href="/"><i className="fa-brands fa-linkedin text-2xl opacity-50 hover:opacity-100"></i></a>
