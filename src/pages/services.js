@@ -62,7 +62,7 @@ function Services() {
         <h1 className="text-5xl mt-10 mb-16 px-4 no-desktop:text-center">Our Services</h1>
         {/* Desktop */}
         <div className="flex no-desktop:hidden w-full px-20">
-          <div className="w-2/5 text-left text-3xl">
+          <div className="w-1/2 text-left text-3xl whitespace-nowrap">
             <div className="lg:p-4 py-4 font-light">
               <button onClick={() => setService("Full Service")}
                       className={`font-bold text-tomato${service==="Full Service" ? activeClasses : '/50'}`}>

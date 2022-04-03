@@ -30,11 +30,11 @@ export default function Footer(props) {
       <div className="lg:hidden">
         <ul className="flex justify-center items-center w-auto space-x-6 md:space-x-12 pt-2">
           <li><Link to="/services" className="text-md no-underline text-light hover:text-white">SERVICES</Link></li>
-          <li><Link to="" className="text-md no-underline text-light hover:text-white">TRAINING</Link></li>
-          <li><Link to="" className="text-md no-underline text-light hover:text-white">CLIENTS</Link></li>
+          <li><Link to="/training" className="text-md no-underline text-light hover:text-white">TRAINING</Link></li>
+          <li><Link to="/#clients" className="text-md no-underline text-light hover:text-white">CLIENTS</Link></li>
         </ul>
         <ul className="flex justify-center items-center w-auto space-x-6 md:space-x-12 pt-2">
-          <li><Link to="" className="text-md no-underline text-light hover:text-white">BLOG</Link></li>
+          <li><Link to="/blog" className="text-md no-underline text-light hover:text-white">BLOG</Link></li>
           <li><a href="mailto:tom@feelingmutual.com" className="text-md no-underline text-light hover:text-white">SAY HELLO</a></li>
         </ul>
       </div>

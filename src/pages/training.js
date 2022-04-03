@@ -124,7 +124,7 @@ export default function Training(){
                 </div>
               </div>
             </div>
-            <div className="w-full lg:w-1/2 h-full">
+            <div className="flex justify-center w-full lg:w-1/2 h-72 lg:h-full">
               <img className="object-cover h-full rounded-md" src={CoverPhoto} alt="A qual research meeting of happy people around a computer" />
             </div>
           </div>
@@ -183,9 +183,9 @@ export default function Training(){
         </div>
       </Section>
       <Section cNames="bg-maroon text-pink h-auto py-8">
-        <div className="flex items-center justify-center">
+        <div className="flex items-end md:items-center justify-center">
           <button onClick={decreaseQuoteCount}
-            className="p-2 hover:text-blue">
+            className="p-2 lg:hover:text-blue">
             <i className="fa-solid fa-chevron-left text-xl" />
           </button>
           <div className="mt-16 flex flex-col py-4 px-4 bg-maroon/50 rounded-lg text-pink items-center w-full lg:w-3/5">
@@ -202,7 +202,7 @@ export default function Training(){
             </div>
           </div>
           <button onClick={increaseQuoteCount}
-            className="p-2 hover:text-blue">
+            className="p-2 lg:hover:text-blue">
             <i className="fa-solid fa-chevron-right text-xl" />
           </button>
         </div>
