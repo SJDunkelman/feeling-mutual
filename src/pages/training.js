@@ -9,8 +9,10 @@ import ProfilePicture from "../components/ProfilePicture"
 
 import Customer1ProfileImage from "../images/profiles/caroline-hayter.jpeg"
 import Customer2ProfileImage from "../images/profiles/jill-elston.jpeg"
+import Customer3ProfileImage from "../images/profiles/fran-walton.png"
 import Accordion from "../components/Accordion"
 import emailjs from "@emailjs/browser"
+import { Link } from "gatsby"
 
 export default function Training(){
   const [courseModule, setModule] = useState("Win");
@@ -54,17 +56,27 @@ export default function Training(){
 
   const [reviewQuote, setQuote] = useState(0);
   const quotes = [
-    {name: 'Caroline Hayter',
+    {
+      name: 'Caroline Hayter',
       job: 'Founder',
       company: 'Acacia Avenue',
       quote: "The online qual training embraced the latest thinking on the subject and included a plethora of practical tips.  It really allowed us to sharpen our focus",
       image: Customer1ProfileImage,
     },
-    {name: 'Jill Elston',
+    {
+      name: 'Jill Elston',
       job: 'Founder',
       company: 'Insightful Research',
       quote: "A few years ago, I attended the course having never used online qual before.  It gave me a fantastic grounding and lots of practical tips.  Online qual is now a central part of my offer to clients.",
-      image: Customer2ProfileImage},
+      image: Customer2ProfileImage
+    },
+    {
+      name: 'Fran Walton',
+      job: 'Head of Insight',
+      company: 'Publicis Sapient',
+      quote: "They truly get how insight inspires agile innovation.  The training across our global offices helped us upskill in digital ethnography",
+      image: Customer3ProfileImage,
+    },
   ]
 
   const increaseQuoteCount = () => {
@@ -90,6 +102,8 @@ export default function Training(){
     quoteCircles.push(<i className={`fa-solid ${reviewQuote === i ? 'fa-circle-dot' : 'fa-circle'}`} />)
   }
 
+  const [formSent, setFormStatus] = useState(false);
+
   const form = useRef();
   function sendEmail(e) {
     e.preventDefault();
@@ -101,6 +115,7 @@ export default function Training(){
         console.log(error.text);
       });
     e.target.reset();
+    setFormStatus(true);
   }
   const buttonClasses = "w-min whitespace-nowrap mx-auto bg-sandybrown hover:bg-sandybrown/75 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 
@@ -191,10 +206,10 @@ export default function Training(){
               <p className="whitespace-pre-line">{courseModuleData[2].description}</p>
             </Accordion>
           </div>
-          <div id="video" className=" flex justify-center relative py-6 bg-black">
-            <div className="w-full h-72" />
-            <i className="fa-solid fa-play-pause absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 text-4xl"></i>
-          </div>
+          {/*<div id="video" className=" flex justify-center relative py-6 bg-black">*/}
+          {/*  <div className="w-full h-72" />*/}
+          {/*  <i className="fa-solid fa-play-pause absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 text-4xl"></i>*/}
+          {/*</div>*/}
         </div>
       </Section>
       <Section cNames="bg-maroon text-pink h-auto py-8">
@@ -203,7 +218,7 @@ export default function Training(){
             className="p-2 lg:hover:text-blue">
             <i className="fa-solid fa-chevron-left text-xl" />
           </button>
-          <div className="mt-16 flex flex-col py-4 px-4 bg-maroon/50 rounded-lg text-pink items-center w-full lg:w-3/5">
+          <div className="mt-16 flex flex-col py-4 px-4 h-content min-h-80 rounded-lg text-pink items-center w-full lg:w-3/5">
             <p className="no-desktop:pb-4 text-xl font-light">"{quotes[reviewQuote].quote}"</p>
             <div className="flex no-desktop:flex-col items-center text-center pt-4">
               <ProfilePicture imageSrc={quotes[reviewQuote].image} />
@@ -222,22 +237,19 @@ export default function Training(){
           </button>
         </div>
         <div id="contact" className="flex items-center">
-          <div className="py-16 flex no-desktop:flex-col w-full px-4 justify-center">
+          <div className="py-16 flex no-desktop:flex-col w-full px-4 justify-center items-center">
             <div className="w-full lg:w-2/5">
-              <h2 className="text-5xl font-semibold">LET'S LEARN TOGETHER</h2>
-              <p className="text-lg font-extralight py-4">Like what you see? Send a message to get in touch!</p>
+              <h2 className="text-5xl font-semibold">LEARN HOW TO DO BETTER ONLINE QUAL</h2>
+              <p className="text-lg font-extralight py-4">Get in touch to find out more</p>
             </div>
             <div>
               <form ref={form} onSubmit={sendEmail} className="flex flex-col space-y-4 w-full">
                   <input type="text" name="name" placeholder="Name" className="shadow appearance-none border rounded w-full py-2 px-3 bg-slate-300 placeholder-tomato text-tomato leading-tight focus:outline-none focus:shadow-outline" required />
                   <input type="email" name="email" placeholder="Email Address" className="shadow appearance-none border rounded w-full py-2 px-3 bg-slate-300 placeholder-tomato text-tomato leading-tight focus:outline-none focus:shadow-outline" required />
+                  <p className="font-extralight text-sm pt-2">Your <Link to="/privacy-policy" className="underline hover:font-semibold">Privacy</Link> is important to us.</p>
                   <input type="submit" value="Send" className={buttonClasses} />
-                  {/*<button*/}
-                  {/*  className="w-min whitespace-nowrap mx-auto bg-sandybrown hover:bg-sandybrown/75 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"*/}
-                  {/*  type="button">*/}
-                  {/*  Submit*/}
-                  {/*</button>*/}
               </form>
+              <p className={`text-lg font-extralight ${formSent ? 'visible' : 'invisible'}`}>Message Sent! We'll get back to you as soon as possible.</p>
             </div>
           </div>
         </div>

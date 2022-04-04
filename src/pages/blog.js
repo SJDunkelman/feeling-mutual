@@ -10,7 +10,7 @@ import BlogIndex from "../components/BlogIndex"
 function Blog(){
   const articleData = useStaticQuery(graphql `
   query BlogPosts {
-    data: allMarkdownRemark {
+    data: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         frontmatter {
           title

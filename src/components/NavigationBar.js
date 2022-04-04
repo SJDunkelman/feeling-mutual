@@ -24,7 +24,7 @@ export default function NavigationBar (props) {
   var logo;
   switch (props.logoColour) {
     case "tomato":
-      logo = <img className="h-auto w-40 tomato-logo white-hover" src={logoSVG} alt="Logo" />
+      logo = <img className="h-auto w-52 tomato-logo white-hover" src={logoSVG} alt="Logo" />
       break;
     case "maroon":
       logo = <img className="h-auto w-40 maroon-logo gold-hover" src={logoSVG} alt="Logo" />

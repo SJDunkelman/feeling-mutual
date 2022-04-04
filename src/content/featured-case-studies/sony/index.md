@@ -4,7 +4,7 @@ showcaseTitle: Sony Electronics
 description: lorem ipsum
 showcaseImage: brand.png
 category: case-study
-subCategory: content strategy
+subCategory: Content Strategy
 date: 2020-01-01
 tags: ["Hello"]
 ---

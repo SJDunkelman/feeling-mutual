@@ -5,6 +5,7 @@ import NavigationBar from "../components/NavigationBar"
 import Footer from "../components/Footer"
 import Accordion from "../components/Accordion"
 import emailjs from "@emailjs/browser"
+import { Link } from "gatsby"
 
 
 function Services() {
@@ -54,6 +55,8 @@ function Services() {
       break;
   }
 
+  const [formSent, setFormStatus] = useState(false);
+
   const form = useRef();
   function sendEmail(e) {
     e.preventDefault();
@@ -71,6 +74,7 @@ function Services() {
         console.log(error.text);
       });
     e.target.reset();
+    setFormStatus(true);
   }
 
   const activeClasses = ' underline underline-offset-8 decoration-sandybrown';
@@ -150,8 +154,11 @@ function Services() {
                     <option value = "other">Other</option>
                   </select>
                   <textarea name="message" rows="4" cols="50" placeholder="Message" className="shadow appearance-none border rounded bg-slate-300 placeholder-tomato text-tomato px-3 py-2 leading-tight focus:outline-none focus:shadow-outline" />
+                <p className="font-extralight text-sm pt-2">Your <Link to="/privacy-policy" className="underline hover:font-semibold">Privacy</Link> is important to us.</p>
                   <input type="submit" value="Send" className={buttonClasses} />
               </form>
+
+              <p className={`text-lg font-extralight ${formSent ? 'visible' : 'invisible'}`}>Message sent! Please check your inbox for confirmation (or spam if not received).</p>
             </div>
           </div>
         </div>

@@ -68,7 +68,7 @@ function IndexPage () {
         <h2 className="text-5xl font-semibold pb-16 text-gold text-center">We inform agile workflows, with authentic insights that inspire better decisions</h2>
         <div className="grid grid-cols-1 justify-center mobile-only:space-y-4 md:grid-cols-3 md:space-x-6">
 
-          <Link to="/">
+          <Link to="/blog/what-does-agile-online-qualitative-research-mean">
             <div className="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
               <i className="fa-light fa-recycle text-6xl"></i>
               <h3 className="text-4xl font-semibold text-maroon">Agile</h3>
@@ -104,7 +104,7 @@ function IndexPage () {
         <p id="clients" className="font-light pb-6 text-offwhite">Case Studies</p>
         <h2 className="mobile-only:text-4xl text-5xl text-offwhite font-semibold pb-6">Examples of our work</h2>
         <CaseStudyGrid />
-        <p className="font-light text-xl text-center text-offwhite">We work across categories, from <span className="font-semibold">Technology</span> to <span className="font-semibold">media</span>, <span className="font-semibold">FMCG</span>, <span className="font-semibold">retail</span>  and more.</p>
+        <p className="font-light text-xl text-center text-offwhite">We work across categories, from <span className="font-semibold">Technology</span> to <span className="font-semibold">Media</span>, <span className="font-semibold">FMCG</span>, <span className="font-semibold">Retail</span>  and more.</p>
       </Section>
 
       <Section cNames="py-16 bg-blue">
@@ -120,14 +120,14 @@ function IndexPage () {
                               jobRole="CEO"
                               imageSrc={TomStazickerProfile}
                               company="Virgin Pure" />
-          <CustomerReviewCard headline="Inspired a Cannes Gold Lion Award"
-                              subheading="Feeling Mutual helped develop a brand strategy that went on to achieve a Cannes Gold Lion award and rapid growth for our client"
+          <CustomerReviewCard headline="Inspired a Cannes Lion Award"
+                              subheading="Feeling Mutual helped develop a brand strategy that went on to achieve a Cannes Lion award and rapid growth for our client"
                               name="Tim Whirledge"
                               imageSrc={TimWhirledgeProfile}
                               jobRole="Head of Strategy"
                               company="McCann Manchester" />
           <CustomerReviewCard headline="Upskilled our global workforce"
-                              subheading="They truly get how insight inspires agile innovation.  The training across our global offices helped us upskill in digital ethnography”"
+                              subheading="They truly get how insight inspires agile innovation.  The training across our global offices helped us upskill in digital ethnography"
                               name="Fran Walton"
                               imageSrc={FranWaltonProfile}
                               jobRole="Head of Insight"
@@ -138,23 +138,18 @@ function IndexPage () {
       <Section cNames="flex flex-col py-16 px-12 items-center justify-center bg-sandybrown mobile-only:text-center">
         <div className="w-full lg:w-2/5 lg:mr-6 space-y-2 items-start text-green">
             <h4 className="text-5xl font-semibold">Tom Woodnutt</h4>
-          <p className="text-lg font-bold">Founder</p>
-          {/*<div className="flex justify-center relative py-6">*/}
-          {/*  <div className="w-full h-72 bg-white/50" />*/}
-          {/*  <i className="fa-solid fa-play-pause absolute top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 text-4xl"></i>*/}
-          {/*</div>*/}
-          <div className="flex justify-center">
-            <img className="object-contain h-auto w-48 rounded-lg" src={TomWoodnuttProfile} alt="Tom Woodnutt founder of Feeling Mutual" />
-          </div>
-          <p className="font-light text-justify">
-            My name is Tom Woodnutt founder of Feeling Mutual.   We are an award-winning insight consultancy, specialising in online and mobile qualitative research.
-
-            Our purpose is to help brands nurture more mutualistic relationships with people.  In nature, mutuality refers to symbiotic relationships between two species.  Each of them creates and shares value with the other - which results in a sustainable, mutually beneficial relationship.  I believe this is a useful metaphor for the way insight should be used by brands to build better relationships with people.
-
-            Mutuality requires authentic insight into what people actually need, think and feel. We believe digital qualitative research tools are more effective at getting insight than traditional focus groups.  When used properly they can make findings more valid, vivid and feeds into agile workflows far more effectively.
-
-            If you’d like to find out more about our qualitative research services or online qual training, please get in touch…!
-          </p>
+            <p className="text-lg font-bold">Founder</p>
+            <div className="flex justify-center">
+              <img className="object-contain h-auto w-48 rounded-lg" src={TomWoodnuttProfile} alt="Tom Woodnutt founder of Feeling Mutual" />
+            </div>
+            <p className="font-light text-justify pt-6">
+              My name is Tom Woodnutt founder of <span className="font-semibold">Feeling Mutual.</span><br/><br/>
+              We are an <span className="font-semibold">award-winning</span> insight consultancy, specialising in <span className="font-semibold">online and mobile qualitative</span> research.<br/><br/>
+              Our purpose is to help brands nurture more <span className="font-semibold">mutualistic relationships</span> with people.<br/><br/>
+              In nature, mutuality refers to <span className="font-semibold">symbiotic relationships</span> between two species. Each one creates shared value for the other - which results in a sustainable, mutually beneficial relationship.<br/><br/>
+              Mutuality requires <span className="font-semibold">authentic insight</span> into what people actually need, think and feel.  Digital qualitative research tools are <span className="font-semibold">more effective</span> at generating insight that is valid, vivid and feeds directly into agile workflows<br/><br/>
+              To <span className="font-semibold">find out more</span> explore our blog and feel free to get in touch.
+            </p>
         </div>
       </Section>
 

@@ -13,6 +13,8 @@ export default function NewsletterSignup(props) {
       break;
   }
 
+  const [formSent, setFormStatus] = useState(false);
+
   const form = useRef();
   function sendEmail(e) {
     e.preventDefault();
@@ -30,6 +32,7 @@ export default function NewsletterSignup(props) {
         console.log(error.text);
       });
     e.target.reset();
+    setFormStatus(true);
   }
 
   return (
@@ -41,14 +44,15 @@ export default function NewsletterSignup(props) {
           <input name="email" className={`w-full mb-4 lg:mb-0 lg:mr-4 py-3 pl-4 text-sm text-${props.emailTextColour} bg-white/25 border border-${props.emailBorderColour} rounded`} type="email" placeholder="e.g tom@feelingmutual.com" />
           <input type="submit" value="Send" className={buttonClasses} />
         </form>
-        <p className="font-extralight text-sm pt-2">Your <Link to="/privacy-policy" className="underline hover:font-semibold">Privacy</Link> is important to us. No Spam. Just Insight.</p>
+        <p className="font-extralight text-sm pt-2">Your <Link to="/privacy-policy" className="underline hover:font-semibold">Privacy</Link> is important to us.</p>
+        <p className={`text-lg font-extralight ${formSent ? 'visible' : 'invisible'}`}>Subscribed! Please check your inbox for confirmation (or spam if not received).</p>
         </div>
     </section>)
 }
 
 NewsletterSignup.defaultProps = {
   headline: "Sign up to our newsletter",
-  subheading: "Stay up-to-date with the cutting edge of online qualitative research",
+  subheading: "Stay up-to-date with the cutting edge in online qualitative research",
   textColour: "gold",
   emailTextColour: "slate-600",
   emailBorderColour: "blue",

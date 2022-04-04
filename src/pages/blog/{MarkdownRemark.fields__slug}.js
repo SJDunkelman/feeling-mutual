@@ -11,7 +11,7 @@ import TomProfilePic from "../../images/tom_profile.jpg";
 import NewsletterSignup from "../../components/NewsletterSignup"
 
 export default function BlogPostTemplate({ data: { markdownRemark } }) {
-  const { frontmatter, showcaseImage, html } = markdownRemark;
+  const { frontmatter, html } = markdownRemark;
   let articleCategory = frontmatter.category.charAt(0).toUpperCase() + frontmatter.category.slice(1);
   articleCategory = articleCategory.replace("-", " ");
 
