@@ -47,7 +47,7 @@ function IndexPage () {
       <Section id="what-we-do" cNames="flex mobile-only:flex-col py-20 bg-green mobile-only:text-center">
         <div className="flex flex-col w-full lg:w-1/2 space-y-6 text-sandybrown lg:pr-8">
           <p className="font-light">What We Do</p>
-          <h2 className="text-5xl font-semibold">Curate authentic conversations between brands and people.</h2>
+          <h2 className="text-5xl font-semibold">Curate authentic conversations between brands and people</h2>
           <p className="text-lg font-light">We provide a range of online qualitative research services through our international network of senior consultants and specialist partners.</p>
           <p className="text-lg font-light">We tackle diverse research briefs, from brand and strategic development to communications development, innovation, customer experience, service design and UX.</p>
         </div>
