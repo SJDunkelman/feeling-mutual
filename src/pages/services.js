@@ -97,7 +97,7 @@ function Services() {
             <div className="lg:p-4 py-4">
               <button onClick={() => setService("Project Design")}
                       className={`font-bold text-tomato${service==="Project Design" ? activeClasses : '/50'}`}>
-                Project Design
+                Project Design / Set Up
               </button>
             </div>
             <div className="lg:p-4 py-4">
@@ -148,7 +148,7 @@ function Services() {
                   <select name = "service" className="shadow appearance-none border rounded bg-slate-300 placeholder-tomato text-tomato px-3 py-2 leading-tight focus:outline-none focus:shadow-outline">
                     <option value = "full-service" selected disabled>Select Enquiry</option>
                     <option value = "full-service" >Full Service</option>
-                    <option value = "project-design">Project Design</option>
+                    <option value = "project-design">Project Design / Set Up</option>
                     <option value = "moderation-reporting">Moderation / Reporting</option>
                     <option value = "training">Training</option>
                     <option value = "other">Other</option>
