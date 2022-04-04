@@ -1,9 +1,10 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import Layout from "../components/Layout"
 import Section from "../components/Section"
 import NavigationBar from "../components/NavigationBar"
 import Footer from "../components/Footer"
 import Accordion from "../components/Accordion"
+import emailjs from "@emailjs/browser"
 
 
 function Services() {
@@ -53,7 +54,27 @@ function Services() {
       break;
   }
 
+  const form = useRef();
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_pnk4y5c', 'template_r9yn5yx', form.current, 'juYRxtVyRMKhElqaf')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+    emailjs.sendForm('service_pnk4y5c', 'template_glfnrtt', form.current, 'juYRxtVyRMKhElqaf')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+    e.target.reset();
+  }
+
   const activeClasses = ' underline underline-offset-8 decoration-sandybrown';
+  const buttonClasses = "w-min whitespace-nowrap mx-auto bg-sandybrown hover:bg-sandybrown/75 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline";
 
   return (
     <Layout>
@@ -117,11 +138,10 @@ function Services() {
               <p className="text-lg font-extralight py-4">Fill in the form to set up a call.</p>
             </div>
             <div>
-              <form action="">
-                <div className="flex flex-col space-y-4">
+              <form ref={form} onSubmit={sendEmail} className="flex flex-col space-y-4">
                   <input type="text" name="name" placeholder="Name" className="shadow appearance-none border rounded w-full py-2 px-3 bg-slate-300 placeholder-tomato text-tomato leading-tight focus:outline-none focus:shadow-outline" required />
                   <input type="email" name="email" placeholder="Email Address" className="shadow appearance-none border rounded w-full py-2 px-3 bg-slate-300 placeholder-tomato text-tomato leading-tight focus:outline-none focus:shadow-outline" required />
-                  <select name = "dropdown" className="shadow appearance-none border rounded bg-slate-300 placeholder-tomato text-tomato px-3 py-2 leading-tight focus:outline-none focus:shadow-outline">
+                  <select name = "service" className="shadow appearance-none border rounded bg-slate-300 placeholder-tomato text-tomato px-3 py-2 leading-tight focus:outline-none focus:shadow-outline">
                     <option value = "full-service" selected disabled>Select Enquiry</option>
                     <option value = "full-service" >Full Service</option>
                     <option value = "project-design">Project Design</option>
@@ -129,13 +149,8 @@ function Services() {
                     <option value = "training">Training</option>
                     <option value = "other">Other</option>
                   </select>
-                  <textarea id="w3review" name="w3review" rows="4" cols="50" placeholder="Message" className="shadow appearance-none border rounded bg-slate-300 placeholder-tomato text-tomato px-3 py-2 leading-tight focus:outline-none focus:shadow-outline" />
-                  <button
-                    className="w-min whitespace-nowrap mx-auto bg-sandybrown hover:bg-sandybrown/75 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    type="button">
-                    Submit
-                  </button>
-                </div>
+                  <textarea name="message" rows="4" cols="50" placeholder="Message" className="shadow appearance-none border rounded bg-slate-300 placeholder-tomato text-tomato px-3 py-2 leading-tight focus:outline-none focus:shadow-outline" />
+                  <input type="submit" value="Send" className={buttonClasses} />
               </form>
             </div>
           </div>

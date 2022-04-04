@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import Layout from "../components/Layout"
 import NavigationBar from "../components/NavigationBar"
 import Section from "../components/Section"
@@ -10,6 +10,7 @@ import ProfilePicture from "../components/ProfilePicture"
 import Customer1ProfileImage from "../images/profiles/caroline-hayter.jpeg"
 import Customer2ProfileImage from "../images/profiles/jill-elston.jpeg"
 import Accordion from "../components/Accordion"
+import emailjs from "@emailjs/browser"
 
 export default function Training(){
   const [courseModule, setModule] = useState("Win");
@@ -88,6 +89,20 @@ export default function Training(){
   for (var i = 0; i < quotes.length; i++) {
     quoteCircles.push(<i className={`fa-solid ${reviewQuote === i ? 'fa-circle-dot' : 'fa-circle'}`} />)
   }
+
+  const form = useRef();
+  function sendEmail(e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_pnk4y5c', 'template_pojz4x4', form.current, 'juYRxtVyRMKhElqaf')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+    e.target.reset();
+  }
+  const buttonClasses = "w-min whitespace-nowrap mx-auto bg-sandybrown hover:bg-sandybrown/75 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
 
   return(
     <Layout>
@@ -213,16 +228,15 @@ export default function Training(){
               <p className="text-lg font-extralight py-4">Like what you see? Send a message to get in touch!</p>
             </div>
             <div>
-              <form action="">
-                <div className="flex flex-col space-y-4 w-full">
+              <form ref={form} onSubmit={sendEmail} className="flex flex-col space-y-4 w-full">
                   <input type="text" name="name" placeholder="Name" className="shadow appearance-none border rounded w-full py-2 px-3 bg-slate-300 placeholder-tomato text-tomato leading-tight focus:outline-none focus:shadow-outline" required />
                   <input type="email" name="email" placeholder="Email Address" className="shadow appearance-none border rounded w-full py-2 px-3 bg-slate-300 placeholder-tomato text-tomato leading-tight focus:outline-none focus:shadow-outline" required />
-                  <button
-                    className="w-min whitespace-nowrap mx-auto bg-sandybrown hover:bg-sandybrown/75 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    type="button">
-                    Submit
-                  </button>
-                </div>
+                  <input type="submit" value="Send" className={buttonClasses} />
+                  {/*<button*/}
+                  {/*  className="w-min whitespace-nowrap mx-auto bg-sandybrown hover:bg-sandybrown/75 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"*/}
+                  {/*  type="button">*/}
+                  {/*  Submit*/}
+                  {/*</button>*/}
               </form>
             </div>
           </div>

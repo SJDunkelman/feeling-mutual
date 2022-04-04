@@ -11,6 +11,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     'gatsby-plugin-netlify',
+    `gatsby-plugin-mailgo`,
     {
       resolve: 'gatsby-plugin-netlify-cms'
     },
