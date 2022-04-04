@@ -33,7 +33,7 @@ function Blog(){
 
   return (
     <Layout>
-      <Section cNames="bg-offwhite">
+      <Section cNames="bg-offwhite py-6 xl:py-16">
         <NavigationBar logoColour="maroon" />
         <BlogIndex posts={allBlogPosts} />
       </Section>

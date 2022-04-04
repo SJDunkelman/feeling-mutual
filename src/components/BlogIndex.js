@@ -48,7 +48,7 @@ export default function BlogIndex({posts, title, upperHeading, subHeading}) {
         </div>
 
         <div className="lg:flex lg:justify-center w-full items-center">
-          <div className="flex flex-col justify-center items-center md:grid md:grid-cols-2 lg:grid-cols-3 sm:gap-x-16 ">
+          <div className="flex flex-col justify-center items-center md:grid md:grid-cols-2 lg:grid-cols-3 sm:gap-x-16 xl:gap-y-40">
             {articleCards}
           </div>
         </div>
@@ -58,7 +58,7 @@ export default function BlogIndex({posts, title, upperHeading, subHeading}) {
         {/*</div>*/}
       </div>
 
-      <div className="flex justify-center pt-4 pb-4">
+      <div className="flex justify-center pt-4 pb-4 xl:mt-20">
         {hasMore ? (
           <button className="flex rounded-lg py-2 px-4 whitespace-nowrap bg-maroon text-white hover:bg-maroon/[0.75]" onClick={handleLoadMore}>Load More</button>
         ) : (

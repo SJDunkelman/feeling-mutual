@@ -86,8 +86,8 @@ function Services() {
         <NavigationBar helloButton={false} />
         <h1 className="text-5xl mt-10 mb-16 px-4 no-desktop:text-center">Our Services</h1>
         {/* Desktop */}
-        <div className="flex no-desktop:hidden w-full px-20">
-          <div className="w-1/2 text-left text-3xl whitespace-nowrap">
+        <div className="flex no-desktop:hidden w-full px-20 xl:px-40">
+          <div className="w-1/2 text-left text-3xl xl:text-5xl whitespace-nowrap">
             <div className="lg:p-4 py-4 font-light">
               <button onClick={() => setService("Full Service")}
                       className={`font-bold text-tomato${service==="Full Service" ? activeClasses : '/50'}`}>
@@ -114,8 +114,8 @@ function Services() {
             </div>
           </div>
           <div className="flex flex-col justify-center px-6 py-4 w-1/2">
-            <i className={`${serviceLogo} text-7xl pb-4 text-center`} />
-            <p>{serviceText}</p>
+            {/*<i className={`${serviceLogo} text-7xl pb-4 text-center`} />*/}
+            <p className="text-lg xl:text-xl">{serviceText}</p>
           </div>
         </div>
 
@@ -139,7 +139,7 @@ function Services() {
           <div className="pt-16 flex no-desktop:flex-col w-full px-4 justify-center">
             <div className="w-full lg:w-2/5 no-desktop:pb-6 pr-4">
               <h2 className="text-5xl font-semibold">Get in touch to find out more</h2>
-              <p className="text-lg font-extralight py-4">Fill in the form to set up a call.</p>
+              <p className="text-lg xl:text-xl font-extralight py-4">Fill in the form to set up a call.</p>
             </div>
             <div>
               <form ref={form} onSubmit={sendEmail} className="flex flex-col space-y-4">
