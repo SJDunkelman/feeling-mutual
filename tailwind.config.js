@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   safelist: [
-    'bg-tomato'
+    'bg-tomato',
+    'list-disc',
+    'list-decimal',
+    'list-inside',
+    'text-justify'
   ],
   theme: {
     container: {

@@ -132,12 +132,12 @@ export default function Training(){
                 <AnchorLink to="/training#contact">
                   <button className="mt-4 py-2 px-4 bg-tomato text-offwhite rounded-full font-semibold hover:bg-tomato/50">Enroll Now!</button>
                 </AnchorLink>
-                <AnchorLink to="/training#video">
-                  <div className="flex items-center hover:text-white">
-                    <i className="fa-solid fa-circle-play text-4xl" />
-                    <p className="text-xl pl-3 ">Watch Video</p>
-                  </div>
-                </AnchorLink>
+                {/*<AnchorLink to="/training#video">*/}
+                {/*  <div className="flex items-center hover:text-white">*/}
+                {/*    <i className="fa-solid fa-circle-play text-4xl" />*/}
+                {/*    <p className="text-xl pl-3 ">Watch Video</p>*/}
+                {/*  </div>*/}
+                {/*</AnchorLink>*/}
               </div>
               <div className="flex space-x-4 lg:space-x-10 justify-center py-4 text-offwhite">
                 <div className="flex flex-col text-center w-32">

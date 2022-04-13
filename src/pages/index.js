@@ -77,7 +77,7 @@ function IndexPage () {
             </div>
           </Link>
 
-          <Link to="/">
+          <Link to="/blog/what-makes-online-qual-more-authentic-than-traditional-methods">
             <div className="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
               <i className="fa-light fa-badge-check text-6xl"></i>
               <h3 className="text-4xl font-semibold text-maroon">Authentic</h3>
@@ -86,7 +86,7 @@ function IndexPage () {
             </div>
           </Link>
 
-          <Link to="/">
+          <Link to="/blog/why-is-online-qual-more-inspiring-than-traditional-methods">
             <div className="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
               <i className="fa-light fa-heart-pulse text-6xl"></i>
               <h3 className="text-4xl font-semibold text-maroon">Inspiring</h3>

@@ -64,7 +64,9 @@ module.exports = {
               classMap: {
                 "heading[depth=1]": "text-2xl",
                 "heading[depth=2]": "text-xl",
-                "paragraph": "text-base"
+                "paragraph": "text-lg font-light text-justify leading-8",
+                  "list[ordered=false]": "list-disc list-inside text-lg font-light leading-8",
+                "list[ordered=true]": "list-decimal list-inside text-lg font-light leading-8",
               }
             }
           },

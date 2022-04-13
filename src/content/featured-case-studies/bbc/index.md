@@ -1,7 +1,7 @@
 ---
 title: BBC
 showcaseTitle: BBC
-description: lorem ipsum
+description: Case study on BBC
 showcaseImage: brand.png
 category: case-study
 subCategory: Media Consumption
@@ -9,5 +9,5 @@ date: 2020-01-01
 tags: ["Hello"]
 ---
 
-# Title
+# Coming Soon
 
