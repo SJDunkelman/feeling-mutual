@@ -15,15 +15,9 @@ The concept of ‘agile’ comes from developers who wanted to take a **more ite
 <br/>
 
 To us **‘agile online qualitative research’** means we embrace these principles and apply them to how research is gathered, interpreted and shared with clients. Our agile online qual projects will typically involve the following:
-* **ITERATIVE**
-  * We stagger reporting across fieldwork through ‘feedback loops’, that use tech such as online whiteboards, allowing client / agency to act and comment
-
-* **DIVERGENT**
-  *  We allow multiple interpretations to co-exist (rather than seeking to oversimplify the story to a single ‘truth’ prematurely) - taking on views of all parties 
-
-* **CONVERGENT**
-  *  We end up with a clear, independent, evidence-and-expertise-based recommendation to suggest the best way forward
-
+* **ITERATIVE:** We stagger reporting across fieldwork through ‘feedback loops’, that use tech such as online whiteboards, allowing client / agency to act and comment
+* **DIVERGENT:** We allow multiple interpretations to co-exist (rather than seeking to oversimplify the story to a single ‘truth’ prematurely) - taking on views of all parties 
+* **CONVERGENT:**  We end up with a clear, independent, evidence-and-expertise-based recommendation to suggest the best way forward
 
 <br/>
 

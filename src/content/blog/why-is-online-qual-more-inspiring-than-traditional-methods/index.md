@@ -16,15 +16,9 @@ Traditional focus groups methods can also feel artificial and restrict the emoti
 
 There are three ways in which online and mobile qual can be more inspiring:
 <br />
-* **INSIGHTS HAVE MORE VIVID COLOUR:** 
-  * Mobile, webcam video and screen recordings allow us to get closer to people’s real lives which enables multi-media reporting. 
-
-* **PEOPLE MAKE MORE EMOTIONAL DISCLOSURE ONLINE:**  
-  * People are less likely to posture when they are not in an artificial viewing facility or posturing due to the presence of the moderator or other participants.  This results in more confessional, emotionally insightful responses online. 
-
-* **FEEDBACK IS IN MORE DEPTH:** 
-  * Asynchronous online and mobile qual generates many times more feedback than traditional focus groups. So you have more hours worth of feedback and greater depth, which gives you more chance of finding those few nuggets that will inspire. Only one person can speak at once in a real-time focus group. People can feedback in parallel in online forums and the like. So you get many times more depth and more chance for insight, using those online methods. 
-
+* **INSIGHTS HAVE MORE VIVID COLOUR:** Mobile, webcam video and screen recordings allow us to get closer to people’s real lives which enables multi-media reporting. 
+* **PEOPLE MAKE MORE EMOTIONAL DISCLOSURE ONLINE:**  People are less likely to posture when they are not in an artificial viewing facility or posturing due to the presence of the moderator or other participants.  This results in more confessional, emotionally insightful responses online. 
+* **FEEDBACK IS IN MORE DEPTH:** Asynchronous online and mobile qual generates many times more feedback than traditional focus groups. So you have more hours worth of feedback and greater depth, which gives you more chance of finding those few nuggets that will inspire. Only one person can speak at once in a real-time focus group. People can feedback in parallel in online forums and the like. So you get many times more depth and more chance for insight, using those online methods. 
 
 <br/>
 
