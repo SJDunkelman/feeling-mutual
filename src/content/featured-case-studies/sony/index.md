@@ -5,8 +5,8 @@ description: Case study on Sony Electronics
 showcaseImage: brand.png
 category: case-study
 subCategory: Content Strategy
-date: 2020-01-01
-tags: ["Hello"]
+date: 2017-12-09
+tags: ["Social Content"]
 ---
 
 Sony Electronics wanted to develop their content strategy across social media in order to align it more tightly with brand strategy and purpose.

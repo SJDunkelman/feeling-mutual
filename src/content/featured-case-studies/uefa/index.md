@@ -5,7 +5,7 @@ description: Case study on UEFA
 showcaseImage: brand.png
 category: case-study
 subCategory: Client Workshop
-date: 2020-01-01
+date: 2018-05-21
 tags: ["Hello"]
 ---
 
