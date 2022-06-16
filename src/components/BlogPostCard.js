@@ -19,15 +19,21 @@ export default function BlogPostCard(props){
 
   const processedDate = getDateString(props.post.date)
 
-  const truncatedDesc = props.post.description.slice(0,50) + "...";
+  var truncatedDesc;
+  if (props.post.description.length > 50) {
+    truncatedDesc = props.post.description.slice(0,50) + "...";
+  } else {
+    truncatedDesc = props.post.description;
+  }
+
 
   return (
       <div className={containerClasses}>
         <Link to={`/blog${props.slug}`}>
           <div className="flex flex-col justify-between space-y-4 h-full">
             <div className="h-full flex justify-center items-center">
-              <div className="">
-                <GatsbyImage className={`object-contain rounded-lg`} alt="Article" image={props.post.showcaseImage.childImageSharp.gatsbyImageData} />
+              <div className="w-full overflow-clip">
+                <GatsbyImage className={`object-cover w-full h-auto rounded-lg`} alt="Article" image={props.post.showcaseImage.childImageSharp.gatsbyImageData} />
               </div>
             </div>
             <div className="h-content">

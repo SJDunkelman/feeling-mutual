@@ -1,25 +1,25 @@
 ---
-title: Why is online qual more inspiring than traditional methods?
-date: 2022-04-10
-description: How online qual can inspire better decisions
-category: article
+title: What does ‘agile online qualitative research' mean? 
+date: 2022-04-04
+description: A definition of "agile online qualitative research" 
 showcaseImage: team-meeting.jpeg
-tags: ["Values"]
+category: article
+tags: ["best practice","Agile Online Qual"]
 ---
-We believe that research is only valuable if it inspires better decisions.  To paraphrase the late, great Jeremy Bullmore - a great insight is like a fridge door, because when you look into it, a light comes on. The problem is too many research debriefs rely on paraphrased verbatim that are lost within vast presentations that few people read or internalise.
 
-<br/>
+The phrase **‘agile qualitative research’** is too often just a proxy for ‘quick and dirty’.  This misses the point. 
 
-Traditional focus groups methods can also feel artificial and restrict the emotional disclosures of participants. Our approach to qualitative research uses online and mobile technology that results in insights that are more enlightening.
+To us, ‘agile qual’ is less about speed per se and more about cadence. It should mean that the researcher aligns their fieldwork, analysis and reporting (format and timing) with the client’s (and / or agency’s) development schedule - so that they are in synchrony. 
 
-<br />
+The concept of ‘agile’ comes from developers who wanted to take a **more iterative, experimental approach** to building software. Rather than trying to craft the perfect design and then build it, they instead broke the task down into chunks, launched **‘minimal viable products’** which they develop through a series of **‘test and learn’** cycles. This relies on close collaboration and a free flow of insight and learnings between stakeholders.  
 
-There are three ways in which online and mobile qual can be more inspiring:
-<br />
-* **INSIGHTS HAVE MORE VIVID COLOUR:** Mobile, webcam video and screen recordings allow us to get closer to people’s real lives which enables multi-media reporting. 
-* **PEOPLE MAKE MORE EMOTIONAL DISCLOSURE ONLINE:**  People are less likely to posture when they are not in an artificial viewing facility or posturing due to the presence of the moderator or other participants.  This results in more confessional, emotionally insightful responses online. 
-* **FEEDBACK IS IN MORE DEPTH:** Asynchronous online and mobile qual generates many times more feedback than traditional focus groups. So you have more hours worth of feedback and greater depth, which gives you more chance of finding those few nuggets that will inspire. Only one person can speak at once in a real-time focus group. People can feedback in parallel in online forums and the like. So you get many times more depth and more chance for insight, using those online methods. 
+To us **‘agile online qualitative research’** means embracing these principles and applying them to how research is gathered, interpreted and shared with clients and their agencies.  Our agile online qual projects will typically involve the following: 
 
-<br/>
+- **ITERATIVE**: We stagger reporting across fieldwork through ‘feedback loops’, that use tech such as online whiteboards, allowing client / agency to act and comment
+- **CHUNKING**: We chunk research objectives into the most strategically relevant parts, ensuring we explore the emotional context behind them all.  The order in which they are explored maximises the validity of the findings. 
+- **DIVERGENT**: We allow multiple interpretations to co-exist (rather than seeking to oversimplify the story to a single ‘truth’ prematurely) - taking on views of all parties 
+- **CONVERGENT**: We end up with a clear, independent, evidence-and-expertise-based recommendation to suggest the best way forward 
 
-If you want to find out more about how the online and mobile tools that we use, help us get more authentic and valid insights, please get in touch! 
+**Online and mobile qualitative methods** make it easier to generate and share, contextually sensitive, multi-media insights. They can be fed more efficiently into agile workflows and lend themselves to iterative, multi-phased studies. 
+
+If you want to explore how we can shape our research processes around your business frameworks, teams and developmental processes, **please get in touch.** 

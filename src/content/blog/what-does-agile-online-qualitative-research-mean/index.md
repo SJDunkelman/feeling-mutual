@@ -2,7 +2,7 @@
 title: What does ‘agile online qualitative research' mean? 
 date: 2022-04-04
 description: A definition of "agile online qualitative research" 
-showcaseImage: team-meeting.jpeg
+showcaseImage: painpoints.jpeg
 category: article
 tags: ["best practice"]
 ---

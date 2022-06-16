@@ -29,8 +29,8 @@ const CaseStudyGrid = () => {
 
   let caseStudyElements = featuredCaseStudies.data.nodes.map(function(study, i) {
     return (
-      // <Link to={`/blog${study.childMarkdownRemark.fields.slug}`} key={i}>
-      <Link to="/coming-soon" key={i}>
+      <Link to={`/blog${study.childMarkdownRemark.fields.slug}`} key={i}>
+      {/*<Link to="/coming-soon" key={i}>*/}
         <div className="group mobile-only:flex mobile-only:flex-col px-4 mobile-only:mb-12 text-center sm:relative sm:py-2 w-full h-auto lg:w-80 bg-transparent">
           <div className="flex items-center justify-center w-full h-40 md:group-hover:hidden mobile-only:mb-8">
             <GatsbyImage image={study.childMarkdownRemark.frontmatter.showcaseImage.childImageSharp.gatsbyImageData} alt="Brand Logo" className="object-fit w-full h-auto" />

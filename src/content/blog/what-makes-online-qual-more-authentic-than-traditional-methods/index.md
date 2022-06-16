@@ -3,8 +3,8 @@ title: What makes online qual more authentic than traditional methods
 date: 2022-04-05
 description: Why online qual is more reliable and valid than traditional focus groups
 category: article
-showcaseImage: team-meeting.jpeg
-tags: ["Focus Group", "Validity", "Online Qual", ]
+showcaseImage: authentic.jpg
+tags: ["Focus Group", "Validity", "Online Qual"]
 ---
 If research cannot be trusted then it is of no value. Good qualitative researchers will always focus on how to reduce the risk that participants get influenced by the way the research is designed, set-up and moderated. There are several well-known threats to the **validity of qualitative research.** And I believe online and mobile methods address each one and are ultimately more valid.
 

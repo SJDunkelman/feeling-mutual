@@ -30,7 +30,7 @@ export default function BlogPostTemplate({ data: { markdownRemark } }) {
       <Section cNames="bg-maroon text-pink">
         <NavigationBar helloButton />
         <div className="flex mobile-only:flex-col flex-row py-6">
-          <div className="w-full lg:w-1/2">
+          <div className="w-full">
             <div className="flex flex-wrap mb-6 lg:pt-10 md:flex-col text-sandybrown">
               <div className="flex items-center justify-start mb-8">
                 <div className="flex items-center text-xs text-pink font-semibold">
@@ -41,7 +41,7 @@ export default function BlogPostTemplate({ data: { markdownRemark } }) {
                   <Link to={`/category/${frontmatter.category}`}>{articleCategory}</Link>
                 </div>
               </div>
-              <h1 className="mb-10 text-4xl font-semibold text-center lg:text-left">{frontmatter.title}</h1>
+              <h1 className="mb-10 text-5xl font-semibold text-center lg:text-left">{frontmatter.title}</h1>
               <div className="flex items-center justify-start">
                 <div className="mr-6">
                   <ProfilePicture imageSrc={TomProfilePic} />
@@ -54,8 +54,8 @@ export default function BlogPostTemplate({ data: { markdownRemark } }) {
               </div>
             </div>
           </div>
-          {/*<div className="lg:w-1/2 h-auto lg:mt-20 lg:pl-8 bg-black">*/}
-          {/*  /!*<GatsbyImage image={articleImage} alt="Article" className="object-fit w-full h-auto" />*!/*/}
+          {/*<div className="lg:w-1/2 h-auto lg:mt-20 lg:pl-8">*/}
+          {/*  <GatsbyImage image={frontmatter.showcaseImage} alt="Article" className="object-fit w-full h-auto" />*/}
           {/*</div>*/}
         </div>
       </Section>
