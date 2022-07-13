@@ -1,6 +1,6 @@
 ---
 title: Why are we called 'Feeling Mutual' ?
-date: 2022-06-15
+date: 2022-06-13
 description: Feeling Mutual's founding story
 category: article
 showcaseImage: tom.jpeg

@@ -5,7 +5,7 @@ description: Inspiring over 50% increase in website sales conversion through qua
 showcaseImage: brand.png
 category: case-study
 subCategory: Advertising & Retention 
-date: 2020-01-01
+date: 2019-09-15
 tags: ["Advertising"]
 ---
 

@@ -5,7 +5,7 @@ description: Using insight to fuel ideas for a fan-engagement workshop with the 
 showcaseImage: brand.png
 category: case-study
 subCategory: Client Workshop
-date: 2018-05-21
+date: 2016-05-21
 tags: ["Workshop"]
 ---
 

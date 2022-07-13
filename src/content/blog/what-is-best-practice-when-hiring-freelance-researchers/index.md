@@ -1,9 +1,9 @@
 ---
 title: What is best practice when hiring freelance researchers?
 date: 2022-07-13
-description: We are delighted to have won the 2021, Market Research Society (MRS) independent consultancy award
+description: Guidelines defining how best to hire independent market researchers
 category: article
-showcaseImage: award.jpeg
+showcaseImage: puzzle.jpeg
 tags: ["Hiring"]
 ---
 

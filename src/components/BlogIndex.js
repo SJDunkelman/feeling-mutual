@@ -40,7 +40,7 @@ export default function BlogIndex({posts, title, upperHeading, subHeading}) {
       <div className="container px-4">
         <div className="max-w-2xl mx-auto mb-12 text-center text-maroon">
           {/*<span className="text-sm text-blue uppercase">{upperHeading}</span>*/}
-          <h2 className="mt-2 mb-4 text-4xl lg:text-5xl font-bold font-heading py-10">{title}</h2>
+          <h2 className="mt-2 mb-4 text-4xl lg:text-5xl font-bold font-heading py-8">{title}</h2>
           {/*<p className="text-lg leading-loose">{subHeading}</p>*/}
         </div>
         <div className="py-4">

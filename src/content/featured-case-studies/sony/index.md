@@ -5,7 +5,7 @@ description: Co-Creating a pan-european social content strategy for Sony Electro
 showcaseImage: brand.png
 category: case-study
 subCategory: Content Strategy
-date: 2017-12-09
+date: 2015-12-09
 tags: ["Social Content"]
 ---
 

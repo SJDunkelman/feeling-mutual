@@ -5,7 +5,7 @@ description: Using online qual to Inspire a new brand strategy and Cannes Lion w
 showcaseImage: brand.png
 category: case-study
 subCategory: Brand Strategy Development
-date: 2019-08-28
+date: 2018-08-28
 tags: ["Brand Strategy"]
 ---
 Setapp are a Ukrainian software company – voted in the top 10 most innovative companies by Fast Company.  They offer a subscription service for Mac Apps. They wanted to develop a new brand strategy and global advertising campaign, with just one week of fieldwork.
