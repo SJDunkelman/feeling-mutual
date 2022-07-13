@@ -5,7 +5,8 @@ module.exports = {
     'list-disc',
     'list-decimal',
     'list-inside',
-    'text-justify'
+    'text-justify',
+    'hover:text-tomato'
   ],
   theme: {
     container: {

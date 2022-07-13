@@ -10,6 +10,13 @@ tags: ["Mobile"]
 
 <br/>
 
+<div align="center">
+<img src="https://static.standard.co.uk/2022/04/12/10/Swingers%20-%2012th%20March%202018%20by%20Luke%20Dyson%20-%20IMG_0186.jpg?width=1200" alt="Person at Swingers minigolf" width=500>
+<p class="text-center font-light text-sm"><a href="https://www.standard.co.uk" class="font-semibold hover:text-tomato">The Standard</a></p>
+</div>
+
+<br/>
+
 Before their US expansion they wanted to check that the British concept would travel.  There were concerns that the name ‘Swingers’ might put off more conservative potential customers. And they wanted to find out if the menu and design format would work.
 
 <br/>

@@ -1,7 +1,7 @@
 ---
 title: How online co-creation helped inspire a new social content strategy for Sony Electronics in Europe
 showcaseTitle: Sony Electronics
-description: Case study on Sony Electronics
+description: Co-Creating a pan-european social content strategy for Sony Electronics through online qual
 showcaseImage: brand.png
 category: case-study
 subCategory: Content Strategy
@@ -13,7 +13,7 @@ Sony Electronics wanted to develop their content strategy across social media in
 
 <br/>
 
-We worked with the social media content agency to explore people’s needs, expectations and preferences for branded content. We did this through online qualitative research in Poland, Germany and the UK. Participants shared their favourite examples of content from different platforms and helped us optimise examples of branded content from Sony Electronics.
+We worked with the social media content agency to explore people’s needs, expectations and preferences for branded content.  We did this through online qualitative research in Poland, Germany and the UK.  Participants shared their favourite examples of content from different platforms and helped us optimise examples of branded content from Sony Electronics.
 
 <br/>
 
