@@ -4,7 +4,7 @@ import NavigationBar from "../components/NavigationBar"
 import Layout from "../components/Layout"
 import { graphql, useStaticQuery } from "gatsby"
 import Footer from "../components/Footer"
-import NewsletterSignup from "../components/NewsletterSignup"
+import GetInTouch from "../components/GetInTouch"
 import BlogIndex from "../components/BlogIndex"
 
 function Blog(){
@@ -38,7 +38,7 @@ function Blog(){
         <BlogIndex posts={allBlogPosts} />
       </Section>
       <Section cNames="bg-maroon py-6">
-        <NewsletterSignup textColour="offwhite" />
+        <GetInTouch textColour="offwhite" />
         <Footer textColour="offwhite" />
       </Section>
     </Layout>

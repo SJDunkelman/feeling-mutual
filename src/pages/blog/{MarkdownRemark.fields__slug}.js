@@ -8,7 +8,7 @@ import ActionBanner from "../../components/ActionBanner"
 import Footer from "../../components/Footer"
 import GatsbyImage from "gatsby-image"
 import TomProfilePic from "../../images/tom_profile.jpg";
-import NewsletterSignup from "../../components/NewsletterSignup"
+import GetInTouch from "../../components/GetInTouch"
 
 export default function BlogPostTemplate({ data: { markdownRemark } }) {
   const { frontmatter, html } = markdownRemark;
@@ -18,7 +18,7 @@ export default function BlogPostTemplate({ data: { markdownRemark } }) {
   var actionBanner;
   switch (frontmatter.category) {
     case "article":
-      actionBanner = <NewsletterSignup textColour="white" signUpButtonColour="pink" />;
+      actionBanner = <GetInTouch textColour="white" buttonColour="pink" />;
       break;
     case "case-study":
       actionBanner = <ActionBanner textColour="pink" />;

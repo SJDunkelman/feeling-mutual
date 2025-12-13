@@ -8,7 +8,7 @@ import Layout from "../components/Layout"
 import Section from "../components/Section"
 import AwardsMarquee from "../components/AwardsMarquee"
 import Footer from "../components/Footer"
-import NewsletterSignup from "../components/NewsletterSignup"
+import GetInTouch from "../components/GetInTouch"
 import NavigationBar from "../components/NavigationBar"
 
 import TimWhirledgeProfile from "../images/profiles/tim-whirledge.png";
@@ -154,7 +154,7 @@ function IndexPage () {
       </Section>
 
       <Section cNames="bg-pink py-6">
-        <NewsletterSignup />
+        <GetInTouch />
         <Footer textColour="gold" />
       </Section>
     </Layout>
