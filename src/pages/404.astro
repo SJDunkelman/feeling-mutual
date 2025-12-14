@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import NavigationBar from '../components/NavigationBar.astro';
+---
+
+<Layout title="404 - Page Not Found">
+  <Section class="bg-maroon text-pink min-h-screen">
+    <NavigationBar />
+    <div class="flex flex-col items-center justify-center py-32">
+      <h1 class="text-6xl font-bold text-sandybrown">404</h1>
+      <p class="text-2xl mt-4">Page not found</p>
+      <a href="/" class="mt-8 px-6 py-3 bg-sandybrown text-maroon rounded-lg hover:bg-sandybrown/75">
+        Go Home
+      </a>
+    </div>
+  </Section>
+</Layout>

@@ -1,0 +1,64 @@
+{
+  "$ref": "#/definitions/featured-case-studies",
+  "definitions": {
+    "featured-case-studies": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "showcaseTitle": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "showcaseImage": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "const": "case-study"
+        },
+        "subCategory": {
+          "type": "string"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "showcaseTitle",
+        "description",
+        "category",
+        "subCategory",
+        "date"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

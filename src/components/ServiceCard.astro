@@ -1,0 +1,19 @@
+---
+interface Props {
+  slug: string;
+  iconClasses: string;
+  title: string;
+  description: string;
+}
+
+const { slug, iconClasses, title, description } = Astro.props;
+---
+
+<a href={slug} class="no-underline">
+  <div class="group flex flex-col px-4 pt-8 pb-6 w-full max-w-2/5 h-52 md:h-56 rounded-lg mobile-only:w-80 lg:max-w-72 space-y-2 bg-white/[0.75] text-maroon hover:bg-pink hover:text-gold hover:drop-shadow-lg">
+    <i class={`${iconClasses} text-5xl text-tomato`}></i>
+    <h4 class="font-semibold text-xl">{title}</h4>
+    <p class="font-light group-hover:hidden">{description}</p>
+    <p class="hidden group-hover:block">Learn More <i class="fa-solid fa-arrow-right-long"></i></p>
+  </div>
+</a>

@@ -1,0 +1,113 @@
+---
+interface Props {
+  helloButton?: boolean;
+  helloBg?: string;
+  helloText?: string;
+  logoColour?: 'tomato' | 'maroon' | 'pink' | 'blue';
+  mobileNavText?: 'blue' | 'pink';
+}
+
+const {
+  helloButton = false,
+  helloBg = 'blue',
+  helloText = 'sandybrown',
+  logoColour = 'tomato',
+  mobileNavText = 'pink'
+} = Astro.props;
+
+// Logo styling based on color
+const logoStyles: Record<string, string> = {
+  tomato: 'w-52 tomato-logo white-hover',
+  maroon: 'w-40 maroon-logo gold-hover',
+  pink: 'w-40 pink-logo tomato-hover',
+  blue: 'w-40 blue-logo white-hover'
+};
+const logoClass = logoStyles[logoColour] || logoStyles.blue;
+
+// Mobile text colors
+const mobileText = mobileNavText === 'blue' ? 'blue' : 'pink';
+const hoverMobileText = 'white';
+---
+
+<header class="min-w-screen px-4">
+  <nav class="py-6">
+    <div class="flex justify-between items-center">
+      <a href="/">
+        <img class={`h-auto ${logoClass}`} src="/images/full-logo-black.svg" alt="Logo" />
+      </a>
+
+      <!-- Desktop Links -->
+      <ul class="hidden lg:flex items-center w-auto whitespace-nowrap lg:space-x-12">
+        <a href="/services">
+          <li class="no-underline font-light hover:text-white">SERVICES</li>
+        </a>
+        <a href="/training">
+          <li class="no-underline font-light hover:text-white">TRAINING</li>
+        </a>
+        <a href="/#clients">
+          <li class="no-underline font-light hover:text-white">CLIENTS</li>
+        </a>
+        <a href="/blog">
+          <li class="no-underline font-light hover:text-white">BLOG</li>
+        </a>
+      </ul>
+
+      {helloButton && (
+        <a href="mailto:tom@feelingmutual.com">
+          <button class={`hidden lg:flex rounded-lg py-2 px-4 whitespace-nowrap bg-${helloBg} text-${helloText} hover:text-white`}>
+            Say Hello
+          </button>
+        </a>
+      )}
+
+      <!-- Mobile Menu Button -->
+      <button class="lg:hidden" id="mobile-menu-btn">
+        <i class="fa-solid fa-bars text-2xl" id="menu-icon-open"></i>
+        <i class="fa-solid fa-xmark text-3xl hidden" id="menu-icon-close"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="lg:hidden space-y-4 mt-4 hidden" id="mobile-menu">
+      <ul class="bg-primary rounded-lg w-full text-center">
+        <a href="/services">
+          <li class={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>SERVICES</li>
+        </a>
+        <a href="/training">
+          <li class={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>TRAINING</li>
+        </a>
+        <a href="/#clients">
+          <li class={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>CLIENTS</li>
+        </a>
+        <a href="/blog">
+          <li class={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>BLOG</li>
+        </a>
+        <a href="mailto:tom@feelingmutual.com">
+          <li class={`py-2 font-bold bg-${helloBg} rounded-lg text-${mobileText} hover:text-${hoverMobileText}`}>SAY HELLO</li>
+        </a>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+
+    if (isOpen) {
+      mobileMenu?.classList.add('hidden');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+    } else {
+      mobileMenu?.classList.remove('hidden');
+      mobileMenu?.classList.add('flex', 'flex-col');
+      iconOpen?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+    }
+  });
+</script>

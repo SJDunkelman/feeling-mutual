@@ -1,0 +1,9 @@
+
+import __ASTRO_IMAGE_IMPORT_1CTWQR from "./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Fuefa%2Findex.md";
+import __ASTRO_IMAGE_IMPORT_ZL3paK from "./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Fbbc%2Findex.md";
+import __ASTRO_IMAGE_IMPORT_Z1dEHuv from "./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Feasy-jet%2Findex.md";
+import __ASTRO_IMAGE_IMPORT_2tHjda from "./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Fvirgin-pure%2Findex.md";
+import __ASTRO_IMAGE_IMPORT_Lomub from "./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Fset-app%2Findex.md";
+import __ASTRO_IMAGE_IMPORT_Z1VxXfO from "./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Fsony%2Findex.md";
+export default new Map([["./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Fuefa%2Findex.md", __ASTRO_IMAGE_IMPORT_1CTWQR], ["./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Fbbc%2Findex.md", __ASTRO_IMAGE_IMPORT_ZL3paK], ["./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Feasy-jet%2Findex.md", __ASTRO_IMAGE_IMPORT_Z1dEHuv], ["./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Fvirgin-pure%2Findex.md", __ASTRO_IMAGE_IMPORT_2tHjda], ["./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Fset-app%2Findex.md", __ASTRO_IMAGE_IMPORT_Lomub], ["./brand.png?astroContentImageFlag=&importer=src%2Fcontent%2Ffeatured-case-studies%2Fsony%2Findex.md", __ASTRO_IMAGE_IMPORT_Z1VxXfO]]);
+		

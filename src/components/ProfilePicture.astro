@@ -1,0 +1,17 @@
+---
+interface Props {
+  imageSrc?: string;
+  width?: number;
+  height?: number;
+}
+
+const { imageSrc, width = 20, height = 16 } = Astro.props;
+---
+
+{imageSrc && (
+  <img
+    class={`w-${width} h-${height} object-cover rounded-full`}
+    src={imageSrc}
+    alt="Profile Picture"
+  />
+)}

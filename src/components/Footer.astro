@@ -1,0 +1,39 @@
+---
+interface Props {
+  logoColour?: 'tomato' | 'maroon';
+  textColour?: string;
+}
+
+const { logoColour = 'tomato', textColour = 'gold' } = Astro.props;
+
+const logoClass = logoColour === 'maroon' ? 'maroon-logo gold-hover' : 'tomato-logo gold-hover';
+---
+
+<footer class={`flex flex-col space-y-6 items-center pt-10 pb-4 text-${textColour}`}>
+  <a href="/">
+    <img class={`h-auto w-16 ${logoClass}`} src="/images/symbol-black.svg" alt="Feeling Mutual Icon" />
+  </a>
+  <ul class="hidden lg:flex items-center w-auto space-x-12 pt-4">
+    <li><a href="/services" class="text-md no-underline text-light hover:text-white">SERVICES</a></li>
+    <li><a href="/training" class="text-md no-underline text-light hover:text-white">TRAINING</a></li>
+    <li><a href="/#clients" class="text-md no-underline text-light hover:text-white">CLIENTS</a></li>
+    <li><a href="/blog" class="text-md no-underline text-light hover:text-white">BLOG</a></li>
+    <li><a href="mailto:tom@feelingmutual.com" class="text-md no-underline text-light hover:text-white">SAY HELLO</a></li>
+  </ul>
+  <div class="lg:hidden">
+    <ul class="flex justify-center items-center w-auto space-x-6 md:space-x-12 pt-2">
+      <li><a href="/services" class="text-md no-underline text-light hover:text-white">SERVICES</a></li>
+      <li><a href="/training" class="text-md no-underline text-light hover:text-white">TRAINING</a></li>
+      <li><a href="/#clients" class="text-md no-underline text-light hover:text-white">CLIENTS</a></li>
+    </ul>
+    <ul class="flex justify-center items-center w-auto space-x-6 md:space-x-12 pt-2">
+      <li><a href="/blog" class="text-md no-underline text-light hover:text-white">BLOG</a></li>
+      <li><a href="mailto:tom@feelingmutual.com" class="text-md no-underline text-light hover:text-white">SAY HELLO</a></li>
+    </ul>
+  </div>
+  <div class={`space-x-8 pb-6 text-${textColour}`}>
+    <a href="https://twitter.com/tomwoodnutt"><i class="fa-brands fa-twitter text-2xl opacity-50 hover:opacity-100"></i></a>
+    <a href="https://www.linkedin.com/company/feeling-mutual-limited/"><i class="fa-brands fa-linkedin text-2xl opacity-50 hover:opacity-100"></i></a>
+    <a href="mailto:tom@feelingmutual.com"><i class="fa-solid fa-envelope text-2xl opacity-50 hover:opacity-100"></i></a>
+  </div>
+</footer>

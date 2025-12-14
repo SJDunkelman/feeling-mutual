@@ -1,0 +1,40 @@
+---
+interface Props {
+  headline?: string;
+  subheading?: string;
+  textColour?: string;
+  buttonColour?: 'pink' | 'maroon' | 'default';
+}
+
+const {
+  headline = "Get in Touch",
+  subheading = "We'd love to hear from you",
+  textColour = "gold",
+  buttonColour = "default"
+} = Astro.props;
+
+let buttonClasses = "rounded-lg py-3 px-6 font-medium transition duration-200 hover:opacity-75";
+switch (buttonColour) {
+  case "pink":
+    buttonClasses += " bg-pink text-white";
+    break;
+  case "maroon":
+    buttonClasses += " bg-maroon text-sandybrown";
+    break;
+  default:
+    buttonClasses += " bg-red-400 text-white";
+    break;
+}
+---
+
+<section class="pt-10">
+  <div class={`flex flex-col space-y-4 items-center justify-center text-${textColour}`}>
+    <h3 class="text-5xl font-semibold font-heading pb-4">{headline}</h3>
+    <p class="pb-4 font-light text-xl">{subheading}</p>
+    <a href="mailto:tom@feelingmutual.com">
+      <button class={buttonClasses}>
+        Get in Touch
+      </button>
+    </a>
+  </div>
+</section>

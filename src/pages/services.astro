@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import NavigationBar from '../components/NavigationBar.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/react/ContactForm';
+---
+
+<Layout title="Services | Feeling Mutual" description="Online qualitative research services - Full Service, Project Design, Moderation and Reporting">
+  <Section class="bg-maroon text-pink">
+    <NavigationBar helloButton />
+    <div class="py-16 lg:py-24">
+      <p class="font-light text-sandybrown">Our Services</p>
+      <h1 class="text-5xl md:text-6xl font-semibold text-sandybrown mt-2">Online Qualitative Research</h1>
+      <p class="text-xl font-light mt-4 max-w-2xl">We provide a range of online qualitative research services through our international network of senior consultants and specialist partners.</p>
+    </div>
+  </Section>
+
+  <Section class="bg-offwhite py-16">
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Services List -->
+      <div class="space-y-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <i class="fa-light fa-bell-concierge text-4xl text-tomato mr-4"></i>
+            <h3 class="text-2xl font-semibold text-maroon">Full Service</h3>
+          </div>
+          <p class="text-gold font-light">We can offer everything, from design, to set up, moderation and reporting. Our full service approach ensures seamless execution from start to finish.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <i class="fa-light fa-compass-drafting text-4xl text-tomato mr-4"></i>
+            <h3 class="text-2xl font-semibold text-maroon">Project Design / Set Up</h3>
+          </div>
+          <p class="text-gold font-light">Our set-up and design inspires deep engagement, vivid colour and strong validity. We create research frameworks tailored to your specific needs.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <i class="fa-light fa-comment-arrow-up-right text-4xl text-tomato mr-4"></i>
+            <h3 class="text-2xl font-semibold text-maroon">Moderation / Reporting</h3>
+          </div>
+          <p class="text-gold font-light">We make strategic discussions and craft directional reports that provide actionable insights for your business decisions.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <i class="fa-light fa-graduation-cap text-4xl text-tomato mr-4"></i>
+            <h3 class="text-2xl font-semibold text-maroon">Training</h3>
+          </div>
+          <p class="text-gold font-light">We upskill researchers to do more insightful and profitable online qual. <a href="/training" class="text-tomato underline">Learn more about our training →</a></p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="bg-green p-8 rounded-lg">
+        <h2 class="text-3xl font-semibold text-sandybrown mb-6">Get in touch to find out more</h2>
+        <ContactForm client:visible textColour="sandybrown" />
+      </div>
+    </div>
+  </Section>
+
+  <Section class="bg-maroon py-6">
+    <Footer textColour="pink" />
+  </Section>
+</Layout>

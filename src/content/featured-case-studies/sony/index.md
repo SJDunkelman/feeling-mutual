@@ -2,7 +2,7 @@
 title: How online co-creation helped inspire a new social content strategy for Sony Electronics in Europe
 showcaseTitle: Sony Electronics
 description: Co-Creating a pan-european social content strategy for Sony Electronics through online qual
-showcaseImage: brand.png
+showcaseImage: ./brand.png
 category: case-study
 subCategory: Content Strategy
 date: 2015-12-09

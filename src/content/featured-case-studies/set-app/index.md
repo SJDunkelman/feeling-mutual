@@ -2,7 +2,7 @@
 title: How our online qual helped Setapp win a Cannes Lion for Advertising
 showcaseTitle: Set App
 description: Using online qual to Inspire a new brand strategy and Cannes Lion winning ad campaign for Setapp
-showcaseImage: brand.png
+showcaseImage: ./brand.png
 category: case-study
 subCategory: Brand Strategy Development
 date: 2018-08-28

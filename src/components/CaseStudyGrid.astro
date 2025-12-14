@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+
+const caseStudies = await getCollection('featured-case-studies');
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-8">
+  {caseStudies.map((study) => (
+    <a href={`/blog/${study.slug}`} class="group relative block overflow-hidden rounded-lg aspect-square">
+      {study.data.showcaseImage && (
+        <img
+          src={study.data.showcaseImage.src}
+          alt={study.data.showcaseTitle}
+          class="w-full h-full object-contain bg-white p-4 group-hover:scale-105 transition-transform duration-300"
+        />
+      )}
+      <div class="absolute inset-0 bg-maroon/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-4">
+        <h3 class="text-xl font-semibold text-sandybrown">{study.data.showcaseTitle}</h3>
+        <p class="text-pink text-sm mt-2">Read the {study.data.subCategory} Case Study</p>
+      </div>
+    </a>
+  ))}
+</div>

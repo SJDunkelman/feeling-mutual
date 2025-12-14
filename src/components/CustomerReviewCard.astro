@@ -1,0 +1,27 @@
+---
+import ProfilePicture from './ProfilePicture.astro';
+
+interface Props {
+  headline: string;
+  subheading?: string;
+  name: string;
+  jobRole: string;
+  company: string;
+  imageSrc?: string;
+}
+
+const { headline, subheading, name, jobRole, company, imageSrc } = Astro.props;
+---
+
+<div class="flex flex-col rounded-lg text-midnight pt-6 pb-2 px-4 space-y-2 bg-pink hover:drop-shadow-2xl">
+  <i class="fa-solid fa-quote-left text-6xl opacity-25" />
+  <p class={`font-semibold ${subheading ? 'text-lg' : ''}`}>{headline}</p>
+  {subheading && <p class="font-light">{subheading}</p>}
+  <div class="flex items-center pt-4">
+    <ProfilePicture imageSrc={imageSrc} />
+    <div class="flex flex-col pl-4 font-semibold">
+      <p class="text-sm">{name}</p>
+      <p class="text-md">{jobRole}, {company}</p>
+    </div>
+  </div>
+</div>

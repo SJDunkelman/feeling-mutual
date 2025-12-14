@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import NavigationBar from '../components/NavigationBar.astro';
+import Footer from '../components/Footer.astro';
+import ContactForm from '../components/react/ContactForm';
+---
+
+<Layout title="Training | Feeling Mutual" description="Online qualitative research training courses - upskill your team in digital ethnography and online qual methods">
+  <Section class="bg-blue text-pink">
+    <NavigationBar helloButton helloBg="pink" helloText="blue" logoColour="pink" />
+    <div class="py-16 lg:py-24">
+      <p class="font-light">Training</p>
+      <h1 class="text-5xl md:text-6xl font-semibold mt-2">Online Qualitative Research Training</h1>
+      <p class="text-xl font-light mt-4 max-w-2xl">Upskill your team to conduct more insightful and profitable online qualitative research.</p>
+    </div>
+  </Section>
+
+  <Section class="bg-offwhite py-16">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-4xl font-semibold text-gold mb-8 text-center">Course Modules</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <span class="w-10 h-10 bg-tomato text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
+            <h3 class="text-2xl font-semibold text-maroon">Win</h3>
+          </div>
+          <p class="text-gold font-light">Learn how to pitch and win online qualitative projects. Understand client needs and position your offering effectively.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <span class="w-10 h-10 bg-tomato text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
+            <h3 class="text-2xl font-semibold text-maroon">Plan</h3>
+          </div>
+          <p class="text-gold font-light">Design effective online qualitative research projects. Choose the right methods and platforms for your objectives.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <span class="w-10 h-10 bg-tomato text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
+            <h3 class="text-2xl font-semibold text-maroon">Run</h3>
+          </div>
+          <p class="text-gold font-light">Execute online qualitative projects with confidence. Master moderation techniques and participant engagement.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <div class="flex items-center mb-4">
+            <span class="w-10 h-10 bg-tomato text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
+            <h3 class="text-2xl font-semibold text-maroon">Psychology</h3>
+          </div>
+          <p class="text-gold font-light">Understand the psychology behind online behaviour. Apply behavioural science to improve research quality.</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section class="bg-green py-16" id="contact">
+    <div class="max-w-lg mx-auto">
+      <h2 class="text-3xl font-semibold text-sandybrown mb-2 text-center">Interested in Training?</h2>
+      <p class="text-sandybrown font-light text-center mb-8">Get in touch to find out more about our training programmes.</p>
+      <ContactForm client:visible textColour="sandybrown" />
+    </div>
+  </Section>
+
+  <Section class="bg-blue py-6">
+    <Footer textColour="pink" logoColour="maroon" />
+  </Section>
+</Layout>

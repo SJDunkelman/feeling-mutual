@@ -1,0 +1,144 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import NavigationBar from '../components/NavigationBar.astro';
+import Footer from '../components/Footer.astro';
+import GetInTouch from '../components/GetInTouch.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CustomerReviewCard from '../components/CustomerReviewCard.astro';
+import CaseStudyGrid from '../components/CaseStudyGrid.astro';
+
+// Import profile images
+import TimWhirledgeProfile from '../images/profiles/tim-whirledge.png';
+import TomStazickerProfile from '../images/profiles/tom-stazicker.png';
+import FranWaltonProfile from '../images/profiles/fran-walton.png';
+import TomWoodnuttProfile from '../images/tom_full.jpg';
+---
+
+<Layout title="Feeling Mutual | Agile Online Qualitative Research">
+  <Section class="bg-maroon text-pink">
+    <NavigationBar helloButton />
+
+    <div class="flex flex-col justify-center items-center py-8 md:py-32 lg:py-[9rem] space-y-4 min-h-[60vh] md:min-h-[70vh]">
+      <h1 class="text-6xl md:text-[4rem] text-center md:text-left font-semibold text-sandybrown">Agile Online Qualitative Research</h1>
+      <h4 class="text-2xl font-extralight text-center md:text-left">Inspiring more mutualistic relationships between brands and people</h4>
+      <div class="space-x-6 pt-6">
+        <a href="/services">
+          <button class="rounded-md font-semibold py-2 px-4 bg-sandybrown text-maroon hover:bg-sandybrown/75 hover:text-white">
+            Research
+          </button>
+        </a>
+        <a href="/training">
+          <button class="rounded-md font-semibold py-2 px-4 bg-pink text-maroon hover:bg-pink/75 hover:text-white">
+            Training
+          </button>
+        </a>
+      </div>
+    </div>
+  </Section>
+
+  <Section id="what-we-do" class="flex mobile-only:flex-col py-20 bg-green mobile-only:text-center">
+    <div class="flex flex-col w-full lg:w-1/2 space-y-6 text-sandybrown lg:pr-8">
+      <p class="font-light">What We Do</p>
+      <h2 class="text-5xl font-semibold">Curate authentic conversations between brands and people</h2>
+      <p class="text-lg font-light">We provide a range of online qualitative research services through our international network of senior consultants and specialist partners.</p>
+      <p class="text-lg font-light">We tackle diverse research briefs, from brand and strategic development to communications development, innovation, customer experience, service design and UX.</p>
+    </div>
+    <div class="no-desktop:flex no-desktop:flex-col justify-center items-center lg:grid lg:grid-cols-2 gap-2 w-full lg:w-1/2 pt-6">
+      <ServiceCard slug="/services" iconClasses="fa-light fa-bell-concierge" title="Full Service"
+                   description="We can offer everything, from design, to set up, moderation and reporting" />
+      <ServiceCard slug="/services" iconClasses="fa-light fa-compass-drafting" title="Project Design / Set Up"
+                   description="Our set-up and design, inspires deep engagement, vivid colour and strong validity" />
+      <ServiceCard slug="/services" iconClasses="fa-light fa-comment-arrow-up-right" title="Moderation / Reporting"
+                   description="We make strategic discussions and craft directional reports" />
+      <ServiceCard slug="/services" iconClasses="fa-light fa-graduation-cap" title="Training"
+                   description="We upskill researchers to do more insightful and profitable online qual" />
+    </div>
+  </Section>
+
+  <Section id="how-we-work" class="flex flex-col justify-center items-center py-12 bg-offwhite mobile-only:text-center">
+    <p class="font-light pb-6 text-gold">How We Work</p>
+    <h2 class="text-5xl font-semibold pb-16 text-gold text-center">We inform agile workflows, with authentic insights that inspire better decisions</h2>
+    <div class="grid grid-cols-1 justify-center mobile-only:space-y-4 md:grid-cols-3 md:space-x-6">
+      <a href="/blog/what-does-agile-online-qualitative-research-mean">
+        <div class="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
+          <i class="fa-light fa-recycle text-6xl"></i>
+          <h3 class="text-4xl font-semibold text-maroon">Agile</h3>
+          <p class="font-light text-lg">Research is only agile if it is <span class="font-semibold">collaborative</span></p>
+        </div>
+      </a>
+      <a href="/blog/what-makes-online-qual-more-authentic-than-traditional-methods">
+        <div class="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
+          <i class="fa-light fa-badge-check text-6xl"></i>
+          <h3 class="text-4xl font-semibold text-maroon">Authentic</h3>
+          <p class="font-light text-lg">Research can only be <span class="font-semibold">trusted</span> if it is authentic</p>
+        </div>
+      </a>
+      <a href="/blog/why-is-online-qual-more-inspiring-than-traditional-methods">
+        <div class="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
+          <i class="fa-light fa-heart-pulse text-6xl"></i>
+          <h3 class="text-4xl font-semibold text-maroon">Inspiring</h3>
+          <p class="font-light text-lg">Research is only valuable if it inspires <span class="font-semibold">better decisions</span></p>
+        </div>
+      </a>
+    </div>
+  </Section>
+
+  <Section id="clients" class="py-16 bg-gold">
+    <p class="font-light pb-6 text-offwhite">Case Studies</p>
+    <h2 class="mobile-only:text-4xl text-5xl text-offwhite font-semibold pb-6">Examples of our work</h2>
+    <CaseStudyGrid />
+    <p class="font-light text-xl text-center text-offwhite">We work across categories, from <span class="font-semibold">Technology</span> to <span class="font-semibold">Media</span>, <span class="font-semibold">FMCG</span>, <span class="font-semibold">Retail</span> and more.</p>
+  </Section>
+
+  <Section class="py-16 bg-blue">
+    <p class="font-light pb-6 text-pink">Our Clients</p>
+    <div class="flex mobile-only:space-x-4 justify-between items-center text-pink">
+      <h2 class="mobile-only:text-4xl text-5xl font-semibold">What clients say about us</h2>
+      <a href="/category/case-study"><p>Read More <i class="fa-solid fa-arrow-right-long pl-2" /></p></a>
+    </div>
+    <div class="flex no-desktop:flex-col no-desktop:space-y-6 space-x-2 lg:space-x-6 pt-10 lg:px-12">
+      <CustomerReviewCard headline="50% increase in sales"
+                          subheading="After acting on their recommendations we had an uplift of over 50% in website sales and reengineered our retention strategy."
+                          name="Tom Stazicker"
+                          jobRole="CEO"
+                          imageSrc={TomStazickerProfile.src}
+                          company="Virgin Pure" />
+      <CustomerReviewCard headline="Inspired a Cannes Lion Award"
+                          subheading="Feeling Mutual helped develop a brand strategy that went on to achieve a Cannes Lion award and rapid growth for our client"
+                          name="Tim Whirledge"
+                          imageSrc={TimWhirledgeProfile.src}
+                          jobRole="Head of Strategy"
+                          company="McCann Manchester" />
+      <CustomerReviewCard headline="Upskilled our global workforce"
+                          subheading="They truly get how insight inspires agile innovation.  The training across our global offices helped us upskill in digital ethnography"
+                          name="Fran Walton"
+                          imageSrc={FranWaltonProfile.src}
+                          jobRole="Head of Insight"
+                          company="Publicis Sapient" />
+    </div>
+  </Section>
+
+  <Section class="flex flex-col py-16 px-12 items-center justify-center bg-sandybrown mobile-only:text-center">
+    <div class="w-full lg:w-2/5 lg:mr-6 space-y-2 items-start text-green">
+      <h4 class="text-5xl font-semibold">Tom Woodnutt</h4>
+      <p class="text-lg font-bold">Founder</p>
+      <div class="flex justify-center">
+        <img class="object-contain h-auto w-48 rounded-lg" src={TomWoodnuttProfile.src} alt="Tom Woodnutt founder of Feeling Mutual" />
+      </div>
+      <p class="font-light text-justify pt-6">
+        My name is Tom Woodnutt founder of <span class="font-semibold">Feeling Mutual.</span><br/><br/>
+        We are an <span class="font-semibold">award-winning</span> insight consultancy, specialising in <span class="font-semibold">online and mobile qualitative</span> research.<br/><br/>
+        Our purpose is to help brands nurture more <span class="font-semibold">mutualistic relationships</span> with people.<br/><br/>
+        In nature, mutuality refers to <span class="font-semibold">symbiotic relationships</span> between two species. Each one creates shared value for the other - which results in a sustainable, mutually beneficial relationship.<br/><br/>
+        Mutuality requires <span class="font-semibold">authentic insight</span> into what people actually need, think and feel.  Digital qualitative research tools are <span class="font-semibold">more effective</span> at generating insight that is valid, vivid and feeds directly into agile workflows<br/><br/>
+        To <span class="font-semibold">find out more</span> explore our blog and feel free to get in touch.
+      </p>
+    </div>
+  </Section>
+
+  <Section class="bg-pink py-6">
+    <GetInTouch />
+    <Footer textColour="gold" />
+  </Section>
+</Layout>

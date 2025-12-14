@@ -2,7 +2,7 @@
 title: Inspiring fan engagement workshop for the UEFA Champions League Final sponsors
 showcaseTitle: UEFA
 description: Using insight to fuel ideas for a fan-engagement workshop with the UEFA Champions League sponsors  
-showcaseImage: brand.png
+showcaseImage: ./brand.png
 category: case-study
 subCategory: Client Workshop
 date: 2016-05-21

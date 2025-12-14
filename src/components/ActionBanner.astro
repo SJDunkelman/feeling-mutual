@@ -1,0 +1,23 @@
+---
+interface Props {
+  headline?: string;
+  subheading?: string;
+  textColour?: string;
+}
+
+const {
+  headline = "Get Access to free Whitepapers, Research\n& More",
+  subheading = "Download more in depth handbooks and whitepapers for free with your email.",
+  textColour = "pink"
+} = Astro.props;
+---
+
+<section class="pt-10">
+  <div class={`flex flex-col space-y-4 flex-wrap text-center items-center justify-center text-${textColour}`}>
+    <h3 class="text-5xl font-semibold whitespace-pre-line font-heading pb-4">{headline}</h3>
+    <p class="font-light text-xl">{subheading}</p>
+    <a href="/downloads">
+      <p class="text-lg">Find out more <i class="fa-solid fa-arrow-right-long text-lg" /></p>
+    </a>
+  </div>
+</section>

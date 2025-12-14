@@ -2,7 +2,7 @@
 title: Easy Jet
 showcaseTitle: Easy Jet
 description: Online and mobile qualitative research tracking customer journey to inspire EasyJet advertising.
-showcaseImage: brand.png
+showcaseImage: ./brand.png
 category: case-study
 subCategory: Customer Journey
 date: 2020-01-01

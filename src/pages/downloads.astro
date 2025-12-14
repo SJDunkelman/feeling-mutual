@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Section from '../components/Section.astro';
+import NavigationBar from '../components/NavigationBar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Downloads | Feeling Mutual" description="Free whitepapers and research resources">
+  <Section class="bg-gold text-offwhite">
+    <NavigationBar logoColour="maroon" />
+    <div class="py-16 lg:py-24">
+      <p class="font-light">Resources</p>
+      <h1 class="text-5xl md:text-6xl font-semibold mt-2">Free Downloads</h1>
+      <p class="text-xl font-light mt-4 max-w-2xl">Access our collection of whitepapers, research guides, and insights.</p>
+    </div>
+  </Section>
+
+  <Section class="bg-offwhite py-16">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold text-maroon mb-4">Research Insight 2022</h3>
+          <p class="text-gold font-light mb-4">Our annual research insight report covering trends and best practices in online qualitative research.</p>
+          <a href="mailto:tom@feelingmutual.com?subject=Request: Research Insight 2022" class="inline-block px-6 py-3 bg-tomato text-white rounded-lg hover:bg-tomato/75">
+            Request Download
+          </a>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-2xl font-semibold text-maroon mb-4">The State of Qual Research 2021</h3>
+          <p class="text-gold font-light mb-4">Comprehensive overview of the qualitative research landscape and emerging methodologies.</p>
+          <a href="mailto:tom@feelingmutual.com?subject=Request: State of Qual Research 2021" class="inline-block px-6 py-3 bg-tomato text-white rounded-lg hover:bg-tomato/75">
+            Request Download
+          </a>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section class="bg-gold py-6">
+    <Footer textColour="offwhite" logoColour="maroon" />
+  </Section>
+</Layout>

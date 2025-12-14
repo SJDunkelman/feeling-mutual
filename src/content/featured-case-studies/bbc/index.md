@@ -2,7 +2,7 @@
 title: BBC
 showcaseTitle: BBC
 description: Online qualitative research exploring how young people share breaking news across  social media for BBC Worldwide
-showcaseImage: brand.png
+showcaseImage: ./brand.png
 category: case-study
 subCategory: Media Consumption
 date: 2015-06-04
