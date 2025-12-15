@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
 import NavigationBar from '../components/NavigationBar.astro';
 import Footer from '../components/Footer.astro';
-import ContactForm from '../components/react/ContactForm';
 ---
 
 <Layout title="Services | Feeling Mutual" description="Online qualitative research services - Full Service, Project Design, Moderation and Reporting">
@@ -53,10 +52,14 @@ import ContactForm from '../components/react/ContactForm';
         </div>
       </div>
 
-      <!-- Contact Form -->
-      <div class="bg-green p-8 rounded-lg">
+      <!-- Contact -->
+      <div class="bg-green p-8 rounded-lg flex flex-col items-center justify-center text-center">
         <h2 class="text-3xl font-semibold text-sandybrown mb-6">Get in touch to find out more</h2>
-        <ContactForm client:visible textColour="sandybrown" />
+        <a href="mailto:tom@feelingmutual.com?subject=Services%20Enquiry">
+          <button class="rounded-lg py-3 px-6 font-medium transition duration-200 hover:opacity-75 bg-tomato text-white">
+            Get in Touch
+          </button>
+        </a>
       </div>
     </div>
   </Section>

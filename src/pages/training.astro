@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
 import NavigationBar from '../components/NavigationBar.astro';
 import Footer from '../components/Footer.astro';
-import ContactForm from '../components/react/ContactForm';
 ---
 
 <Layout title="Training | Feeling Mutual" description="Online qualitative research training courses - upskill your team in digital ethnography and online qual methods">
@@ -57,10 +56,14 @@ import ContactForm from '../components/react/ContactForm';
   </Section>
 
   <Section class="bg-green py-16" id="contact">
-    <div class="max-w-lg mx-auto">
-      <h2 class="text-3xl font-semibold text-sandybrown mb-2 text-center">Interested in Training?</h2>
-      <p class="text-sandybrown font-light text-center mb-8">Get in touch to find out more about our training programmes.</p>
-      <ContactForm client:visible textColour="sandybrown" />
+    <div class="max-w-lg mx-auto text-center">
+      <h2 class="text-3xl font-semibold text-sandybrown mb-2">Interested in Training?</h2>
+      <p class="text-sandybrown font-light mb-8">Get in touch to find out more about our training programmes.</p>
+      <a href="mailto:tom@feelingmutual.com?subject=Training%20Enquiry">
+        <button class="rounded-lg py-3 px-6 font-medium transition duration-200 hover:opacity-75 bg-tomato text-white">
+          Get in Touch
+        </button>
+      </a>
     </div>
   </Section>
 
