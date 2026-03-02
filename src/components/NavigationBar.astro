@@ -1,4 +1,6 @@
 ---
+import { Menu, X } from '@lucide/astro';
+
 interface Props {
   helloButton?: boolean;
   helloBg?: string;
@@ -62,8 +64,8 @@ const hoverMobileText = 'white';
 
       <!-- Mobile Menu Button -->
       <button class="lg:hidden" id="mobile-menu-btn">
-        <i class="fa-solid fa-bars text-2xl" id="menu-icon-open"></i>
-        <i class="fa-solid fa-xmark text-3xl hidden" id="menu-icon-close"></i>
+        <span id="menu-icon-open"><Menu size={24} /></span>
+        <span id="menu-icon-close" class="hidden"><X size={28} /></span>
       </button>
     </div>
 

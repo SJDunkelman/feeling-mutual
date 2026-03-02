@@ -49,6 +49,12 @@ typings/
 .cache/
 public
 
+# Build output
+dist/
+
+# Netlify
+.netlify/
+
 # Mac files
 .DS_Store
 .idea/

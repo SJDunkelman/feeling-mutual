@@ -5,6 +5,7 @@ import Section from '../../components/Section.astro';
 import NavigationBar from '../../components/NavigationBar.astro';
 import Footer from '../../components/Footer.astro';
 import GetInTouch from '../../components/GetInTouch.astro';
+import { ArrowLeft, ArrowRight } from '@lucide/astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -42,7 +43,7 @@ function truncateText(text: string, maxLength: number): string {
       <p class="text-gold font-light mb-2">Category</p>
       <h1 class="text-5xl font-semibold text-gold mb-4">{categoryDisplay}</h1>
       <a href="/blog" class="text-tomato hover:underline">
-        <i class="fa-solid fa-arrow-left mr-2"></i> Back to all posts
+        <ArrowLeft class="inline w-4 h-4 mr-2" /> Back to all posts
       </a>
     </div>
 
@@ -53,7 +54,7 @@ function truncateText(text: string, maxLength: number): string {
           <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
             {post.data.showcaseImage && (
               <img
-                src={`/content/blog/${post.slug}/${post.data.showcaseImage}`}
+                src={post.data.showcaseImage.src}
                 alt={post.data.title}
                 class="w-full h-48 object-cover"
               />
@@ -64,7 +65,7 @@ function truncateText(text: string, maxLength: number): string {
                 {post.data.title}
               </h3>
               <p class="text-gold font-light mt-2">{truncateText(post.data.description, 100)}</p>
-              <p class="text-tomato mt-4 font-medium">Read More <i class="fa-solid fa-arrow-right-long"></i></p>
+              <p class="text-tomato mt-4 font-medium">Read More <ArrowRight class="inline w-4 h-4" /></p>
             </div>
           </div>
         </a>

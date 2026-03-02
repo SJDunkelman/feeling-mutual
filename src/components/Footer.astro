@@ -1,4 +1,6 @@
 ---
+import { Twitter, Linkedin, Mail } from '@lucide/astro';
+
 interface Props {
   logoColour?: 'tomato' | 'maroon';
   textColour?: string;
@@ -32,8 +34,8 @@ const logoClass = logoColour === 'maroon' ? 'maroon-logo gold-hover' : 'tomato-l
     </ul>
   </div>
   <div class={`space-x-8 pb-6 text-${textColour}`}>
-    <a href="https://twitter.com/tomwoodnutt"><i class="fa-brands fa-twitter text-2xl opacity-50 hover:opacity-100"></i></a>
-    <a href="https://www.linkedin.com/company/feeling-mutual-limited/"><i class="fa-brands fa-linkedin text-2xl opacity-50 hover:opacity-100"></i></a>
-    <a href="mailto:tom@feelingmutual.com"><i class="fa-solid fa-envelope text-2xl opacity-50 hover:opacity-100"></i></a>
+    <a href="https://twitter.com/tomwoodnutt" class="opacity-50 hover:opacity-100"><Twitter size={24} /></a>
+    <a href="https://www.linkedin.com/company/feeling-mutual-limited/" class="opacity-50 hover:opacity-100"><Linkedin size={24} /></a>
+    <a href="mailto:tom@feelingmutual.com" class="opacity-50 hover:opacity-100"><Mail size={24} /></a>
   </div>
 </footer>

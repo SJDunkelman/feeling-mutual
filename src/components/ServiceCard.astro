@@ -1,19 +1,29 @@
 ---
+import { ConciergeBell, DraftingCompass, MessageSquareShare, GraduationCap, ArrowRight } from '@lucide/astro';
+
+const icons: Record<string, any> = {
+  'concierge-bell': ConciergeBell,
+  'drafting-compass': DraftingCompass,
+  'message-share': MessageSquareShare,
+  'graduation-cap': GraduationCap,
+};
+
 interface Props {
   slug: string;
-  iconClasses: string;
+  icon: string;
   title: string;
   description: string;
 }
 
-const { slug, iconClasses, title, description } = Astro.props;
+const { slug, icon, title, description } = Astro.props;
+const Icon = icons[icon];
 ---
 
 <a href={slug} class="no-underline">
   <div class="group flex flex-col px-4 pt-8 pb-6 w-full max-w-2/5 h-52 md:h-56 rounded-lg mobile-only:w-80 lg:max-w-72 space-y-2 bg-white/[0.75] text-maroon hover:bg-pink hover:text-gold hover:drop-shadow-lg">
-    <i class={`${iconClasses} text-5xl text-tomato`}></i>
+    {Icon && <Icon size={48} class="text-tomato" />}
     <h4 class="font-semibold text-xl">{title}</h4>
     <p class="font-light group-hover:hidden">{description}</p>
-    <p class="hidden group-hover:block">Learn More <i class="fa-solid fa-arrow-right-long"></i></p>
+    <p class="hidden group-hover:block">Learn More <ArrowRight class="inline w-4 h-4" /></p>
   </div>
 </a>

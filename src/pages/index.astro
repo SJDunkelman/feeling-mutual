@@ -7,6 +7,7 @@ import GetInTouch from '../components/GetInTouch.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CustomerReviewCard from '../components/CustomerReviewCard.astro';
 import CaseStudyGrid from '../components/CaseStudyGrid.astro';
+import { Recycle, BadgeCheck, HeartPulse, ArrowRight } from '@lucide/astro';
 
 // Import profile images
 import TimWhirledgeProfile from '../images/profiles/tim-whirledge.png';
@@ -45,13 +46,13 @@ import TomWoodnuttProfile from '../images/tom_full.jpg';
       <p class="text-lg font-light">We tackle diverse research briefs, from brand and strategic development to communications development, innovation, customer experience, service design and UX.</p>
     </div>
     <div class="no-desktop:flex no-desktop:flex-col justify-center items-center lg:grid lg:grid-cols-2 gap-2 w-full lg:w-1/2 pt-6">
-      <ServiceCard slug="/services" iconClasses="fa-light fa-bell-concierge" title="Full Service"
+      <ServiceCard slug="/services" icon="concierge-bell" title="Full Service"
                    description="We can offer everything, from design, to set up, moderation and reporting" />
-      <ServiceCard slug="/services" iconClasses="fa-light fa-compass-drafting" title="Project Design / Set Up"
+      <ServiceCard slug="/services" icon="drafting-compass" title="Project Design / Set Up"
                    description="Our set-up and design, inspires deep engagement, vivid colour and strong validity" />
-      <ServiceCard slug="/services" iconClasses="fa-light fa-comment-arrow-up-right" title="Moderation / Reporting"
+      <ServiceCard slug="/services" icon="message-share" title="Moderation / Reporting"
                    description="We make strategic discussions and craft directional reports" />
-      <ServiceCard slug="/services" iconClasses="fa-light fa-graduation-cap" title="Training"
+      <ServiceCard slug="/services" icon="graduation-cap" title="Training"
                    description="We upskill researchers to do more insightful and profitable online qual" />
     </div>
   </Section>
@@ -62,21 +63,21 @@ import TomWoodnuttProfile from '../images/tom_full.jpg';
     <div class="grid grid-cols-1 justify-center mobile-only:space-y-4 md:grid-cols-3 md:space-x-6">
       <a href="/blog/what-does-agile-online-qualitative-research-mean">
         <div class="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
-          <i class="fa-light fa-recycle text-6xl"></i>
+          <Recycle size={64} />
           <h3 class="text-4xl font-semibold text-maroon">Agile</h3>
           <p class="font-light text-lg">Research is only agile if it is <span class="font-semibold">collaborative</span></p>
         </div>
       </a>
       <a href="/blog/what-makes-online-qual-more-authentic-than-traditional-methods">
         <div class="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
-          <i class="fa-light fa-badge-check text-6xl"></i>
+          <BadgeCheck size={64} />
           <h3 class="text-4xl font-semibold text-maroon">Authentic</h3>
           <p class="font-light text-lg">Research can only be <span class="font-semibold">trusted</span> if it is authentic</p>
         </div>
       </a>
       <a href="/blog/why-is-online-qual-more-inspiring-than-traditional-methods">
         <div class="flex flex-col items-center space-y-6 text-center w-72 text-gold hover:drop-shadow-md hover:bg-offwhite/[0.50] rounded-lg py-4">
-          <i class="fa-light fa-heart-pulse text-6xl"></i>
+          <HeartPulse size={64} />
           <h3 class="text-4xl font-semibold text-maroon">Inspiring</h3>
           <p class="font-light text-lg">Research is only valuable if it inspires <span class="font-semibold">better decisions</span></p>
         </div>
@@ -95,7 +96,7 @@ import TomWoodnuttProfile from '../images/tom_full.jpg';
     <p class="font-light pb-6 text-pink">Our Clients</p>
     <div class="flex mobile-only:space-x-4 justify-between items-center text-pink">
       <h2 class="mobile-only:text-4xl text-5xl font-semibold">What clients say about us</h2>
-      <a href="/category/case-study"><p>Read More <i class="fa-solid fa-arrow-right-long pl-2" /></p></a>
+      <a href="/category/case-study"><p>Read More <ArrowRight class="inline w-4 h-4 ml-2" /></p></a>
     </div>
     <div class="flex no-desktop:flex-col no-desktop:space-y-6 space-x-2 lg:space-x-6 pt-10 lg:px-12">
       <CustomerReviewCard headline="50% increase in sales"
