@@ -1,0 +1,83 @@
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-Thin.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-ThinItalic.ttf") format("truetype");
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-LightIt.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-MediumIt.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-Bold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-BoldItalic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-Heavy.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Neue Haas Unica";
+    src: url("NeueHaasUnicaPro-HeavyIt.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+}

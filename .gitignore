@@ -47,7 +47,6 @@ typings/
 
 # gatsby files
 .cache/
-public
 
 # Build output
 dist/
