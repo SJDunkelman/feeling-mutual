@@ -20,6 +20,14 @@ const author = 'Simon Dunkelman';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.png" />
 
+    <!-- Loaded here rather than @imported from global.css: an @import has to
+         precede every other statement in a stylesheet, so it was being dropped
+         after the @tailwind directives and the webfont never loaded. -->
+    <!-- The two faces used above the fold: font-light (300) and font-semibold (600). -->
+    <link rel="preload" as="font" type="font/ttf" href="/fonts/NeueHaasUnicaPro-Light.ttf" crossorigin />
+    <link rel="preload" as="font" type="font/ttf" href="/fonts/NeueHaasUnicaPro-Bold.ttf" crossorigin />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+
     <title>{title}</title>
     <meta name="description" content={description} />
 
@@ -37,7 +45,7 @@ const author = 'Simon Dunkelman';
 
   </head>
   <body>
-    <main class="min-w-screen">
+    <main class="w-full">
       <slot />
     </main>
   </body>

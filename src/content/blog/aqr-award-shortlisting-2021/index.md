@@ -11,4 +11,4 @@ We are proud to have been shortlisted for the AQR (Association of Qualitative Re
 
 <br/>
 
-This was for our work with Setapp.  You can find out more about the work <a href="https://www.feelingmutual.com/blog/set-app/" class="font-semibold hover:text-tomato" target="_blank">here</a>.
+This was for our work with Setapp.  You can find out more about the work <a href="/blog/set-app" class="font-semibold hover:text-tomato">here</a>.

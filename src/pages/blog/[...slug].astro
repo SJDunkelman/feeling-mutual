@@ -8,8 +8,13 @@ import GetInTouch from '../../components/GetInTouch.astro';
 import ActionBanner from '../../components/ActionBanner.astro';
 
 export async function getStaticPaths() {
+  // Case studies live in their own collection but have always been served from
+  // /blog/<slug> — Gatsby's file-system routing generated a page per markdown
+  // node regardless of folder. Route both collections here or all six client
+  // case studies 404.
   const posts = await getCollection('blog');
-  return posts.map(post => ({
+  const caseStudies = await getCollection('featured-case-studies');
+  return [...posts, ...caseStudies].map(post => ({
     params: { slug: post.slug },
     props: { post },
   }));
@@ -57,7 +62,7 @@ const categoryDisplay = post.data.category.charAt(0).toUpperCase() + post.data.c
   </Section>
 
   <Section class="bg-offwhite py-8">
-    <div class="post-body prose prose-lg max-w-none">
+    <div class="post-body">
       <Content />
     </div>
   </Section>
@@ -73,6 +78,19 @@ const categoryDisplay = post.data.category.charAt(0).toUpperCase() + post.data.c
 </Layout>
 
 <style>
+  /* Long-form copy needs its own measure. The section caps at 1440px, which is
+     right for the marketing layouts but still gives ~160 characters per line
+     here — roughly double a comfortable reading width. */
+  .post-body {
+    max-width: 68ch;
+    /* Left-aligned, not centred, so the copy shares a left edge with the
+       title and byline in the header section above. */
+  }
+  /* Justified text was rivering badly at full width; hyphenation closes the
+     gaps now that the measure is sane. */
+  .post-body :global(p) {
+    hyphens: auto;
+  }
   .post-body :global(h1) {
     @apply text-2xl font-semibold mb-4;
   }

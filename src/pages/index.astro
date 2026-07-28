@@ -7,6 +7,7 @@ import GetInTouch from '../components/GetInTouch.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import CustomerReviewCard from '../components/CustomerReviewCard.astro';
 import CaseStudyGrid from '../components/CaseStudyGrid.astro';
+import AwardsMarquee from '../components/AwardsMarquee.astro';
 import { Recycle, BadgeCheck, HeartPulse, ArrowRight } from '@lucide/astro';
 
 // Import profile images
@@ -21,7 +22,7 @@ import TomWoodnuttProfile from '../images/tom_full.jpg';
     <NavigationBar helloButton />
 
     <div class="flex flex-col justify-center items-center py-8 md:py-32 lg:py-[9rem] space-y-4 min-h-[60vh] md:min-h-[70vh]">
-      <h1 class="text-6xl md:text-[4rem] text-center md:text-left font-semibold text-sandybrown">Agile Online Qualitative Research</h1>
+      <h1 class="text-5xl md:text-6xl text-center md:text-left font-semibold text-sandybrown">Agile Online Qualitative Research</h1>
       <h4 class="text-2xl font-extralight text-center md:text-left">Inspiring more mutualistic relationships between brands and people</h4>
       <div class="space-x-6 pt-6">
         <a href="/services">
@@ -37,6 +38,8 @@ import TomWoodnuttProfile from '../images/tom_full.jpg';
       </div>
     </div>
   </Section>
+
+  <AwardsMarquee />
 
   <Section id="what-we-do" class="flex mobile-only:flex-col py-20 bg-green mobile-only:text-center">
     <div class="flex flex-col w-full lg:w-1/2 space-y-6 text-sandybrown lg:pr-8">
@@ -120,7 +123,9 @@ import TomWoodnuttProfile from '../images/tom_full.jpg';
     </div>
   </Section>
 
-  <Section class="flex flex-col py-16 px-12 items-center justify-center bg-sandybrown mobile-only:text-center">
+  <!-- px-12 removed: .section-shell owns the horizontal gutters now, and the
+       two would fight over padding-inline vs padding-left/right. -->
+  <Section class="flex flex-col py-16 items-center justify-center bg-sandybrown mobile-only:text-center">
     <div class="w-full lg:w-2/5 lg:mr-6 space-y-2 items-start text-green">
       <h4 class="text-5xl font-semibold">Tom Woodnutt</h4>
       <p class="text-lg font-bold">Founder</p>

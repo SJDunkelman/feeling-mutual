@@ -1,0 +1,79 @@
+---
+// Restores the awards strip that sat between the hero and "What We Do" until
+// the Astro migration dropped it (src/components/AwardsMarquee.js, deleted in
+// 87f6c6b). Reimplemented as a CSS animation rather than react-fast-marquee so
+// it needs no React, no hydration and no client-side JavaScript.
+import { Image } from 'astro:assets';
+
+import mrs2017 from '../images/awards/mrs_finalist_2017.png';
+import mrs2019 from '../images/awards/mrs_finalist_2019.png';
+import mrs2021 from '../images/awards/mrs_winner_2021.png';
+import quirks2020 from '../images/awards/quirks_winner_2020.png';
+import quirks2021 from '../images/awards/quirks_winner_2021.png';
+import aqr2021 from '../images/awards/aqr_shortlist_2021.png';
+import admap2013 from '../images/awards/admap_2013.png';
+
+const awards = [
+  { src: quirks2020, alt: 'Quirks Market Research Excellence Award winner 2020' },
+  { src: mrs2017, alt: 'MRS Award finalist 2017' },
+  { src: quirks2021, alt: 'Quirks Market Research Excellence Award winner 2021' },
+  { src: mrs2021, alt: 'MRS Independent Researchers Award winner 2021' },
+  { src: aqr2021, alt: 'AQR Qualitative Research Award shortlisting 2021' },
+  { src: admap2013, alt: 'Admap Award 2013' },
+  { src: mrs2019, alt: 'MRS Award finalist 2019' },
+];
+---
+
+<div class="bg-maroon py-6 overflow-hidden" role="region" aria-label="Awards">
+  <div class="marquee flex w-max items-center">
+    {/* The track is rendered twice so the animation can loop seamlessly. The
+        duplicate is hidden from assistive tech and search engines. */}
+    {[0, 1].map((copy) => (
+      <ul
+        class:list={['flex shrink-0 items-center list-none m-0 p-0', copy === 1 && 'marquee-dup']}
+        aria-hidden={copy === 1 ? 'true' : undefined}
+      >
+        {awards.map((award) => (
+          <li class="flex items-center">
+            <Image src={award.src} alt={copy === 1 ? '' : award.alt} class="h-24 w-auto" loading="lazy" />
+            <span class="mx-12 h-2 w-2 rounded-full bg-sandybrown/75" aria-hidden="true"></span>
+          </li>
+        ))}
+      </ul>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee {
+    animation: awards-scroll 45s linear infinite;
+  }
+
+  /* Each of the two tracks is half the total width, so translating by -50%
+     lands exactly on the start of the duplicate. */
+  @keyframes awards-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* No animation means no need for the duplicate track — show the seven logos
+     once, wrapped and centred. */
+  @media (prefers-reduced-motion: reduce) {
+    .marquee {
+      animation: none;
+      width: 100%;
+      justify-content: center;
+    }
+    .marquee > ul {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .marquee-dup {
+      display: none;
+    }
+  }
+</style>

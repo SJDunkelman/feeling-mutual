@@ -11,19 +11,12 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,astro}\""
   },
   "dependencies": {
-    "@astrojs/react": "^4.1.0",
     "@astrojs/tailwind": "^6.0.0",
     "@lucide/astro": "^0.576.0",
     "astro": "^5.1.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-fast-marquee": "^1.6.5",
-    "react-select": "^5.8.3",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "@types/react": "^18.3.0",
-    "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",

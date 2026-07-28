@@ -2,9 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('/fonts/fonts.css');
+/* The @font-face rules live in public/fonts/fonts.css and are loaded with a
+   <link> in Layout.astro. They cannot be @imported here: an @import must
+   precede every other statement in a stylesheet, and the @tailwind directives
+   above expand to thousands of rules, so the browser would discard it. */
 
 body { font-family:"Neue Haas Unica", Helvetica, sans-serif; }
+
+/* Caps the content column while leaving section backgrounds full-bleed.
+   Padding-based rather than a wrapper element, so the flex/grid layouts that
+   call sites put directly on <section> keep working. */
+.section-shell {
+  --section-max: 90rem; /* 1440px */
+  --section-gutter: 2rem;
+  padding-inline: max(var(--section-gutter), calc((100% - var(--section-max)) / 2));
+}
+@media (min-width: 768px)  { .section-shell { --section-gutter: 4rem; } }
+@media (min-width: 1150px) { .section-shell { --section-gutter: 6rem; } }
 
 .animate-banner {
     animation: continuousScroll 4s infinite;
@@ -19,18 +33,6 @@ body { font-family:"Neue Haas Unica", Helvetica, sans-serif; }
     50% {
         left: 50%;
     }
-}
-
-ul.tick-list li::before {
-    content: "\f00c";
-    font-family: "Font Awesome 6 Pro";
-    padding: 0 10px 0 0;
-}
-
-ul.tool-list li::before {
-    content: "\f7d9";
-    font-family: "Font Awesome 6 Pro";
-    padding: 0 10px 0 0;
 }
 
 ul.tool-list li:nth-child(2n+1) {

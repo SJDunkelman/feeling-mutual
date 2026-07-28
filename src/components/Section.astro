@@ -5,7 +5,10 @@ interface Props {
 }
 
 const { class: className = '', id } = Astro.props;
-const classes = `${className} px-8 md:px-24 lg:px-40 xl:px-64`;
+// .section-shell (global.css) sets the horizontal gutters AND caps the content
+// column at 1440px, so the background stays full-bleed but line lengths don't
+// run away on wide displays.
+const classes = `${className} section-shell`;
 ---
 
 <section class={classes} id={id}>

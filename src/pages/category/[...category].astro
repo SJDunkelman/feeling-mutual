@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content';
+import { getAllPosts, byDateDesc } from '../../lib/posts';
 import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/Section.astro';
 import NavigationBar from '../../components/NavigationBar.astro';
@@ -8,7 +8,7 @@ import GetInTouch from '../../components/GetInTouch.astro';
 import { ArrowLeft, ArrowRight } from '@lucide/astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+  const posts = await getAllPosts();
   const categories = [...new Set(posts.map(post => post.data.category))];
 
   return categories.map(category => ({
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 }
 
 const { posts, category } = Astro.props;
-const sortedPosts = posts.sort((a: any, b: any) => b.data.date.getTime() - a.data.date.getTime());
+const sortedPosts = byDateDesc(posts);
 
 const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ');
 
