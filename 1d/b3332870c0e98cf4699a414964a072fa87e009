@@ -1,0 +1,74 @@
+src/lib/posts.ts
+  s_5815b8335af535::t_a17033c43cf156 1-23
+docs/BUILD-SPEC-2026-07-remediation.md
+  s_5815b8335af535::t_2c8869c49e51a7 235-263
+  s_5815b8335af535::t_19fbaafd8eef6c 113-129
+  s_5815b8335af535::t_7691f079a42839 406
+  s_5815b8335af535::t_76205dc44f655d 381-401
+  s_5815b8335af535::t_8b9a8d66d2c6b0 1-112,130-234,264-380,402-405,407-409
+  s_5815b8335af535::t_12db0d61034741 410-411
+src/styles/global.css
+  s_5815b8335af535::t_ee1ee17a7c760b 5-8,12-21
+  s_5815b8335af535::t_1c14fc51345322 22
+src/pages/index.astro
+  s_5815b8335af535::t_6c2bf9e6661bd7 42-43
+  s_5815b8335af535::t_faea0ebda5743f 10
+  s_5815b8335af535::t_b81d51e05df389 25
+  s_5815b8335af535::t_ab10f8f32e289d 126-128
+src/pages/category/[...category].astro
+  s_5815b8335af535::t_312175525582a9 2
+  s_5815b8335af535::t_a1209e033c65fb 11,24
+src/content/blog/aqr-award-shortlisting-2021/index.md
+  s_5815b8335af535::t_78f63ee10ca79e 14
+src/components/Footer.astro
+  s_5815b8335af535::t_f2f2f14cac7bde 19-23,27-29,32-33
+public/fonts/fonts.css
+  s_5815b8335af535::t_6fa5efd9179317 6,14,22,30,38,46,54,62,70,78,86,94
+src/components/ServiceCard.astro
+  s_5815b8335af535::t_f2f2f14cac7bde 23
+src/components/Section.astro
+  s_5815b8335af535::t_92e0063c86253a 8-11
+src/components/CaseStudyGrid.astro
+  s_5815b8335af535::t_9029e666eff5af 9-11,16
+src/components/CustomerReviewCard.astro
+  s_5815b8335af535::t_f2f2f14cac7bde 25
+src/pages/blog/[...slug].astro
+  s_5815b8335af535::t_0d7ee0b307ea8f 81-85,88-93
+  s_5815b8335af535::t_7cb3318dc33d51 11-14,16-17
+  s_5815b8335af535::t_66d786a8bf8047 86-87
+  s_5815b8335af535::t_f2f2f14cac7bde 65
+src/content/blog/qual-face-to-face-what-do-you-lose/index.md
+  s_5815b8335af535::t_86978d6d8e84cc 1-17,19-25,27-31,33-59,61-75,77-81,83-89,91-101,103-109,111-115,117-121,123-126
+  s_5815b8335af535::t_cfceecf02e68c6 18,26,32,60,76,82,90,102,110,116,122
+src/components/AwardsMarquee.astro
+  s_5815b8335af535::t_135f366f72ee6f 63-64,68-71,74-76
+  s_5815b8335af535::t_2a9f43c8325359 1-31,36-62,65-67,72-73,77-79
+  s_5815b8335af535::t_85f02f0f62b613 32-35
+src/pages/blog/index.astro
+  s_5815b8335af535::t_f45b49904a9718 2
+  s_5815b8335af535::t_767633dd664b24 10-11
+src/layouts/Layout.astro
+  s_5815b8335af535::t_f173fb94d7cb12 26,28
+  s_5815b8335af535::t_0297f48b398ef7 48
+  s_5815b8335af535::t_133098e9d01d4f 23-25,27,29-30
+src/components/NavigationBar.astro
+  s_5815b8335af535::t_f2f2f14cac7bde 34
+package-lock.json
+  s_5815b8335af535::t_2174d40b413f95 1-6986
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "1db3332870c0e98cf4699a414964a072fa87e009",
+  "prompts": {},
+  "sessions": {
+    "s_5815b8335af535": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4d7a008a-2e59-44ff-bb45-e8a4239f9e08",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Simon Dunkelman <simon@dunkelman.xyz>"
+    }
+  }
+}
