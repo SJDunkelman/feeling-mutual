@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Keeps the editor out of search results. It is not a security control —
+         the actual gate is the DecapBridge login. -->
+    <meta name="robots" content="noindex" />
+    <title>Feeling Mutual — Editor</title>
+  </head>
+  <body>
+    <!-- Pinned to an exact version rather than a ^range. This page is the
+         client's only route to publishing, and an upstream release landing
+         unannounced is a worse failure than being a patch behind. Bump it
+         deliberately, then load /admin and publish a test edit before leaving.
+         DecapBridge SSO needs >= 3.8.3. -->
+    <script src="https://unpkg.com/decap-cms@3.15.1/dist/decap-cms.js"></script>
+  </body>
+</html>

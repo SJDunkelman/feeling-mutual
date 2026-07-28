@@ -9,6 +9,4 @@ tags: ["Award"]
 
 We are proud to have been shortlisted for the AQR (Association of Qualitative Researchers) award for Qualitative Research Impact.
 
-<br/>
-
 This was for our work with Setapp.  You can find out more about the work <a href="/blog/set-app">here</a>.

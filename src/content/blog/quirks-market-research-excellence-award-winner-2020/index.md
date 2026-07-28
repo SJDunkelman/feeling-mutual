@@ -9,6 +9,4 @@ tags: ["Award"]
 
 We are delighted to have won the 2021 Quirks Award for Qualitative Research Excellence. This was for our work with Virgin Pure.
 
-<br/>
-
 Here’s our paper on How Agile Qualitative Research helped Virgin Pure increase website conversion by over 50%. 

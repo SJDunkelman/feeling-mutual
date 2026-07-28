@@ -13,10 +13,6 @@ tags: ["Media"]
 
 BBC Worldwide wanted to understand how people in India share breaking news via social channels.
 
-<br/>
-
 We recruited people into online qualitative research and asked them to keep media diaries with screenshots of content they chose to share.  This allowed us to develop a model of behaviour, to deconstruct the factors that shape sharing and media platform choice.
-
-<br/>
 
 The findings were used to shape the BBC News cross-channel strategy. 
