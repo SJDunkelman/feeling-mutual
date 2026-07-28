@@ -6,22 +6,34 @@ import Footer from '../components/Footer.astro';
 import GetInTouch from '../components/GetInTouch.astro';
 import { ArrowRight } from '@lucide/astro';
 
+/*
+  Copy restored verbatim from the pre-migration page (87f6c6b^, src/pages/services.js).
+
+  The Dec 2025 Astro migration rewrote this page from scratch and replaced these
+  with generated filler — "ensures seamless execution from start to finish",
+  "tailored to your specific needs", "actionable insights for your business
+  decisions" — which say nothing a competitor couldn't also say.
+
+  What the originals do, and the replacements didn't, is explain that the offer is
+  MODULAR: three of the four describe taking on only the parts the client can't do
+  themselves. That is the actual sales proposition.
+*/
 const services = [
   {
     title: 'Full Service',
-    body: 'We can offer everything, from design, to set up, moderation and reporting. Our full service approach ensures seamless execution from start to finish.',
+    body: 'We take your brief and then design the most robust sample and method. We also assemble an expert team for moderation and reporting.',
   },
   {
     title: 'Project Design / Set Up',
-    body: 'Our set-up and design inspires deep engagement, vivid colour and strong validity. We create research frameworks tailored to your specific needs.',
+    body: 'If you can moderate and report, we can just design the method and sample, and / or set up the platform, and / or recruit and incentivise participants.',
   },
   {
     title: 'Moderation / Reporting',
-    body: 'We make strategic discussions and craft directional reports that provide actionable insights for your business decisions.',
+    body: 'If you set up the project yourself, we can provide expert moderators in any market and if required, we can analyse and report.',
   },
   {
     title: 'Training',
-    body: 'We upskill researchers to do more insightful and profitable online qual.',
+    body: 'We also offer training to upskill researchers so they can win, plan and run online and mobile qualitative studies that are more insightful and profitable.',
     link: { href: '/training', label: 'Learn more about our training' },
   },
 ];

@@ -12,6 +12,7 @@
   Hover affordance is unchanged: the title takes brand-600 and the arrow moves.
 */
 import { ArrowRight } from '@lucide/astro';
+import { categoryName } from '../lib/posts';
 
 interface Props {
   href: string;
@@ -20,15 +21,18 @@ interface Props {
   date: Date;
   image?: { src: string };
   category?: string;
+  /* Off on /category/*, where every card shares the page's own category and the
+     label would just repeat the heading. The category is still passed, because
+     it decides how the showcase image is fitted. */
+  showCategory?: boolean;
 }
 
-const { href, title, description, date, image, category } = Astro.props;
+const { href, title, description, date, image, category, showCategory = true } = Astro.props;
 
 const formatted = date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
 const iso = date.toISOString().slice(0, 10);
-const categoryDisplay = category
-  ? category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ')
-  : null;
+const categoryDisplay = category && showCategory ? categoryName(category) : null;
+const isLogo = category === 'case-study';
 ---
 
 <article class="h-full">
@@ -39,7 +43,16 @@ const categoryDisplay = category
           src={image.src}
           alt=""
           loading="lazy"
-          class="h-full w-full object-cover transition-transform duration-image group-hover:scale-[1.03]"
+          class:list={[
+            'h-full w-full transition-transform duration-image',
+            // Case studies use the client's brand mark as their showcase image.
+            // `object-cover` was cropping them to the 16:10 box — "SETA", "UEFA",
+            // "BBC Worldwid", half a Sony wordmark. Logos get contained and
+            // padded; photographs still fill the frame.
+            isLogo
+              ? 'object-contain p-8 group-hover:scale-[1.02]'
+              : 'object-cover group-hover:scale-[1.03]',
+          ]}
         />
       </div>
     )}

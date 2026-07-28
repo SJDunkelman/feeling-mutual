@@ -55,16 +55,67 @@ visible arrow at 40% opacity, so the inert row reads as non-interactive by desig
 The same `opacity-0 → group-hover` pattern in `CaseStudyGrid` was also hiding its
 arrow from every touch device; it now rests at 40% too.
 
-### Deliberately not done
+### Second pass — the items originally held back
 
-- **`/services`, `/training`, `/downloads` copy restoration** (§8) — a much larger
-  and more valuable change than this pass, and it needs a decision, not a default.
-- **Blog card image cropping.** `object-cover` at 16:10 badly crops the client
-  logos used as showcase images on case-study posts (SETAPP, SONY, UEFA, BBC all
-  cut). Pre-existing — the 2021 site cropped them identically — but visible, and
-  worth fixing separately with `object-contain` for `category === 'case-study'`.
-- **Case-study posts' weaker close** (§9h), **nav "Clients" → destination
-  mismatch**, **category pluralisation** — all flagged in §8/§9h, all structural.
+All subsequently implemented.
+
+**Copy restored from `87f6c6b^`.** The Astro migration had rewritten three pages
+from scratch and replaced the client's copy with filler; the redesign preserved it.
+
+- **`/services`** — all four service descriptions restored verbatim. The originals
+  explain that the offer is *modular* ("If you can moderate and report, we can just
+  design the method and sample…"), which is the actual sales proposition and which
+  the filler ("ensures seamless execution from start to finish") entirely lost.
+- **`/training`** — all four module descriptions restored. The filler versions were
+  written to an identical imperative-verb + object + adverbial metre, four times
+  running.
+- **`/downloads`** — heading and intro restored ("Premium insight straight to your
+  inbox" / "Select any of our premium whitepapers below and we'll email them to you
+  for free"). The two whitepaper *titles* were genuine and kept; their descriptions
+  were **deleted, not rewritten** — the original page had none, and the migration
+  had invented claims about documents nobody here has read. Not restored: the
+  original's placeholder testimonial, attributed to "John Smith, CEO, Apple".
+
+**Blog card image cropping.** Case studies use the client's brand mark as their
+showcase image, and `object-cover` at 16:10 was cutting them to "SETA", "UEFA",
+"BBC Worldwid". Logos now get `object-contain` with padding; photographs still fill
+the frame. `/category/*` passes `category` for the fit and a separate
+`showCategory` flag for the label, so the treatment is right on both pages.
+
+**Category pluralisation.** `/category/case-study` was headed "Case study" for a
+list of seven. Naive suffixing can't fix it — "case-study" + "s" gives "Case
+studys" — so `src/lib/posts.ts` now carries a display-name map with `categoryName`
+(singular, for breadcrumbs and card labels) and `categoryNamePlural` (for listing
+pages and filters).
+
+**Nav "Clients" → destination mismatch.** `id="clients"` sits on the case-study
+grid, while the section actually about clients is two lower and has no id. Label
+renamed to "Case studies" in nav and footer, so it names where it goes.
+
+**Case-study posts' close.** The two closes were the wrong way round: articles got
+the contact CTA and case studies got the downloads banner — so the highest-intent
+reader on the site, someone who has just read how you grew a client's category, was
+given no way to make contact. Swapped. `ActionBanner` also rebuilt to match
+`GetInTouch`'s shape (display heading, supporting copy, real button) rather than a
+40px heading with an inline text link.
+
+**Article column centred.** Raised by the client mid-pass: `.prose-fm` was capped at
+68ch but left-aligned inside the 1320px band, so on a wide window a ~580px column of
+text sat with ~700px of empty page beside it. The original rationale — that it shared
+a left edge with the title and byline — never read, because those sit in the dark
+block above. Now `margin-inline: auto` at 72ch, and the post header uses the same
+72ch column so breadcrumb, title and byline sit directly above the copy they belong
+to. Measured at 1920px: 647px of margin either side, header and body sharing one
+left edge.
+
+### Still open
+
+- **`/training` no longer mentions that it is a video series.** The pre-migration
+  page was "Online Qual Mastery", with a video player and counters for researchers
+  taught / hours of video / downloads. The module copy is restored but that framing
+  is not, because I can't verify the series is still offered or that the numbers are
+  current. Worth a decision.
+- The "Inspiring" principle still needs its post written.
 
 ---
 

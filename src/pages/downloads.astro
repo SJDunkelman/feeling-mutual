@@ -6,17 +6,23 @@ import Footer from '../components/Footer.astro';
 import GetInTouch from '../components/GetInTouch.astro';
 import { ArrowRight } from '@lucide/astro';
 
+/*
+  The two titles are genuine — they match the pre-migration whitepaper list
+  (87f6c6b^, src/pages/downloads.js). Their descriptions are not: the original
+  page had none, and the migration invented "covering trends and best practices"
+  and "comprehensive overview of the qualitative research landscape and emerging
+  methodologies" — claims about documents nobody here has read. Removed rather
+  than rewritten, since the honest version is the title and the year.
+*/
 const downloads = [
   {
     year: '2022',
     title: 'Research Insight 2022',
-    body: 'Our annual research insight report covering trends and best practices in online qualitative research.',
     subject: 'Request: Research Insight 2022',
   },
   {
     year: '2021',
     title: 'The State of Qual Research 2021',
-    body: 'Comprehensive overview of the qualitative research landscape and emerging methodologies.',
     subject: 'Request: State of Qual Research 2021',
   },
 ];
@@ -26,9 +32,12 @@ const downloads = [
   <Section tone="deep" pad="none">
     <!-- No eyebrow: "Resources" is a near-synonym of the heading, and "downloads"
          is the more concrete word — it's already in the h1, nav and footer. -->
+    <!-- Heading and intro restored from the pre-migration page; the migration had
+         replaced them with "Free downloads" / "Whitepapers, research guides and
+         insights". The original states the mechanism, which is the useful part. -->
     <PageHero
-      title="Free downloads"
-      intro="Whitepapers, research guides and insights — no charge, no form to fill in."
+      title="Premium insight straight to your inbox"
+      intro="Select any of our premium whitepapers below and we'll email them to you for free."
     />
   </Section>
 
@@ -47,9 +56,8 @@ const downloads = [
             class="group grid gap-x-6 gap-y-4 md:grid-cols-12 md:items-baseline xl:gap-x-12"
           >
             <span class="text-caption font-medium tabular-nums text-brand-600 md:col-span-2 lg:col-span-1">{d.year}</span>
-            <h2 class="text-2xl text-ink-900 transition-colors duration-text group-hover:text-brand-600 md:col-span-5 lg:col-span-5">{d.title}</h2>
-            <p class="text-base font-light text-ink-600 max-w-measure md:col-span-5 lg:col-span-4">{d.body}</p>
-            <span class="inline-flex items-center gap-2.5 text-base font-medium text-brand-600 md:col-span-12 lg:col-span-2 lg:justify-end">
+            <h2 class="text-2xl text-ink-900 transition-colors duration-text group-hover:text-brand-600 md:col-span-10 lg:col-span-8">{d.title}</h2>
+            <span class="inline-flex items-center gap-2.5 text-base font-medium text-brand-600 md:col-span-12 lg:col-span-3 lg:justify-end">
               Request by email
               <ArrowRight class="w-4 h-4 translate-y-px transition-transform group-hover:translate-x-1" />
             </span>

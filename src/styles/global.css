@@ -104,9 +104,16 @@
      markdown output has no classes to hang them on. The old approach was to
      safelist `list-disc`, `list-inside`, `text-justify` etc. in the Tailwind
      config so they survived the JIT purge; this needs no safelist at all. */
+  /* Centred, not left-aligned. It was pinned to the left edge of the 1320px
+     section band, so on a wide window a ~580px column of text sat with 700px of
+     empty page beside it. The original rationale was that it shared a left edge
+     with the title and byline — but those are in the dark block above, far
+     enough away that the alignment never read. 72ch rather than 68 gives the
+     column a little more presence at the sizes long-form actually gets read at. */
   .prose-fm {
     @apply text-ink-700;
-    max-width: 68ch;
+    max-width: 72ch;
+    margin-inline: auto;
   }
   .prose-fm > * + * { margin-top: 1.4em; }
 

@@ -7,6 +7,7 @@ import Footer from '../../components/Footer.astro';
 import GetInTouch from '../../components/GetInTouch.astro';
 import ActionBanner from '../../components/ActionBanner.astro';
 import ProfilePicture from '../../components/ProfilePicture.astro';
+import { categoryName } from '../../lib/posts';
 
 export async function getStaticPaths() {
   // Case studies live in their own collection but have always been served from
@@ -27,14 +28,17 @@ const { Content } = await render(post);
 const date = post.data.date;
 const formatted = date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
 const iso = date.toISOString().slice(0, 10);
-const categoryDisplay = post.data.category.charAt(0).toUpperCase() + post.data.category.slice(1).replace('-', ' ');
+const categoryDisplay = categoryName(post.data.category);
 ---
 
 <Layout title={`${post.data.title} | Feeling Mutual`} description={post.data.description}>
   <Section tone="deep" pad="none">
     <NavigationBar tone="dark" cta />
 
-    <div class="pt-14 pb-20 md:pt-20 md:pb-28">
+    <!-- Same 72ch column as the article body below, so the breadcrumb, title and
+         byline sit directly above the copy they belong to instead of spanning a
+         1320px band while the text below is a narrow column. -->
+    <div class="mx-auto max-w-[72ch] pt-14 pb-20 md:pt-20 md:pb-28">
       <nav aria-label="Breadcrumb" class="pb-10">
         <ol class="flex flex-wrap items-center gap-2 text-caption text-brand-100/70">
           <li><a href="/" class="transition-colors duration-text hover:text-brand-300">Home</a></li>
@@ -69,7 +73,14 @@ const categoryDisplay = post.data.category.charAt(0).toUpperCase() + post.data.c
   </Section>
 
   <Section tone="ink" pad="lg">
-    {post.data.category === 'article' ? (
+    {/* Swapped. Articles used to close with the contact CTA and case studies with
+        the downloads banner, which had it backwards twice over: someone who has
+        just read how you grew a client's category is the highest-intent reader on
+        the site and was given no way to make contact, while the banner is a much
+        weaker close — no display heading, no button, an inline link only. Case
+        studies now get the contact CTA; articles, which are top-of-funnel, get
+        the downloads pitch. */}
+    {post.data.category === 'case-study' ? (
       <GetInTouch tone="dark" />
     ) : (
       <ActionBanner tone="dark" />

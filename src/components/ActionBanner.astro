@@ -17,17 +17,28 @@ const {
 } = Astro.props;
 
 const t = tone === 'dark'
-  ? { head: 'text-ink-50', sub: 'text-brand-100/75', link: 'text-brand-300 hover:text-ink-50' }
-  : { head: 'text-ink-900', sub: 'text-ink-600', link: 'text-brand-600 hover:text-brand-800' };
+  ? { head: 'text-ink-50',  sub: 'text-brand-100/75', btn: 'bg-brand-300 text-brand-800 hover:bg-ink-50' }
+  : { head: 'text-ink-900', sub: 'text-ink-600',      btn: 'bg-brand-800 text-brand-50 hover:bg-brand-600' };
 ---
 
-<div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-  <div class="flex flex-col gap-4">
-    <h2 class={`text-3xl max-w-display ${t.head}`}>{headline}</h2>
-    <p class={`text-lg font-light max-w-measure ${t.sub}`}>{subheading}</p>
+<!-- Same shape as GetInTouch: display heading on the left, supporting copy and a
+     real button on the right. It was a 40px heading with an inline text link,
+     which made whichever page used it close far more weakly than its sibling. -->
+<div class="grid gap-10 lg:grid-cols-12 lg:items-end">
+  <div class="lg:col-span-7">
+    <h2 class={`text-display max-w-display ${t.head}`}>{headline}</h2>
   </div>
-  <a href="/downloads" class={`group inline-flex shrink-0 items-center gap-2.5 text-base font-medium transition-colors duration-text ${t.link}`}>
-    Browse downloads
-    <ArrowRight class="w-4 h-4 transition-transform duration-300 ease-out-soft group-hover:translate-x-1" />
-  </a>
+
+  <div class="flex flex-col gap-7 lg:col-span-5">
+    <p class={`text-lg font-light max-w-measure ${t.sub}`}>{subheading}</p>
+    <div>
+      <a
+        href="/downloads"
+        class={`group inline-flex items-center gap-2.5 rounded-md px-6 py-3.5 text-base font-medium transition-colors duration-text ${t.btn}`}
+      >
+        Browse downloads
+        <ArrowRight class="w-4 h-4 translate-y-px transition-transform group-hover:translate-x-1" />
+      </a>
+    </div>
+  </div>
 </div>

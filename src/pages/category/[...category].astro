@@ -1,5 +1,5 @@
 ---
-import { getAllPosts, byDateDesc } from '../../lib/posts';
+import { getAllPosts, byDateDesc, categoryNamePlural } from '../../lib/posts';
 import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/Section.astro';
 import PageHero from '../../components/PageHero.astro';
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 
 const { posts, category } = Astro.props;
 const sortedPosts = byDateDesc(posts);
-const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ');
+const categoryDisplay = categoryNamePlural(category);
 ---
 
 <Layout title={`${categoryDisplay} | Feeling Mutual`} description={`Feeling Mutual posts in ${categoryDisplay}`}>
@@ -52,6 +52,8 @@ const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1).rep
           description={post.data.description}
           date={post.data.date}
           image={post.data.showcaseImage}
+          category={post.data.category}
+          showCategory={false}
         />
       ))}
     </div>
