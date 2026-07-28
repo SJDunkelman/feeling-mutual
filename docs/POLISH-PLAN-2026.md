@@ -108,13 +108,38 @@ block above. Now `margin-inline: auto` at 72ch, and the post header uses the sam
 to. Measured at 1920px: 647px of margin either side, header and body sharing one
 left edge.
 
+### Third pass — "Online Qual Mastery" reinstated
+
+Client confirmed the course is still sold under that exact name on a separate
+platform, and that none of the figures have gone stale. Everything the migration
+dropped is restored from `87f6c6b^`:
+
+- **The course name** as the `h1`, with "Video training series" as the eyebrow —
+  one of the four that earns its place, since the name alone doesn't say what it is.
+- **The proposition:** "This video series will help researchers do online qual that
+  is more insightful, valid and profitable."
+- **The enrolment figures** — 100+ researchers taught, 4+ hours of video, 20+
+  valuable downloads. Set as a plain typographic row rather than a stat-tile band:
+  they are evidence, not the headline.
+- **The cover photograph** (`src/images/splash/team-meeting.jpeg`), unused since
+  the migration.
+- **"Four modules that will inspire better online qual"** / "Choose one or more of
+  the following training modules" — the real section framing.
+- **Three named testimonials** that the migration deleted outright: Caroline Hayter
+  (Founder, Acacia Avenue), Jill Elston (Founder, Insightful Research) and Fran
+  Walton (Head of Insight, Publicis Sapient). Their profile images were still in
+  `src/images/profiles/` with nothing referencing them.
+- **`/services`** now links "See Online Qual Mastery" rather than "Learn more about
+  our training", so the course is named where it's referenced.
+
+Page height 2,012px → 3,075px. Contrast, overflow, images and requests all clean.
+
 ### Still open
 
-- **`/training` no longer mentions that it is a video series.** The pre-migration
-  page was "Online Qual Mastery", with a video player and counters for researchers
-  taught / hours of video / downloads. The module copy is restored but that framing
-  is not, because I can't verify the series is still offered or that the numbers are
-  current. Worth a decision.
+- **The enrolment link.** The original CTA was "Enroll Now!" pointing at an on-page
+  contact form; there is no platform URL anywhere in the repo or its history. "Enrol
+  now" currently jumps to the contact section. **Needs the real course URL** to
+  become a genuine enrolment link.
 - The "Inspiring" principle still needs its post written.
 
 ---

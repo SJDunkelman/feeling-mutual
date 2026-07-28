@@ -1,29 +1,35 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
-import PageHero from '../components/PageHero.astro';
+import NavigationBar from '../components/NavigationBar.astro';
 import Footer from '../components/Footer.astro';
 import GetInTouch from '../components/GetInTouch.astro';
+import CustomerReviewCard from '../components/CustomerReviewCard.astro';
+import { Image } from 'astro:assets';
+import { ArrowRight } from '@lucide/astro';
+
+import CoverPhoto from '../images/splash/team-meeting.jpeg';
+import CarolineHayter from '../images/profiles/caroline-hayter.jpeg';
+import JillElston from '../images/profiles/jill-elston.jpeg';
+import FranWalton from '../images/profiles/fran-walton.png';
 
 /*
-  These are NOT a sequence.
+  The course is "Online Qual Mastery" — a video series, still sold under that
+  exact name. The Dec 2025 Astro migration dropped the name, the video framing,
+  the enrolment numbers and the three named testimonials, and replaced the module
+  copy with generated filler. All of it is restored here verbatim from 87f6c6b^
+  (src/pages/training.js).
 
-  The redesign shipped a heading reading "Four modules, run in sequence" and a
-  comment here asserting "you win the work, then plan it, then run it", then
-  numbered them 01-04 to match. That rationale was invented. The pre-migration
-  page (87f6c6b^, src/pages/training.js) was a tab switcher — `useState("Win")`
-  with four buttons — headed "Choose one or more of the following training
-  modules", under "4 modules that will inspire better Online Qual".
+  The modules are NOT a sequence. A previous pass shipped "Four modules, run in
+  sequence" with numbering to match; the original is a chooser — "Choose one or
+  more of the following training modules".
+*/
+const stats = [
+  { figure: '100+', label: 'Researchers taught' },
+  { figure: '4+',   label: 'Hours of video' },
+  { figure: '20+',  label: 'Valuable downloads' },
+];
 
-  So: no numbering, and a heading that says what is actually on offer.
-*/
-/*
-  Descriptions restored verbatim from the pre-migration page. The migration had
-  replaced them with four sentences written to an identical
-  imperative-verb + object + adverbial metre — the tell that no human wrote them
-  consecutively. The originals say when in a project each module applies, which
-  is the thing a researcher choosing between them actually needs to know.
-*/
 const modules = [
   {
     title: 'Win',
@@ -42,24 +48,100 @@ const modules = [
     body: 'Inspired by a literature review of psychology; learn how to increase engagement, strengthen validity and inspire more emotional disclosure in online qual.',
   },
 ];
+
+const testimonials = [
+  {
+    headline: 'It really allowed us to sharpen our focus',
+    quote: 'The online qual training embraced the latest thinking on the subject and included a plethora of practical tips.',
+    name: 'Caroline Hayter',
+    jobRole: 'Founder',
+    company: 'Acacia Avenue',
+    image: CarolineHayter,
+  },
+  {
+    headline: 'Online qual is now a central part of my offer',
+    quote: 'A few years ago, I attended the course having never used online qual before. It gave me a fantastic grounding and lots of practical tips.',
+    name: 'Jill Elston',
+    jobRole: 'Founder',
+    company: 'Insightful Research',
+    image: JillElston,
+  },
+  {
+    headline: 'Upskilled our global workforce',
+    quote: 'They truly get how insight inspires agile innovation. The training across our global offices helped us upskill in digital ethnography.',
+    name: 'Fran Walton',
+    jobRole: 'Head of Insight',
+    company: 'Publicis Sapient',
+    image: FranWalton,
+  },
+];
 ---
 
-<Layout title="Training | Feeling Mutual" description="Online qualitative research training courses - upskill your team in digital ethnography and online qual methods">
+<Layout
+  title="Online Qual Mastery | Feeling Mutual"
+  description="Online Qual Mastery — a video training series that helps researchers do online qual that is more insightful, valid and profitable."
+>
   <Section tone="deep" pad="none">
-    <!-- No eyebrow: it was the literal last word of the heading below it. -->
-    <PageHero
-      title="Online qualitative research training"
-      intro="Upskill your team to conduct more insightful and profitable online qualitative research."
-    />
+    <NavigationBar tone="dark" cta />
+
+    <div class="grid items-center gap-x-12 gap-y-12 pt-10 pb-20 md:pt-16 md:pb-28 lg:grid-cols-12">
+      <div class="lg:col-span-6">
+        <p class="eyebrow text-brand-300">Video training series</p>
+        <h1 class="text-display text-ink-50 max-w-display">Online Qual Mastery</h1>
+        <p class="pt-8 text-lg font-light text-brand-100 max-w-measure">
+          This video series will help researchers do online qual that is more insightful,
+          valid and profitable.
+        </p>
+
+        <!-- Restored enrolment figures. Set as a plain typographic row rather than
+             a stat-tile band — the numbers are evidence, not the headline. -->
+        <ul class="flex flex-wrap gap-x-12 gap-y-6 pt-10">
+          {stats.map((s) => (
+            <li class="flex flex-col gap-1">
+              <span class="text-2xl font-bold tabular-nums text-brand-300">{s.figure}</span>
+              <span class="text-caption text-brand-100/70">{s.label}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-4 pt-10">
+          <a
+            href="#enrol"
+            class="group inline-flex items-center gap-2.5 rounded-md bg-brand-300 px-6 py-3.5 text-base font-medium text-brand-800 transition-colors duration-text hover:bg-ink-50"
+          >
+            Enrol now
+            <ArrowRight class="w-4 h-4 translate-y-px transition-transform group-hover:translate-x-1" />
+          </a>
+          <a href="#modules" class="link text-base text-brand-100 transition-colors duration-text hover:text-brand-300">
+            See the four modules
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 lg:col-start-8">
+        <Image
+          src={CoverPhoto}
+          alt="A qualitative research session in progress"
+          widths={[560, 1120]}
+          sizes="(min-width: 1024px) 512px, 100vw"
+          class="w-full rounded-lg object-cover"
+          loading="eager"
+        />
+      </div>
+    </div>
   </Section>
 
-  <Section tone="paper" pad="lg">
+  <Section id="modules" tone="paper" pad="lg">
     <div class="grid gap-x-12 lg:grid-cols-12">
-      <h2 class="text-3xl text-ink-900 max-w-display lg:col-span-4">
-        Four modules. Take one or take all four.
-      </h2>
+      <div class="lg:col-span-4">
+        <h2 class="text-3xl text-ink-900 max-w-display">
+          Four modules that will inspire better online qual
+        </h2>
+        <p class="pt-6 text-lg font-light text-ink-600 max-w-measure">
+          Choose one or more of the following training modules.
+        </p>
+      </div>
 
-      <!-- 64px of gap rather than five hairlines around four rows. -->
       <ul class="mt-12 flex flex-col gap-16 lg:col-span-7 lg:col-start-6 lg:mt-0 lg:pt-1">
         {modules.map((m) => (
           <li class="flex flex-col gap-2">
@@ -71,7 +153,23 @@ const modules = [
     </div>
   </Section>
 
-  <Section tone="ink" pad="lg" id="contact">
+  <Section tone="deep" pad="lg">
+    <h2 class="text-display text-ink-50 max-w-display pb-28">What researchers say</h2>
+    <div class="grid gap-6 md:grid-cols-3">
+      {testimonials.map((t) => (
+        <CustomerReviewCard
+          headline={t.headline}
+          subheading={t.quote}
+          name={t.name}
+          jobRole={t.jobRole}
+          company={t.company}
+          imageSrc={t.image.src}
+        />
+      ))}
+    </div>
+  </Section>
+
+  <Section id="enrol" tone="ink" pad="lg">
     <GetInTouch
       tone="dark"
       headline="Interested in training?"
