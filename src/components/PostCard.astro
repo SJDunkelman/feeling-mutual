@@ -11,6 +11,20 @@
 
   Hover affordance is unchanged: the title takes brand-600 and the arrow moves.
 */
+/*
+  Uses <Image>, not a raw <img src={image.src}>.
+
+  The raw form 404'd. `showcaseImage` is an `image()` in the collection schema, so
+  `.src` points at an /_astro/<name>.<hash>.<ext> passthrough — but Astro only
+  emits that file if nothing else has already put the source through the asset
+  pipeline. team-meeting.jpeg is ALSO consumed by <Image> on /training, so the
+  build emitted its WebP variants and skipped the passthrough, and every card
+  using it on /blog and /category/* pointed at a file that was never written.
+
+  Going through <Image> everywhere removes the coupling, and gets the cards a
+  responsive srcset and WebP into the bargain.
+*/
+import { Image } from 'astro:assets';
 import { ArrowRight } from '@lucide/astro';
 import { categoryName } from '../lib/posts';
 
@@ -19,7 +33,7 @@ interface Props {
   title: string;
   description: string;
   date: Date;
-  image?: { src: string };
+  image?: ImageMetadata;
   category?: string;
   /* Off on /category/*, where every card shares the page's own category and the
      label would just repeat the heading. The category is still passed, because
@@ -39,9 +53,11 @@ const isLogo = category === 'case-study';
   <a href={href} class="group flex h-full flex-col">
     {image && (
       <div class="aspect-[16/10] overflow-hidden rounded-lg bg-ink-100">
-        <img
-          src={image.src}
+        <Image
+          src={image}
           alt=""
+          widths={[400, 800]}
+          sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"
           loading="lazy"
           class:list={[
             'h-full w-full transition-transform duration-image',
