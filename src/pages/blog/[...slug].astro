@@ -6,10 +6,16 @@ import NavigationBar from '../../components/NavigationBar.astro';
 import Footer from '../../components/Footer.astro';
 import GetInTouch from '../../components/GetInTouch.astro';
 import ActionBanner from '../../components/ActionBanner.astro';
+import ProfilePicture from '../../components/ProfilePicture.astro';
 
 export async function getStaticPaths() {
+  // Case studies live in their own collection but have always been served from
+  // /blog/<slug> — Gatsby's file-system routing generated a page per markdown
+  // node regardless of folder. Route both collections here or all six client
+  // case studies 404.
   const posts = await getCollection('blog');
-  return posts.map(post => ({
+  const caseStudies = await getCollection('featured-case-studies');
+  return [...posts, ...caseStudies].map(post => ({
     params: { slug: post.slug },
     props: { post },
   }));
@@ -18,80 +24,58 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-}
-
+const date = post.data.date;
+const formatted = date.toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
+const iso = date.toISOString().slice(0, 10);
 const categoryDisplay = post.data.category.charAt(0).toUpperCase() + post.data.category.slice(1).replace('-', ' ');
 ---
 
 <Layout title={`${post.data.title} | Feeling Mutual`} description={post.data.description}>
-  <Section class="bg-maroon text-pink">
-    <NavigationBar helloButton />
-    <div class="flex mobile-only:flex-col flex-row py-6">
-      <div class="w-full">
-        <div class="flex flex-wrap mb-6 lg:pt-10 md:flex-col text-sandybrown">
-          <div class="flex items-center justify-start mb-8">
-            <div class="flex items-center text-xs text-pink font-semibold">
-              <a href="/">Home</a>
-              <span class="inline-block px-1">/</span>
-              <a href="/blog">Blog</a>
-              <span class="inline-block px-1">/</span>
-              <a href={`/category/${post.data.category}`}>{categoryDisplay}</a>
-            </div>
-          </div>
-          <h1 class="mb-10 text-5xl font-semibold text-center lg:text-left">{post.data.title}</h1>
-          <div class="flex items-center justify-start">
-            <div class="mr-6">
-              <img class="w-16 h-16 object-cover rounded-full" src="/images/tom_profile.jpg" alt="Tom Woodnutt" />
-            </div>
-            <div class="text-left">
-              <h3 class="text-2xl font-semibold font-heading">Tom Woodnutt</h3>
-              <p class="opacity-75 font-light">Founder, Feeling Mutual</p>
-              <p class="font-extralight">{formatDate(post.data.date)}</p>
-            </div>
-          </div>
+  <Section tone="deep" pad="none">
+    <NavigationBar tone="dark" cta />
+
+    <div class="pt-12 pb-20 md:pt-16 md:pb-28">
+      <nav aria-label="Breadcrumb" class="pb-10">
+        <ol class="flex flex-wrap items-center gap-2 text-caption text-brand-100/70">
+          <li><a href="/" class="transition-colors duration-200 hover:text-brand-300">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/blog" class="transition-colors duration-200 hover:text-brand-300">Blog</a></li>
+          <li aria-hidden="true">/</li>
+          <li>
+            <a href={`/category/${post.data.category}`} class="transition-colors duration-200 hover:text-brand-300">
+              {categoryDisplay}
+            </a>
+          </li>
+        </ol>
+      </nav>
+
+      <h1 class="text-4xl text-ink-50 max-w-[20ch]">{post.data.title}</h1>
+
+      <div class="flex items-center gap-4 pt-12">
+        <ProfilePicture imageSrc="/images/tom_profile.jpg" alt="Tom Woodnutt" size="md" />
+        <div class="flex flex-col gap-0.5">
+          <span class="text-base font-medium text-brand-100">Tom Woodnutt</span>
+          <span class="text-caption text-brand-100/60">Founder, Feeling Mutual</span>
+          <time datetime={iso} class="text-caption text-brand-100/60">{formatted}</time>
         </div>
       </div>
     </div>
   </Section>
 
-  <Section class="bg-offwhite py-8">
-    <div class="post-body prose prose-lg max-w-none">
+  <Section tone="paper" pad="lg">
+    <article class="prose-fm">
       <Content />
+    </article>
+  </Section>
+
+  <Section tone="ink" pad="lg">
+    {post.data.category === 'article' ? (
+      <GetInTouch tone="dark" />
+    ) : (
+      <ActionBanner tone="dark" />
+    )}
+    <div class="pt-24">
+      <Footer tone="dark" />
     </div>
   </Section>
-
-  <Section class="bg-blue py-6">
-    {post.data.category === 'article' ? (
-      <GetInTouch textColour="white" buttonColour="pink" />
-    ) : (
-      <ActionBanner textColour="pink" />
-    )}
-    <Footer textColour="pink" logoColour="maroon" />
-  </Section>
 </Layout>
-
-<style>
-  .post-body :global(h1) {
-    @apply text-2xl font-semibold mb-4;
-  }
-  .post-body :global(h2) {
-    @apply text-xl font-semibold mb-3;
-  }
-  .post-body :global(p) {
-    @apply text-lg font-light text-justify leading-8 mb-4;
-  }
-  .post-body :global(ul) {
-    @apply list-disc list-inside text-lg font-light leading-8 mb-4;
-  }
-  .post-body :global(ol) {
-    @apply list-decimal list-inside text-lg font-light leading-8 mb-4;
-  }
-  .post-body :global(a) {
-    @apply text-tomato underline hover:text-maroon;
-  }
-  .post-body :global(img) {
-    @apply my-4 rounded-lg;
-  }
-</style>

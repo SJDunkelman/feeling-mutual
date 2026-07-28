@@ -1,0 +1,35 @@
+---
+/*
+  Inlines the logo SVG so it can be tinted with `currentColor`.
+
+  Replaces src/styles/logo-filters.css, which held seven hand-tuned
+  `invert() sepia() saturate() hue-rotate() brightness() contrast()` chains —
+  two of them needing !important — because the mark shipped as a black SVG in
+  an <img> and could only be recoloured by filtering it. Those filters only
+  approximated the tokens they were named after, and the logo could not join a
+  new palette without recomputing every matrix by hand.
+
+  Now: set a text colour on (or above) this component and the mark follows.
+*/
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+interface Props {
+  variant?: 'full' | 'symbol';
+  class?: string;
+  title?: string;
+}
+
+const { variant = 'full', class: className = '', title = 'Feeling Mutual' } = Astro.props;
+
+const file = variant === 'symbol' ? 'symbol-black.svg' : 'full-logo-black.svg';
+const path = fileURLToPath(new URL(`../images/${file}`, import.meta.url));
+
+// The source paths carry no `fill`, so they default to black. Declaring
+// fill="currentColor" on the root lets every path inherit it.
+const svg = readFileSync(path, 'utf8')
+  .replace(/<\?xml[^>]*\?>/, '')
+  .replace('<svg', `<svg fill="currentColor" role="img" aria-label="${title}"`);
+---
+
+<span class={`inline-block ${className}`} set:html={svg} />

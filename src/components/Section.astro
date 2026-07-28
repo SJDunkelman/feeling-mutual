@@ -1,13 +1,49 @@
 ---
+/*
+  A section owns its ground AND its foreground together.
+
+  The 2021 version took an arbitrary `class` string, so every call site chose a
+  background and separately chose text colours for whatever it nested. Shared
+  components (NavigationBar, Footer) were then told their colour by prop, and
+  had to remember what they were standing on — which they didn't, hence
+  `hover:text-white` rendering at 1.27:1 on the offwhite band.
+
+  Now: pick a `tone`, and the ground, body colour, heading colour, muted colour
+  and focus ring all come with it. `on-dark` is set for the tones that need it,
+  so nested components can adapt without being passed anything.
+
+  Every tone is validated to WCAG AA — see docs/BRAND-AUDIT-2026.md §2.4.
+*/
+
 interface Props {
+  tone?: 'paper' | 'paper-alt' | 'warm' | 'deep' | 'ink' | 'accent' | 'tint';
+  pad?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
   class?: string;
   id?: string;
 }
 
-const { class: className = '', id } = Astro.props;
-const classes = `${className} px-8 md:px-24 lg:px-40 xl:px-64`;
+const { tone = 'paper', pad = 'lg', class: className = '', id } = Astro.props;
+
+// Static strings — nothing interpolated, so Tailwind's JIT can see every one.
+const tones: Record<string, string> = {
+  'paper':     'bg-ink-50 text-ink-900',
+  'paper-alt': 'bg-ink-100 text-ink-900',
+  'warm':      'bg-brand-50 text-ink-900',
+  'deep':      'on-dark bg-brand-800 text-brand-100',
+  'ink':       'on-dark bg-ink-900 text-ink-200',
+  'accent':    'bg-brand-300 text-brand-800',
+  'tint':      'bg-brand-100 text-brand-800',
+};
+
+const pads: Record<string, string> = {
+  'none': '',
+  'sm':   'py-16',
+  'md':   'py-20 md:py-24',
+  'lg':   'py-24 md:py-32',
+  'xl':   'py-28 md:py-40',
+};
 ---
 
-<section class={classes} id={id}>
+<section class={`section-shell ${tones[tone]} ${pads[pad]} ${className}`} id={id}>
   <slot />
 </section>

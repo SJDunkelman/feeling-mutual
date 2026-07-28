@@ -1,41 +1,78 @@
 ---
-import { Twitter, Linkedin, Mail } from '@lucide/astro';
+/*
+  Same fix as NavigationBar — two static tones instead of a `textColour` string
+  interpolated into `text-${textColour}`, and hover colours that belong to the
+  ground rather than being hardcoded to white.
+*/
+import { Linkedin, Mail, Twitter } from '@lucide/astro';
+import Logo from './Logo.astro';
 
 interface Props {
-  logoColour?: 'tomato' | 'maroon';
-  textColour?: string;
+  tone?: 'light' | 'dark';
 }
 
-const { logoColour = 'tomato', textColour = 'gold' } = Astro.props;
+const { tone = 'light' } = Astro.props;
 
-const logoClass = logoColour === 'maroon' ? 'maroon-logo gold-hover' : 'tomato-logo gold-hover';
+const t = tone === 'dark'
+  ? {
+      logo:    'text-brand-300',
+      link:    'text-brand-100 hover:text-ink-50',
+      meta:    'text-brand-100/60',
+      social:  'text-brand-100/55 hover:text-brand-300',
+      divider: 'border-brand-100/20',
+    }
+  : {
+      logo:    'text-brand-800',
+      link:    'text-ink-700 hover:text-brand-600',
+      meta:    'text-ink-600',
+      social:  'text-ink-600 hover:text-brand-600',
+      divider: 'border-ink-300',
+    };
+
+const links = [
+  { href: '/services', label: 'Services' },
+  { href: '/training', label: 'Training' },
+  { href: '/#clients', label: 'Clients' },
+  { href: '/blog',     label: 'Blog' },
+  { href: '/downloads', label: 'Downloads' },
+];
+
+const year = new Date().getFullYear();
 ---
 
-<footer class={`flex flex-col space-y-6 items-center pt-10 pb-4 text-${textColour}`}>
-  <a href="/">
-    <img class={`h-auto w-16 ${logoClass}`} src="/images/symbol-black.svg" alt="Feeling Mutual Icon" />
-  </a>
-  <ul class="hidden lg:flex items-center w-auto space-x-12 pt-4">
-    <li><a href="/services" class="text-md no-underline text-light hover:text-white">SERVICES</a></li>
-    <li><a href="/training" class="text-md no-underline text-light hover:text-white">TRAINING</a></li>
-    <li><a href="/#clients" class="text-md no-underline text-light hover:text-white">CLIENTS</a></li>
-    <li><a href="/blog" class="text-md no-underline text-light hover:text-white">BLOG</a></li>
-    <li><a href="mailto:tom@feelingmutual.com" class="text-md no-underline text-light hover:text-white">SAY HELLO</a></li>
-  </ul>
-  <div class="lg:hidden">
-    <ul class="flex justify-center items-center w-auto space-x-6 md:space-x-12 pt-2">
-      <li><a href="/services" class="text-md no-underline text-light hover:text-white">SERVICES</a></li>
-      <li><a href="/training" class="text-md no-underline text-light hover:text-white">TRAINING</a></li>
-      <li><a href="/#clients" class="text-md no-underline text-light hover:text-white">CLIENTS</a></li>
-    </ul>
-    <ul class="flex justify-center items-center w-auto space-x-6 md:space-x-12 pt-2">
-      <li><a href="/blog" class="text-md no-underline text-light hover:text-white">BLOG</a></li>
-      <li><a href="mailto:tom@feelingmutual.com" class="text-md no-underline text-light hover:text-white">SAY HELLO</a></li>
-    </ul>
+<footer class={`border-t pt-12 ${t.divider}`}>
+  <div class="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+    <a href="/" class={`shrink-0 ${t.logo}`} aria-label="Feeling Mutual — home">
+      <Logo variant="symbol" class="w-11" />
+    </a>
+
+    <nav aria-label="Footer">
+      <ul class="flex flex-wrap gap-x-8 gap-y-3">
+        {links.map(l => (
+          <li>
+            <a href={l.href} class={`text-sm transition-colors duration-200 ${t.link}`}>{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-6">
+      <a href="https://www.linkedin.com/company/feeling-mutual-limited/" class={`transition-colors duration-200 ${t.social}`} aria-label="Feeling Mutual on LinkedIn">
+        <Linkedin size={20} />
+      </a>
+      <a href="https://twitter.com/tomwoodnutt" class={`transition-colors duration-200 ${t.social}`} aria-label="Tom Woodnutt on Twitter">
+        <Twitter size={20} />
+      </a>
+      <a href="mailto:tom@feelingmutual.com" class={`transition-colors duration-200 ${t.social}`} aria-label="Email Feeling Mutual">
+        <Mail size={20} />
+      </a>
+    </div>
   </div>
-  <div class={`flex items-center space-x-8 pb-6 text-${textColour}`}>
-    <a href="https://twitter.com/tomwoodnutt" class="opacity-50 hover:opacity-100"><Twitter size={24} /></a>
-    <a href="https://www.linkedin.com/company/feeling-mutual-limited/" class="opacity-50 hover:opacity-100"><Linkedin size={24} /></a>
-    <a href="mailto:tom@feelingmutual.com" class="opacity-50 hover:opacity-100"><Mail size={24} /></a>
+
+  <div class={`mt-12 flex flex-col gap-2 border-t pt-6 pb-10 md:flex-row md:justify-between ${t.divider}`}>
+    <p class={`text-caption ${t.meta}`}>© {year} Feeling Mutual Limited</p>
+    <p class={`text-caption ${t.meta}`}>
+      <a href="/privacy-policy" class={`transition-colors duration-200 ${t.link}`}>Privacy policy</a>
+    </p>
   </div>
 </footer>

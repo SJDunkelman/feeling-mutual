@@ -1,4 +1,10 @@
 ---
+/*
+  Was a fixed-height tile whose description was swapped for "Learn More" on
+  hover (`group-hover:hidden` / `hidden group-hover:block`) — which hid the
+  content the user was reading and jumped the layout. Now the description stays
+  and the arrow moves instead.
+*/
 import { ConciergeBell, DraftingCompass, MessageSquareShare, GraduationCap, ArrowRight } from '@lucide/astro';
 
 const icons: Record<string, any> = {
@@ -19,11 +25,15 @@ const { slug, icon, title, description } = Astro.props;
 const Icon = icons[icon];
 ---
 
-<a href={slug} class="no-underline">
-  <div class="group flex flex-col px-4 pt-8 pb-6 w-full max-w-2/5 h-52 md:h-56 rounded-lg mobile-only:w-80 lg:max-w-72 space-y-2 bg-white/[0.75] text-maroon hover:bg-pink hover:text-gold hover:drop-shadow-lg">
-    {Icon && <Icon size={48} class="text-tomato" />}
-    <h4 class="font-semibold text-xl">{title}</h4>
-    <p class="font-light group-hover:hidden">{description}</p>
-    <p class="hidden group-hover:block">Learn More <ArrowRight class="inline w-4 h-4" /></p>
-  </div>
+<a
+  href={slug}
+  class="group flex flex-col gap-3 border-t border-ink-300 pt-6 pb-2 transition-colors duration-300 hover:border-brand-500"
+>
+  {Icon && <Icon size={26} class="text-brand-500 transition-transform duration-300 ease-out-soft group-hover:-translate-y-0.5" />}
+  <h3 class="text-lg font-bold text-ink-900">{title}</h3>
+  <p class="text-sm font-light text-ink-600 max-w-[34ch]">{description}</p>
+  <span class="mt-auto inline-flex items-center gap-2 pt-4 text-caption font-medium text-brand-600">
+    Learn more
+    <ArrowRight class="w-4 h-4 transition-transform duration-300 ease-out-soft group-hover:translate-x-1" />
+  </span>
 </a>

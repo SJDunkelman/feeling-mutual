@@ -12,7 +12,7 @@ tags: ["Mobile"]
 
 <div align="center">
 <img src="https://static.standard.co.uk/2022/04/12/10/Swingers%20-%2012th%20March%202018%20by%20Luke%20Dyson%20-%20IMG_0186.jpg?width=1200" alt="Person at Swingers minigolf" width=500>
-<p class="text-center font-light text-sm"><a href="https://www.standard.co.uk" class="font-semibold hover:text-tomato">The Standard</a></p>
+<p><a href="https://www.standard.co.uk">The Standard</a></p>
 </div>
 
 <br/>

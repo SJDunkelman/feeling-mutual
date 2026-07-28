@@ -10,7 +10,8 @@ const {
 } = Astro.props;
 
 const siteTitle = 'Feeling Mutual';
-const author = 'Simon Dunkelman';
+const author = 'Tom Woodnutt';
+const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -19,6 +20,18 @@ const author = 'Simon Dunkelman';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#6D012D" />
+
+    <!-- Loaded here rather than @imported from global.css: an @import has to
+         precede every other statement in a stylesheet, so it was being dropped
+         after the @tailwind directives and the webfont never loaded. -->
+    <!-- The two faces used above the fold: Light (300) body and Bold (700)
+         display. Preloaded because they are the only two that block first
+         paint; Regular and Medium load normally. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/NeueHaasUnica-Light.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/NeueHaasUnica-Bold.woff2" crossorigin />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -27,6 +40,7 @@ const author = 'Simon Dunkelman';
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={siteTitle} />
 
     <!-- Twitter -->
@@ -34,10 +48,15 @@ const author = 'Simon Dunkelman';
     <meta name="twitter:creator" content={author} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-
   </head>
-  <body>
-    <main class="min-w-screen">
+  <body class="bg-ink-50 text-ink-900">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand-800 focus:px-5 focus:py-3 focus:text-brand-50"
+    >
+      Skip to content
+    </a>
+    <main id="main" class="w-full">
       <slot />
     </main>
   </body>
@@ -45,5 +64,4 @@ const author = 'Simon Dunkelman';
 
 <style is:global>
   @import '../styles/global.css';
-  @import '../styles/logo-filters.css';
 </style>

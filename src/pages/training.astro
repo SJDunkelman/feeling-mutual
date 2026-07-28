@@ -1,73 +1,58 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
-import NavigationBar from '../components/NavigationBar.astro';
+import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
+import GetInTouch from '../components/GetInTouch.astro';
+
+/* The four modules are a genuine sequence — you win the work, then plan it,
+   then run it — so the numbering carries information rather than decorating. */
+const modules = [
+  { n: '01', title: 'Win', body: 'Learn how to pitch and win online qualitative projects. Understand client needs and position your offering effectively.' },
+  { n: '02', title: 'Plan', body: 'Design effective online qualitative research projects. Choose the right methods and platforms for your objectives.' },
+  { n: '03', title: 'Run', body: 'Execute online qualitative projects with confidence. Master moderation techniques and participant engagement.' },
+  { n: '04', title: 'Psychology', body: 'Understand the psychology behind online behaviour. Apply behavioural science to improve research quality.' },
+];
 ---
 
 <Layout title="Training | Feeling Mutual" description="Online qualitative research training courses - upskill your team in digital ethnography and online qual methods">
-  <Section class="bg-blue text-pink">
-    <NavigationBar helloButton helloBg="pink" helloText="blue" logoColour="pink" />
-    <div class="py-16 lg:py-24">
-      <p class="font-light">Training</p>
-      <h1 class="text-5xl md:text-6xl font-semibold mt-2">Online Qualitative Research Training</h1>
-      <p class="text-xl font-light mt-4 max-w-2xl">Upskill your team to conduct more insightful and profitable online qualitative research.</p>
-    </div>
+  <Section tone="deep" pad="none">
+    <PageHero
+      eyebrow="Training"
+      title="Online qualitative research training"
+      intro="Upskill your team to conduct more insightful and profitable online qualitative research."
+    />
   </Section>
 
-  <Section class="bg-offwhite py-16">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-4xl font-semibold text-gold mb-8 text-center">Course Modules</h2>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <span class="w-10 h-10 bg-tomato text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
-            <h3 class="text-2xl font-semibold text-maroon">Win</h3>
-          </div>
-          <p class="text-gold font-light">Learn how to pitch and win online qualitative projects. Understand client needs and position your offering effectively.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <span class="w-10 h-10 bg-tomato text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
-            <h3 class="text-2xl font-semibold text-maroon">Plan</h3>
-          </div>
-          <p class="text-gold font-light">Design effective online qualitative research projects. Choose the right methods and platforms for your objectives.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <span class="w-10 h-10 bg-tomato text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
-            <h3 class="text-2xl font-semibold text-maroon">Run</h3>
-          </div>
-          <p class="text-gold font-light">Execute online qualitative projects with confidence. Master moderation techniques and participant engagement.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <span class="w-10 h-10 bg-tomato text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
-            <h3 class="text-2xl font-semibold text-maroon">Psychology</h3>
-          </div>
-          <p class="text-gold font-light">Understand the psychology behind online behaviour. Apply behavioural science to improve research quality.</p>
-        </div>
+  <Section tone="paper" pad="lg">
+    <div class="grid gap-x-12 gap-y-14 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <p class="eyebrow eyebrow-rule text-brand-600">Course modules</p>
+        <h2 class="text-3xl text-ink-900 max-w-display">Four modules, run in sequence</h2>
       </div>
+
+      <ol class="flex flex-col lg:col-span-7 lg:col-start-6">
+        {modules.map((m) => (
+          <li class="flex gap-8 border-b border-ink-300/70 py-8 first:border-t">
+            <span class="text-caption font-medium tabular-nums text-brand-600 pt-1.5">{m.n}</span>
+            <div class="flex flex-col gap-2">
+              <h3 class="text-xl text-ink-900">{m.title}</h3>
+              <p class="text-base font-light text-ink-600 max-w-measure">{m.body}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
     </div>
   </Section>
 
-  <Section class="bg-green py-16" id="contact">
-    <div class="max-w-lg mx-auto text-center">
-      <h2 class="text-3xl font-semibold text-sandybrown mb-2">Interested in Training?</h2>
-      <p class="text-sandybrown font-light mb-8">Get in touch to find out more about our training programmes.</p>
-      <a href="mailto:tom@feelingmutual.com?subject=Training%20Enquiry">
-        <button class="rounded-lg py-3 px-6 font-medium transition duration-200 hover:opacity-75 bg-tomato text-white">
-          Get in Touch
-        </button>
-      </a>
+  <Section tone="ink" pad="lg" id="contact">
+    <GetInTouch
+      tone="dark"
+      headline="Interested in training?"
+      subheading="Tell us the size and shape of your team, and we'll suggest a format."
+    />
+    <div class="pt-24">
+      <Footer tone="dark" />
     </div>
-  </Section>
-
-  <Section class="bg-blue py-6">
-    <Footer textColour="pink" logoColour="maroon" />
   </Section>
 </Layout>

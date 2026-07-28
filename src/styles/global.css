@@ -2,37 +2,207 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('/fonts/fonts.css');
+/* The @font-face rules live in public/fonts/fonts.css and are loaded with a
+   <link> in Layout.astro. They cannot be @imported here: an @import must
+   precede every other statement in a stylesheet, and the @tailwind directives
+   above expand to thousands of rules, so the browser would discard it. */
 
-body { font-family:"Neue Haas Unica", Helvetica, sans-serif; }
+@layer base {
+  /* Mirrors of the Tailwind tokens, for the handful of places that need a raw
+     value (gradients, shadows on coloured grounds, SVG fills). Single source of
+     truth is still tailwind.config.mjs — these are kept in step with it. */
+  :root {
+    --ink-50:  #FBF9F7;
+    --ink-100: #F5F1EC;
+    --ink-200: #E3DBD2;
+    --ink-300: #D0C5B9;
+    --ink-500: #877B6E;
+    --ink-600: #685E54;
+    --ink-900: #1D1917;
 
-.animate-banner {
-    animation: continuousScroll 4s infinite;
+    --brand-100: #FEC8D2;
+    --brand-300: #FFAB5C;
+    --brand-400: #FA5A50;
+    --brand-500: #D83B2E;
+    --brand-600: #A81E33;
+    --brand-800: #6D012D;
+
+    --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* The nav is not sticky, but in-page anchors (/#clients) should not land
+       flush against the viewport edge. */
+    scroll-padding-top: 2rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: "Neue Haas Unica", "Unica Fallback", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    background-color: var(--ink-50);
+    color: var(--ink-900);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings default to Bold and inherit the tracking/leading baked into each
+     fontSize step in the Tailwind config, so display type can never again fall
+     back to line-height 1.0 with zero tracking. */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Was entirely absent — browser default outline only, near-invisible on the
+     dark grounds. */
+  :focus-visible {
+    outline: 2px solid var(--brand-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--brand-300);
+  }
+
+  ::selection {
+    background: var(--brand-300);
+    color: var(--brand-800);
+  }
+
+  img, svg, video {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
-@keyframes continuousScroll {
-    0%,
-    100% {
-        left: 0;
-    }
+@layer components {
+  /* Caps the content column while leaving section backgrounds full-bleed.
+     Padding-based rather than a wrapper element, so the flex/grid layouts that
+     call sites put directly on <section> keep working. */
+  .section-shell {
+    --section-max: 82.5rem; /* 1320px */
+    --section-gutter: 1.5rem;
+    padding-inline: max(var(--section-gutter), calc((100% - var(--section-max)) / 2));
+  }
+  @media (min-width: 768px)  { .section-shell { --section-gutter: 3rem; } }
+  @media (min-width: 1024px) { .section-shell { --section-gutter: 4.5rem; } }
 
-    50% {
-        left: 50%;
-    }
+  /* Small caps-and-tracking label used as a section eyebrow. Replaces the
+     `<p class="font-light">What We Do</p>` pattern, which had no tracking. */
+  .eyebrow {
+    @apply text-label uppercase font-medium;
+  }
+
+  /* Thin rule that runs under an eyebrow — the structural device that replaces
+     a full-bleed colour change as the section separator. */
+  .eyebrow-rule {
+    @apply flex items-center gap-4 pb-8;
+  }
+  .eyebrow-rule::after {
+    content: "";
+    @apply h-px flex-1 bg-current opacity-25;
+  }
+
+  /* Long-form copy — blog posts, the privacy policy.
+
+     Descendant selectors rather than utility classes on each element, because
+     markdown output has no classes to hang them on. The old approach was to
+     safelist `list-disc`, `list-inside`, `text-justify` etc. in the Tailwind
+     config so they survived the JIT purge; this needs no safelist at all. */
+  .prose-fm {
+    @apply text-ink-700;
+    max-width: 68ch;
+  }
+  .prose-fm > * + * { margin-top: 1.4em; }
+
+  .prose-fm p,
+  .prose-fm li {
+    @apply text-lg font-light leading-relaxed;
+    /* Was `text-justify` at ~160 characters per line, which rivered badly.
+       Ragged-right at a 68ch measure needs no hyphenation crutch. */
+    hyphens: auto;
+  }
+
+  .prose-fm h1 { @apply text-3xl text-ink-900; margin-top: 2.2em; }
+  .prose-fm h2 { @apply text-2xl text-ink-900; margin-top: 2em; }
+  .prose-fm h3 { @apply text-xl text-ink-900; margin-top: 1.8em; }
+  .prose-fm h4 { @apply text-lg font-bold text-ink-900; margin-top: 1.6em; }
+  .prose-fm h1:first-child,
+  .prose-fm h2:first-child,
+  .prose-fm h3:first-child,
+  .prose-fm h4:first-child { margin-top: 0; }
+
+  .prose-fm ul { @apply list-disc; padding-left: 1.4em; }
+  .prose-fm ol { @apply list-decimal; padding-left: 1.4em; }
+  .prose-fm li::marker { @apply text-brand-600; }
+  .prose-fm li + li { margin-top: 0.5em; }
+
+  .prose-fm a {
+    @apply text-brand-600 underline decoration-1 underline-offset-4 transition-colors duration-200;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+  .prose-fm a:hover {
+    @apply text-brand-800;
+    text-decoration-color: currentColor;
+  }
+
+  .prose-fm img { @apply rounded-lg; margin-top: 2em; margin-bottom: 2em; }
+
+  /* Five posts embed SlideShare/YouTube with hardcoded width="476" or "560"
+     attributes in the markdown. Those overflowed the viewport on phones and
+     scrolled the whole page sideways. Overriding here fixes every embed
+     without editing the content. */
+  .prose-fm iframe {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    @apply rounded-lg border border-ink-200;
+  }
+  /* Markdown wraps some embeds in <div align="center">, which centres the
+     iframe but doesn't constrain it. */
+  .prose-fm div[align="center"] { max-width: 100%; }
+  .prose-fm strong { @apply font-medium text-ink-900; }
+  .prose-fm blockquote {
+    @apply border-l-2 border-brand-300 pl-6 text-xl font-light text-ink-900;
+    font-style: normal;
+  }
+
+  /* Link underline that sits below the baseline and thickens on hover, rather
+     than the previous no-underline / colour-swap-only treatment. */
+  .link {
+    @apply underline decoration-1 underline-offset-4 transition-colors duration-200;
+    text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  }
+  .link:hover {
+    text-decoration-color: currentColor;
+  }
 }
 
-ul.tick-list li::before {
-    content: "\f00c";
-    font-family: "Font Awesome 6 Pro";
-    padding: 0 10px 0 0;
+@layer utilities {
+  /* No scroll-driven entrance animation. A `.reveal` that started at opacity 0
+     was tried and dropped: any path where the timeline fails to resolve leaves
+     the content permanently invisible, and the layout does not need it. Motion
+     here is limited to hover and focus, where it can only ever be additive. */
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty; }
 }
 
-ul.tool-list li::before {
-    content: "\f7d9";
-    font-family: "Font Awesome 6 Pro";
-    padding: 0 10px 0 0;
-}
-
-ul.tool-list li:nth-child(2n+1) {
-    color: #313978;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

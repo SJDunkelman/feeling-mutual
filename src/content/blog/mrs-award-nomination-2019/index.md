@@ -15,4 +15,4 @@ We helped Swingers evaluate the opportunity and need for local adaptation in rel
 
 <br />
 
-You can read more about the project <a href="https://www.feelingmutual.com/blog/how-mobile-qualitative-research-inspired-swingers-global-expansion/" class="font-semibold hover:text-tomato" target="_blank">here</a>.
+You can read more about the project <a href="https://www.feelingmutual.com/blog/how-mobile-qualitative-research-inspired-swingers-global-expansion/" target="_blank">here</a>.
