@@ -1,0 +1,88 @@
+src/components/Footer.astro
+  s_e95f03a6e77232::t_42786c54e47487 53
+  s_e95f03a6e77232::t_b99b21fb267c8b 59-63,66,69
+  s_e95f03a6e77232::t_deb4c514b15dfd 75-77,80
+src/pages/404.astro
+  s_e95f03a6e77232::t_42786c54e47487 23,28
+  s_e95f03a6e77232::t_e17a7569afedf0 34-38
+  s_e95f03a6e77232::t_0f44041d1f53d7 13-14,16
+tailwind.config.mjs
+  s_e95f03a6e77232::t_2e67dd8a6c8031 116-119,121,123-129,133-134
+  s_e95f03a6e77232::t_b130b57b47a001 99-100
+src/styles/global.css
+  s_e95f03a6e77232::t_2ec28fcd9c4253 53-55
+  s_e95f03a6e77232::t_69bad8bd6c2eba 11-13,15-16
+  s_e95f03a6e77232::t_8d295ce7e8327d 179-182,184-185
+  s_e95f03a6e77232::t_f513096ce22298 78-84,87,91,93-98
+  s_e95f03a6e77232::t_87219e3bad69a8 157
+docs/POLISH-PLAN-2026.md
+  s_e95f03a6e77232::t_5bb572e653f49b 506,508-637
+  s_e95f03a6e77232::t_9df75c94d9b9b9 643-645,648-653,655,657-658,660-661
+  s_e95f03a6e77232::t_ad53c8b3ed04cb 1-4,70-505,507,638-642,646-647,654,656,659,662-663
+  s_e95f03a6e77232::t_49398098863fc2 5-69
+src/components/Section.astro
+  s_e95f03a6e77232::t_10d03687a1f782 18-20,22-23,32-35
+src/pages/downloads.astro
+  s_e95f03a6e77232::t_8a1d05e994a577 27-28,36-42,44,47,49-54
+src/pages/index.astro
+  s_e95f03a6e77232::t_ec7d2739c55b76 250-254
+  s_e95f03a6e77232::t_42786c54e47487 68,73,273
+  s_e95f03a6e77232::t_48ce2f047c5c75 131-139,141-143,150,153,159
+  s_e95f03a6e77232::t_afb994a5d86df0 171-176
+  s_e95f03a6e77232::t_e3a1bb8c729e35 12,19-22,42-44
+  s_e95f03a6e77232::t_5927897c47b9e4 85-96,98-102,114-118,120,122,124
+  s_e95f03a6e77232::t_467a2ff877cf31 188-190,193,196
+src/pages/services.astro
+  s_e95f03a6e77232::t_42786c54e47487 60
+  s_e95f03a6e77232::t_b0a8199f04976f 7,32-33,40-47,49-56,58,62,70-71,73
+src/pages/category/[...category].astro
+  s_e95f03a6e77232::t_30f5c3485c18d3 41
+  s_e95f03a6e77232::t_82506eb22a2dfc 34
+src/components/PageHero.astro
+  s_e95f03a6e77232::t_d2d481c41844c9 7-16,21,32-34,37
+src/components/GetInTouch.astro
+  s_e95f03a6e77232::t_ced147f6e02415 36-39,42,45
+  s_e95f03a6e77232::t_42786c54e47487 50,57
+src/components/ServiceCard.astro
+  s_e95f03a6e77232::t_12944505329105 3-9,11-15,23,26-28,31
+src/components/CustomerReviewCard.astro
+  s_e95f03a6e77232::t_80376b261e5355 22-31,36
+src/components/CaseStudyGrid.astro
+  s_e95f03a6e77232::t_149d2cf3c99147 15-25,30,37,45
+src/components/NavigationBar.astro
+  s_e95f03a6e77232::t_3d843dc0747cc3 74-75,77
+  s_e95f03a6e77232::t_42786c54e47487 47,57,66,101
+  s_e95f03a6e77232::t_c0fa0722239ba0 51-54
+  s_e95f03a6e77232::t_686119415599b7 88-92,94-95
+src/pages/training.astro
+  s_e95f03a6e77232::t_629d91b7ae9d5f 8-19,21-24,30,38-41,43-44,46-48,51
+src/pages/blog/index.astro
+  s_e95f03a6e77232::t_42786c54e47487 29
+  s_e95f03a6e77232::t_30f5c3485c18d3 25
+src/pages/privacy-policy.astro
+  s_e95f03a6e77232::t_30f5c3485c18d3 71
+src/components/ActionBanner.astro
+  s_e95f03a6e77232::t_42786c54e47487 29
+src/pages/blog/[...slug].astro
+  s_e95f03a6e77232::t_30f5c3485c18d3 37,52
+  s_e95f03a6e77232::t_42786c54e47487 40,42,45
+src/components/PostCard.astro
+  s_e95f03a6e77232::t_42786c54e47487 56
+  s_e95f03a6e77232::t_86dc1581ccd552 6-12,35,37,42,46,61-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "9f489bf67813ed08ae33cbea990651de1165a7e3",
+  "prompts": {},
+  "sessions": {
+    "s_e95f03a6e77232": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1345b54-2a41-4215-b146-c5152864120f",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Simon Dunkelman <simon@dunkelman.xyz>"
+    }
+  }
+}
