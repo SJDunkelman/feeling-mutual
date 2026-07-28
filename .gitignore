@@ -25,7 +25,9 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-package-lock.json
+# package-lock.json is deliberately committed: Netlify installs from the
+# package.json ranges, so without a lockfile a transitive release can change
+# the deployed build with no commit of ours.
 
 # Typescript v1 declaration files
 typings/
@@ -50,6 +52,12 @@ typings/
 
 # Build output
 dist/
+
+# Astro generated types and content cache
+.astro/
+
+# Claude Code worktrees checked out inside the repo
+.claude/worktrees/
 
 # Netlify
 .netlify/
