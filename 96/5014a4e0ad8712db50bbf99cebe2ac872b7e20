@@ -1,0 +1,24 @@
+docs/POLISH-PLAN-2026.md
+  s_e95f03a6e77232::t_74ed3117e36e19 111-136,139-142
+src/pages/training.astro
+  s_e95f03a6e77232::t_5b170697fb4318 98,100-103,105
+  s_e95f03a6e77232::t_7ce237a99a28d7 4,7-9,11-14,17-25,27-32,51-77,80-83,85-97,99,104,106-131,134,136-143,156-172
+src/pages/services.astro
+  s_e95f03a6e77232::t_b1c331047d375e 37-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "965014a4e0ad8712db50bbf99cebe2ac872b7e20",
+  "prompts": {},
+  "sessions": {
+    "s_e95f03a6e77232": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1345b54-2a41-4215-b146-c5152864120f",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Simon Dunkelman <simon@dunkelman.xyz>"
+    }
+  }
+}
