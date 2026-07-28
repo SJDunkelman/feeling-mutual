@@ -10,13 +10,21 @@ interface Props {
   headline?: string;
   subheading?: string;
   tone?: 'light' | 'dark';
+  /* Prefills the mail subject so enquiries arrive labelled. Omitted everywhere
+     except /training, where it matches the hero's enrolment button. */
+  subject?: string;
 }
 
 const {
   headline = 'Let’s start a conversation',
   subheading = 'Tell us what you’re trying to understand, and we’ll tell you how we’d approach it.',
   tone = 'dark',
+  subject,
 } = Astro.props;
+
+const mailto = subject
+  ? `mailto:tom@feelingmutual.com?subject=${encodeURIComponent(subject)}`
+  : 'mailto:tom@feelingmutual.com';
 
 const t = tone === 'dark'
   ? {
@@ -34,7 +42,7 @@ const t = tone === 'dark'
 ---
 
 <!-- No eyebrow. "Get in touch" restated every headline this component takes, and
-     the "Email Tom" button 30px below says it a third time. No `pb-2` either —
+     the enquiry button 30px below says it a third time. No `pb-2` either —
      `items-end` already baseline-aligns; it measured correct only by accident,
      because the button row happens to be 84px tall. -->
 <div class="grid gap-10 lg:grid-cols-12 lg:items-end">
@@ -46,11 +54,11 @@ const t = tone === 'dark'
     <p class={`text-lg font-light max-w-measure ${t.sub}`}>{subheading}</p>
     <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
       <a
-        href="mailto:tom@feelingmutual.com"
+        href={mailto}
         class={`group inline-flex items-center gap-2.5 rounded-md px-6 py-3.5 text-base font-medium transition-colors duration-text ${t.btn}`}
       >
-        Email Tom
-        <ArrowRight class="w-4 h-4 transition-transform duration-300 ease-out-soft group-hover:translate-x-1" />
+        Enquire now
+        <ArrowRight class="w-4 h-4 translate-y-px transition-transform group-hover:translate-x-1" />
       </a>
       <a
         href="https://www.linkedin.com/company/feeling-mutual-limited/"

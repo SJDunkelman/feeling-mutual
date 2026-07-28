@@ -104,12 +104,15 @@ const testimonials = [
           ))}
         </ul>
 
+        <!-- Enrolment is by enquiry. The course was previously sold through a
+             third-party platform, which has since been taken down, so there is no
+             self-serve checkout to link to. -->
         <div class="flex flex-wrap items-center gap-x-8 gap-y-4 pt-10">
           <a
-            href="#enrol"
+            href="mailto:tom@feelingmutual.com?subject=Training"
             class="group inline-flex items-center gap-2.5 rounded-md bg-brand-300 px-6 py-3.5 text-base font-medium text-brand-800 transition-colors duration-text hover:bg-ink-50"
           >
-            Enrol now
+            Enquire now
             <ArrowRight class="w-4 h-4 translate-y-px transition-transform group-hover:translate-x-1" />
           </a>
           <a href="#modules" class="link text-base text-brand-100 transition-colors duration-text hover:text-brand-300">
@@ -169,10 +172,11 @@ const testimonials = [
     </div>
   </Section>
 
-  <Section id="enrol" tone="ink" pad="lg">
+  <Section tone="ink" pad="lg">
     <GetInTouch
       tone="dark"
       headline="Interested in training?"
+      subject="Training"
       subheading="Tell us the size and shape of your team, and we'll suggest a format."
     />
     <div class="pt-24">
