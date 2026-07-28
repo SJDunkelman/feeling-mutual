@@ -1,0 +1,29 @@
+src/pages/training.astro
+  s_e95f03a6e77232::t_1fe69cb9341ecc 107,109,115
+  s_e95f03a6e77232::t_c06c83d47efb7c 179
+  s_e95f03a6e77232::t_3cfee71b48aca5 108,112
+  s_e95f03a6e77232::t_55176b5b7051b5 175
+src/components/GetInTouch.astro
+  s_e95f03a6e77232::t_55176b5b7051b5 45
+  s_e95f03a6e77232::t_466edf3786fb1a 57,60-61
+  s_e95f03a6e77232::t_876039b6a0b278 13-15,22,25-27
+  s_e95f03a6e77232::t_6a00a7e530f33c 28
+src/components/Footer.astro
+  s_e95f03a6e77232::t_c06c83d47efb7c 69
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "6ba30b6780d19ab26ad796a9840972a1a358eb2b",
+  "prompts": {},
+  "sessions": {
+    "s_e95f03a6e77232": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1345b54-2a41-4215-b146-c5152864120f",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Simon Dunkelman <simon@dunkelman.xyz>"
+    }
+  }
+}
