@@ -1,17 +1,30 @@
 ---
+/*
+  Was `class={`w-${width} h-${height} ...`}` with defaults of 20 and 16 — so the
+  default avatar rendered 80x64px, a non-square image forced into rounded-full.
+  Fixed sizes, static classes, and a square aspect ratio.
+*/
 interface Props {
   imageSrc?: string;
-  width?: number;
-  height?: number;
+  alt?: string;
+  size?: 'sm' | 'md';
 }
 
-const { imageSrc, width = 20, height = 16 } = Astro.props;
+const { imageSrc, alt = '', size = 'sm' } = Astro.props;
+
+const sizes: Record<string, string> = {
+  sm: 'w-11 h-11',
+  md: 'w-16 h-16',
+};
 ---
 
 {imageSrc && (
   <img
-    class={`w-${width} h-${height} object-cover rounded-full`}
+    class={`${sizes[size]} shrink-0 rounded-full object-cover`}
     src={imageSrc}
-    alt="Profile Picture"
+    alt={alt}
+    loading="lazy"
+    width={size === 'md' ? 64 : 44}
+    height={size === 'md' ? 64 : 44}
   />
 )}

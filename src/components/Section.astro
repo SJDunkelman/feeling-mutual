@@ -1,16 +1,48 @@
 ---
+/*
+  A section owns its ground AND its foreground together.
+
+  The 2021 version took an arbitrary `class` string, so every call site chose a
+  background and separately chose text colours for whatever it nested. Shared
+  components (NavigationBar, Footer) were then told their colour by prop, and
+  had to remember what they were standing on — which they didn't, hence
+  `hover:text-white` rendering at 1.27:1 on the offwhite band.
+
+  Now: pick a `tone`, and the ground, body colour, heading colour, muted colour
+  and focus ring all come with it. `on-dark` is set for the tones that need it,
+  so nested components can adapt without being passed anything.
+
+  Every tone is validated to WCAG AA — see docs/BRAND-AUDIT-2026.md §2.4.
+*/
+
+// Only the tones and pads that have call sites. `paper-alt`, `accent`, `tint` and
+// `pad="sm"` were declared and never used — a Props union advertising states the
+// site never renders.
 interface Props {
+  tone?: 'paper' | 'warm' | 'deep' | 'ink';
+  pad?: 'none' | 'md' | 'lg' | 'xl';
   class?: string;
   id?: string;
 }
 
-const { class: className = '', id } = Astro.props;
-// .section-shell (global.css) sets the horizontal gutters AND caps the content
-// column at 1440px, so the background stays full-bleed but line lengths don't
-// run away on wide displays.
-const classes = `${className} section-shell`;
+const { tone = 'paper', pad = 'lg', class: className = '', id } = Astro.props;
+
+// Static strings — nothing interpolated, so Tailwind's JIT can see every one.
+const tones: Record<string, string> = {
+  'paper': 'bg-ink-50 text-ink-900',
+  'warm':  'bg-brand-50 text-ink-900',
+  'deep':  'on-dark bg-brand-800 text-brand-100',
+  'ink':   'on-dark bg-ink-900 text-ink-200',
+};
+
+const pads: Record<string, string> = {
+  'none': '',
+  'md':   'py-20 md:py-24',
+  'lg':   'py-24 md:py-32',
+  'xl':   'py-28 md:py-40',
+};
 ---
 
-<section class={classes} id={id}>
+<section class={`section-shell ${tones[tone]} ${pads[pad]} ${className}`} id={id}>
   <slot />
 </section>

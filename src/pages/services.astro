@@ -1,71 +1,92 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
-import NavigationBar from '../components/NavigationBar.astro';
+import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
-import { ConciergeBell, DraftingCompass, MessageSquareShare, GraduationCap } from '@lucide/astro';
+import GetInTouch from '../components/GetInTouch.astro';
+import { ArrowRight } from '@lucide/astro';
+
+/*
+  Copy restored verbatim from the pre-migration page (87f6c6b^, src/pages/services.js).
+
+  The Dec 2025 Astro migration rewrote this page from scratch and replaced these
+  with generated filler — "ensures seamless execution from start to finish",
+  "tailored to your specific needs", "actionable insights for your business
+  decisions" — which say nothing a competitor couldn't also say.
+
+  What the originals do, and the replacements didn't, is explain that the offer is
+  MODULAR: three of the four describe taking on only the parts the client can't do
+  themselves. That is the actual sales proposition.
+*/
+const services = [
+  {
+    title: 'Full Service',
+    body: 'We take your brief and then design the most robust sample and method. We also assemble an expert team for moderation and reporting.',
+  },
+  {
+    title: 'Project Design / Set Up',
+    body: 'If you can moderate and report, we can just design the method and sample, and / or set up the platform, and / or recruit and incentivise participants.',
+  },
+  {
+    title: 'Moderation / Reporting',
+    body: 'If you set up the project yourself, we can provide expert moderators in any market and if required, we can analyse and report.',
+  },
+  {
+    title: 'Training',
+    body: 'We also offer training to upskill researchers so they can win, plan and run online and mobile qualitative studies that are more insightful and profitable.',
+    // Names the course rather than saying "our training" — it is sold under this
+    // exact name, and the migration had dropped every reference to it.
+    link: { href: '/training', label: 'See Online Qual Mastery' },
+  },
+];
 ---
 
 <Layout title="Services | Feeling Mutual" description="Online qualitative research services - Full Service, Project Design, Moderation and Reporting">
-  <Section class="bg-maroon text-pink">
-    <NavigationBar helloButton />
-    <div class="py-16 lg:py-24">
-      <p class="font-light text-sandybrown">Our Services</p>
-      <h1 class="text-5xl md:text-6xl font-semibold text-sandybrown mt-2">Online Qualitative Research</h1>
-      <p class="text-xl font-light mt-4 max-w-2xl">We provide a range of online qualitative research services through our international network of senior consultants and specialist partners.</p>
-    </div>
+  <Section tone="deep" pad="none">
+    <!-- No eyebrow: the nav, the page title, the footer and the intro copy all say
+         "services" already — it appeared five times on one screen. -->
+    <PageHero
+      title="Online qualitative research"
+      intro="We provide a range of online qualitative research services through our international network of senior consultants and specialist partners."
+    />
   </Section>
 
-  <Section class="bg-offwhite py-16">
-    <div class="grid md:grid-cols-2 gap-12">
-      <!-- Services List -->
-      <div class="space-y-8">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <ConciergeBell size={36} class="text-tomato mr-4 flex-shrink-0" />
-            <h3 class="text-2xl font-semibold text-maroon">Full Service</h3>
-          </div>
-          <p class="text-gold font-light">We can offer everything, from design, to set up, moderation and reporting. Our full service approach ensures seamless execution from start to finish.</p>
-        </div>
+  <!-- Two columns of the 12-col grid rather than a 2x2 slab of equal boxes. The
+       old layout was a 1296x433px rectangle — a wide flat block whose content was
+       shorter than the footer beneath it. Narrower columns (512px, ~57ch) give a
+       real measure, and the 112px row gap makes external:internal 7:1, so four
+       items read as four with no rule at all.
 
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <DraftingCompass size={36} class="text-tomato mr-4 flex-shrink-0" />
-            <h3 class="text-2xl font-semibold text-maroon">Project Design / Set Up</h3>
-          </div>
-          <p class="text-gold font-light">Our set-up and design inspires deep engagement, vivid colour and strong validity. We create research frameworks tailored to your specific needs.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <MessageSquareShare size={36} class="text-tomato mr-4 flex-shrink-0" />
-            <h3 class="text-2xl font-semibold text-maroon">Moderation / Reporting</h3>
-          </div>
-          <p class="text-gold font-light">We make strategic discussions and craft directional reports that provide actionable insights for your business decisions.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-lg shadow-md">
-          <div class="flex items-center mb-4">
-            <GraduationCap size={36} class="text-tomato mr-4 flex-shrink-0" />
-            <h3 class="text-2xl font-semibold text-maroon">Training</h3>
-          </div>
-          <p class="text-gold font-light">We upskill researchers to do more insightful and profitable online qual. <a href="/training" class="text-tomato underline">Learn more about our training →</a></p>
-        </div>
-      </div>
-
-      <!-- Contact -->
-      <div class="bg-green p-8 rounded-lg flex flex-col items-center justify-center text-center">
-        <h2 class="text-3xl font-semibold text-sandybrown mb-6">Get in touch to find out more</h2>
-        <a href="mailto:tom@feelingmutual.com?subject=Services%20Enquiry">
-          <button class="rounded-lg py-3 px-6 font-medium transition duration-200 hover:opacity-75 bg-tomato text-white">
-            Get in Touch
-          </button>
-        </a>
-      </div>
-    </div>
+       The offset on the right column is the one deliberate composition choice
+       here; it only works once the top rules are gone. -->
+  <Section tone="paper" pad="lg">
+    <ul class="grid gap-x-12 gap-y-28 lg:grid-cols-12">
+      {services.map((s, i) => (
+        <li
+          class:list={[
+            'flex flex-col gap-4 lg:col-span-5',
+            i % 2 === 1 && 'lg:col-start-8 lg:mt-20',
+          ]}
+        >
+          <h2 class="text-xl text-ink-900">{s.title}</h2>
+          <p class="text-base font-light text-ink-600">{s.body}</p>
+          {s.link && (
+            <a href={s.link.href} class="group inline-flex items-center gap-2.5 self-start pt-1 text-base font-medium text-brand-600 transition-colors duration-text hover:text-brand-800">
+              {s.link.label}
+              <ArrowRight class="w-4 h-4 translate-y-px transition-transform group-hover:translate-x-1" />
+            </a>
+          )}
+        </li>
+      ))}
+    </ul>
   </Section>
 
-  <Section class="bg-maroon py-6">
-    <Footer textColour="pink" />
+  <!-- The bespoke headline/subheading override here was a second draft of the
+       component's own default. Three CTA variants was two more than the site needs. -->
+  <Section tone="ink" pad="lg">
+    <GetInTouch tone="dark" />
+    <div class="pt-24">
+      <Footer tone="dark" />
+    </div>
   </Section>
 </Layout>

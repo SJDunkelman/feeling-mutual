@@ -1,115 +1,123 @@
 ---
+/*
+  Two tones, both statically declared.
+
+  Was: seven string props (logoColour, helloBg, helloText, mobileNavText…)
+  interpolated into class names — `bg-${helloBg}`, `text-${mobileText}` — which
+  Tailwind's JIT cannot see. They rendered only because the same literal strings
+  happened to appear elsewhere in the codebase, so renaming any token would have
+  broken them silently with no build error. And because the hover colour was
+  hardcoded to white regardless of ground, links vanished on hover over the
+  light bands (1.27:1 on offwhite).
+*/
 import { Menu, X } from '@lucide/astro';
+import Logo from './Logo.astro';
 
 interface Props {
-  helloButton?: boolean;
-  helloBg?: string;
-  helloText?: string;
-  logoColour?: 'tomato' | 'maroon' | 'pink' | 'blue';
-  mobileNavText?: 'blue' | 'pink';
+  tone?: 'light' | 'dark';
+  cta?: boolean;
 }
 
-const {
-  helloButton = false,
-  helloBg = 'blue',
-  helloText = 'sandybrown',
-  logoColour = 'tomato',
-  mobileNavText = 'pink'
-} = Astro.props;
+const { tone = 'light', cta = false } = Astro.props;
 
-// Logo styling based on color
-const logoStyles: Record<string, string> = {
-  tomato: 'w-52 tomato-logo white-hover',
-  maroon: 'w-40 maroon-logo gold-hover',
-  pink: 'w-40 pink-logo tomato-hover',
-  blue: 'w-40 blue-logo white-hover'
-};
-const logoClass = logoStyles[logoColour] || logoStyles.blue;
+const t = tone === 'dark'
+  ? {
+      logo:    'text-brand-300 hover:text-ink-50',
+      link:    'text-brand-100 hover:text-ink-50',
+      ctaBtn:  'bg-brand-300 text-brand-800 hover:bg-ink-50',
+      burger:  'text-brand-100 hover:text-ink-50',
+    }
+  : {
+      logo:    'text-brand-800 hover:text-brand-600',
+      link:    'text-ink-700 hover:text-brand-600',
+      ctaBtn:  'bg-brand-800 text-brand-50 hover:bg-brand-600',
+      burger:  'text-ink-700 hover:text-brand-600',
+    };
 
-// Mobile text colors
-const mobileText = mobileNavText === 'blue' ? 'blue' : 'pink';
-const hoverMobileText = 'white';
+const links = [
+  { href: '/services', label: 'Services' },
+  { href: '/training', label: 'Training' },
+  { href: '/#clients', label: 'Case studies' },
+  { href: '/blog',     label: 'Blog' },
+];
 ---
 
-<header class="w-full px-4">
-  <nav class="py-6">
-    <div class="flex justify-between items-center">
-      <a href="/">
-        <img class={`h-auto ${logoClass}`} src="/images/full-logo-black.svg" alt="Logo" />
-      </a>
+<header class="w-full">
+  <nav class="flex items-center justify-between gap-8 py-7">
+    <a href="/" class={`shrink-0 transition-colors duration-text ${t.logo}`} aria-label="Feeling Mutual — home">
+      <Logo variant="full" class="w-44 md:w-48" />
+    </a>
 
-      <!-- Desktop Links -->
-      <ul class="hidden lg:flex items-center w-auto whitespace-nowrap lg:space-x-12">
-        <a href="/services">
-          <li class="no-underline font-light hover:text-white">SERVICES</li>
-        </a>
-        <a href="/training">
-          <li class="no-underline font-light hover:text-white">TRAINING</li>
-        </a>
-        <a href="/#clients">
-          <li class="no-underline font-light hover:text-white">CLIENTS</li>
-        </a>
-        <a href="/blog">
-          <li class="no-underline font-light hover:text-white">BLOG</li>
-        </a>
-      </ul>
-
-      {helloButton && (
-        <a href="mailto:tom@feelingmutual.com">
-          <button class={`hidden lg:flex rounded-lg py-2 px-4 whitespace-nowrap bg-${helloBg} text-${helloText} hover:text-white`}>
-            Say Hello
-          </button>
-        </a>
+    <!-- `md:` not `lg:`: the links plus the CTA measure 460px and the logo 192px,
+         so the row fits from about 800px. It was showing a burger at 900px with
+         586px of free space. `md:gap-6` absorbs the 768px case. -->
+    <ul class="hidden md:flex items-center gap-6 lg:gap-10">
+      {links.map(l => (
+        <li>
+          <a href={l.href} class={`text-sm font-normal tracking-wide transition-colors duration-text ${t.link}`}>
+            {l.label}
+          </a>
+        </li>
+      ))}
+      {cta && (
+        <li>
+          <a
+            href="mailto:tom@feelingmutual.com"
+            class={`inline-flex rounded-md px-5 py-2.5 text-sm font-medium transition-colors duration-text ${t.ctaBtn}`}
+          >
+            Say hello
+          </a>
+        </li>
       )}
+    </ul>
 
-      <!-- Mobile Menu Button -->
-      <button class="lg:hidden" id="mobile-menu-btn">
-        <span id="menu-icon-open"><Menu size={24} /></span>
-        <span id="menu-icon-close" class="hidden"><X size={28} /></span>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="lg:hidden space-y-4 mt-4 hidden" id="mobile-menu">
-      <ul class="bg-primary rounded-lg w-full text-center">
-        <a href="/services">
-          <li class={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>SERVICES</li>
-        </a>
-        <a href="/training">
-          <li class={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>TRAINING</li>
-        </a>
-        <a href="/#clients">
-          <li class={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>CLIENTS</li>
-        </a>
-        <a href="/blog">
-          <li class={`py-2 font-bold text-${mobileText} hover:text-${hoverMobileText} border-b-[1px] border-white`}>BLOG</li>
-        </a>
-        <a href="mailto:tom@feelingmutual.com">
-          <li class={`py-2 font-bold bg-${helloBg} rounded-lg text-${mobileText} hover:text-${hoverMobileText}`}>SAY HELLO</li>
-        </a>
-      </ul>
-    </div>
+    <!-- `-m-2.5 p-2.5` takes the hit area to 46x46 without moving the glyph; it
+         was 26x26, above the WCAG 2.5.8 minimum but well under the 44x44 target. -->
+    <button
+      class={`-m-2.5 p-2.5 md:hidden transition-colors duration-text ${t.burger}`}
+      id="mobile-menu-btn"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Open menu"
+    >
+      <span id="menu-icon-open"><Menu size={26} /></span>
+      <span id="menu-icon-close" class="hidden"><X size={26} /></span>
+    </button>
   </nav>
+
+  <!-- No rules between items: an open drawer is already delimited by being open,
+       and five hairlines in a panel this small was the same tic as the rest of
+       the site. Spacing separates the rows. -->
+  <div class="md:hidden hidden pb-6" id="mobile-menu">
+    <ul class="flex flex-col gap-1 pt-2">
+      {links.map(l => (
+        <li>
+          <a href={l.href} class={`block py-3 text-lg transition-colors duration-text ${t.link}`}>{l.label}</a>
+        </li>
+      ))}
+      <li class="pt-6">
+        <a
+          href="mailto:tom@feelingmutual.com"
+          class={`inline-flex rounded-md px-5 py-3 text-base font-medium transition-colors duration-text ${t.ctaBtn}`}
+        >
+          Say hello
+        </a>
+      </li>
+    </ul>
+  </div>
 </header>
 
 <script>
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
   const iconOpen = document.getElementById('menu-icon-open');
   const iconClose = document.getElementById('menu-icon-close');
 
-  menuBtn?.addEventListener('click', () => {
-    const isOpen = !mobileMenu?.classList.contains('hidden');
-
-    if (isOpen) {
-      mobileMenu?.classList.add('hidden');
-      iconOpen?.classList.remove('hidden');
-      iconClose?.classList.add('hidden');
-    } else {
-      mobileMenu?.classList.remove('hidden');
-      mobileMenu?.classList.add('flex', 'flex-col');
-      iconOpen?.classList.add('hidden');
-      iconClose?.classList.remove('hidden');
-    }
+  btn?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    iconOpen?.classList.toggle('hidden', open);
+    iconClose?.classList.toggle('hidden', !open);
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
   });
 </script>

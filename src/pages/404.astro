@@ -2,17 +2,39 @@
 import Layout from '../layouts/Layout.astro';
 import Section from '../components/Section.astro';
 import NavigationBar from '../components/NavigationBar.astro';
+import Footer from '../components/Footer.astro';
+import { ArrowRight } from '@lucide/astro';
 ---
 
-<Layout title="404 - Page Not Found">
-  <Section class="bg-maroon text-pink min-h-screen">
-    <NavigationBar />
-    <div class="flex flex-col items-center justify-center py-32">
-      <h1 class="text-6xl font-bold text-sandybrown">404</h1>
-      <p class="text-2xl mt-4">Page not found</p>
-      <a href="/" class="mt-8 px-6 py-3 bg-sandybrown text-maroon rounded-lg hover:bg-sandybrown/75">
-        Go Home
-      </a>
+<Layout title="Page not found | Feeling Mutual" description="That page doesn't exist.">
+  <Section tone="deep" pad="none" class="flex min-h-screen flex-col">
+    <NavigationBar tone="dark" />
+
+    <!-- No eyebrow: the heading says the whole thing in plain English, and the
+         HTTP status code helps nobody who is reading this page. -->
+    <div class="flex flex-1 flex-col justify-center py-24">
+      <h1 class="text-display text-ink-50 max-w-display">This page doesn’t exist</h1>
+      <p class="mt-6 text-lg font-light text-brand-100 max-w-measure">
+        The link may be out of date, or the page may have moved during our site rebuild.
+      </p>
+      <div class="flex flex-wrap items-center gap-x-8 gap-y-4 pt-10">
+        <a
+          href="/"
+          class="group inline-flex items-center gap-2.5 rounded-md bg-brand-300 px-6 py-3.5 text-base font-medium text-brand-800 transition-colors duration-text hover:bg-ink-50"
+        >
+          Back to home
+          <ArrowRight class="w-4 h-4 transition-transform duration-300 ease-out-soft group-hover:translate-x-1" />
+        </a>
+        <a href="/blog" class="link text-base text-brand-100 transition-colors duration-text hover:text-brand-300">
+          Or read the blog
+        </a>
+      </div>
+    </div>
+
+    <!-- Was flush against the content with no bottom padding either; every other
+         page gives the footer 96px above and 128px below. -->
+    <div class="pt-24 pb-8">
+      <Footer tone="dark" />
     </div>
   </Section>
 </Layout>

@@ -56,9 +56,6 @@ dist/
 # Astro generated types and content cache
 .astro/
 
-# Claude Code worktrees checked out inside the repo
-.claude/worktrees/
-
 # Netlify
 .netlify/
 

@@ -1,8 +1,21 @@
 ---
-// Restores the awards strip that sat between the hero and "What We Do" until
-// the Astro migration dropped it (src/components/AwardsMarquee.js, deleted in
-// 87f6c6b). Reimplemented as a CSS animation rather than react-fast-marquee so
-// it needs no React, no hydration and no client-side JavaScript.
+/*
+  Seven award badges, each a raster PNG with its own background and palette. On
+  the maroon band they read as clutter competing with the hero directly above.
+
+  The strip stays on maroon, continuous with the hero above it rather than
+  reading as a band of its own. That is not a style choice: five of the seven
+  badges are white artwork on a transparent background, so on the light page
+  ground they were simply invisible. The assets decide the ground.
+
+  What did change: the count is now stated in type, so the credibility claim is
+  carried by words with the logos as supporting evidence; the badges are
+  smaller with far more air between them; the track fades out at both edges
+  instead of hard-clipping; and the scroll is slower.
+
+  CSS animation rather than react-fast-marquee: no React, no hydration, no
+  client-side JavaScript.
+*/
 import { Image } from 'astro:assets';
 
 import mrs2017 from '../images/awards/mrs_finalist_2017.png';
@@ -24,29 +37,43 @@ const awards = [
 ];
 ---
 
-<div class="bg-maroon py-6 overflow-hidden" role="region" aria-label="Awards">
-  <div class="marquee flex w-max items-center">
-    {/* The track is rendered twice so the animation can loop seamlessly. The
-        duplicate is hidden from assistive tech and search engines. */}
-    {[0, 1].map((copy) => (
-      <ul
-        class:list={['flex shrink-0 items-center list-none m-0 p-0', copy === 1 && 'marquee-dup']}
-        aria-hidden={copy === 1 ? 'true' : undefined}
-      >
-        {awards.map((award) => (
-          <li class="flex items-center">
-            <Image src={award.src} alt={copy === 1 ? '' : award.alt} class="h-24 w-auto" loading="lazy" />
-            <span class="mx-12 h-2 w-2 rounded-full bg-sandybrown/75" aria-hidden="true"></span>
-          </li>
-        ))}
-      </ul>
-    ))}
+<div class="bg-brand-800 pb-12" role="region" aria-label="Awards and shortlistings">
+  <p class="section-shell eyebrow pb-8 text-brand-300">
+    Seven industry awards and shortlistings, 2013&ndash;2021
+  </p>
+
+  <div class="marquee-mask overflow-hidden">
+    <div class="marquee flex w-max items-center">
+      {/* The track is rendered twice so the animation can loop seamlessly. The
+          duplicate is hidden from assistive tech and search engines. */}
+      {[0, 1].map((copy) => (
+        <ul
+          class:list={['flex shrink-0 items-center gap-16 list-none m-0 p-0 pr-16', copy === 1 && 'marquee-dup']}
+          aria-hidden={copy === 1 ? 'true' : undefined}
+        >
+          {awards.map((award) => (
+            <li class="flex items-center">
+              {/* Not lazy: the duplicate track sits off-screen horizontally, so
+                  lazy images in it never enter the viewport and never load —
+                  the strip would visibly go blank halfway through each loop.
+                  Seven small WebPs, ~3 KB each. */}
+              <Image
+                src={award.src}
+                alt={copy === 1 ? '' : award.alt}
+                class="h-14 w-auto opacity-85 transition-opacity duration-500 ease-out-soft hover:opacity-100"
+                loading="eager"
+              />
+            </li>
+          ))}
+        </ul>
+      ))}
+    </div>
   </div>
 </div>
 
 <style>
   .marquee {
-    animation: awards-scroll 45s linear infinite;
+    animation: awards-scroll 55s linear infinite;
   }
 
   /* Each of the two tracks is half the total width, so translating by -50%
@@ -58,6 +85,13 @@ const awards = [
 
   .marquee:hover {
     animation-play-state: paused;
+  }
+
+  /* Fades the strip into the page ground at both edges rather than letting
+     logos hard-clip at the viewport. */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6rem, black calc(100% - 6rem), transparent);
+    mask-image: linear-gradient(to right, transparent, black 6rem, black calc(100% - 6rem), transparent);
   }
 
   /* No animation means no need for the duplicate track — show the seven logos
@@ -74,6 +108,10 @@ const awards = [
     }
     .marquee-dup {
       display: none;
+    }
+    .marquee-mask {
+      -webkit-mask-image: none;
+      mask-image: none;
     }
   }
 </style>

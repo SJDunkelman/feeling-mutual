@@ -1,6 +1,11 @@
 ---
+/*
+  Sits on the `deep` (brand-800) ground. Was a solid pink card with a large
+  low-opacity quote glyph; the result on the blue band was three heavy tiles
+  competing with the section heading. Now a quiet raised surface, with the
+  claim itself doing the work at display size.
+*/
 import ProfilePicture from './ProfilePicture.astro';
-import { Quote } from '@lucide/astro';
 
 interface Props {
   headline: string;
@@ -14,15 +19,25 @@ interface Props {
 const { headline, subheading, name, jobRole, company, imageSrc } = Astro.props;
 ---
 
-<div class="flex flex-col rounded-lg text-midnight pt-6 pb-2 px-4 space-y-2 bg-pink hover:drop-shadow-2xl">
-  <Quote size={64} class="opacity-25" />
-  <p class={`font-semibold ${subheading ? 'text-lg' : ''}`}>{headline}</p>
-  {subheading && <p class="font-light">{subheading}</p>}
-  <div class="flex items-center pt-4">
-    <ProfilePicture imageSrc={imageSrc} />
-    <div class="flex flex-col pl-4 font-semibold">
-      <p class="text-sm">{name}</p>
-      <p class="text-base">{jobRole}, {company}</p>
+<!--
+  No border and no hover. On the maroon ground the 6% tint fill defines the card
+  perfectly well on its own; the outline was a second grouping device stacked on
+  the first. The hover was a false affordance — this <figure> contains no link,
+  so the border changed colour and nothing was clickable.
+
+  The divider above the attribution is gone too: `mt-auto`, 24px of padding and a
+  44px round avatar already separate it from the quote.
+-->
+<figure class="flex flex-col gap-5 rounded-lg bg-brand-100/[0.06] p-7">
+  <blockquote class="flex flex-col gap-4">
+    <p class="text-xl font-bold text-brand-300 text-balance">{headline}</p>
+    {subheading && <p class="text-sm font-light text-brand-100/85">{subheading}</p>}
+  </blockquote>
+  <figcaption class="mt-auto flex items-center gap-4 pt-6">
+    <ProfilePicture imageSrc={imageSrc} alt={`${name}, ${jobRole} at ${company}`} />
+    <div class="flex flex-col">
+      <span class="text-sm font-medium text-brand-100">{name}</span>
+      <span class="text-caption text-brand-100/60">{jobRole}, {company}</span>
     </div>
-  </div>
-</div>
+  </figcaption>
+</figure>

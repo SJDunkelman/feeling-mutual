@@ -1,0 +1,41 @@
+---
+/*
+  Interior pages previously each opened with a different saturated band —
+  /services maroon, /training blue, /downloads gold — with no stated reason for
+  which colour belonged to which page. One shared header now, so the pages read
+  as one site.
+
+  Column spans are 7/5 rather than 8/4. Five of the six heading-left/copy-right
+  compositions on the site resolve to a 160px void with the copy column at
+  x=856; this was the only one that didn't, putting every interior page's intro
+  on a different vertical line from every homepage section's.
+
+  No `pb-2` on the intro: `items-end` aligns margin-box bottoms, and because the
+  display face's negative half-leading almost exactly cancels its larger
+  descender, plain `self-end` already baseline-aligns to within 0.5px. The
+  padding was 8px of pure error.
+*/
+import NavigationBar from './NavigationBar.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  intro?: string;
+}
+
+const { eyebrow, title, intro } = Astro.props;
+---
+
+<NavigationBar tone="dark" cta />
+
+<div class="grid gap-y-8 pt-14 pb-20 md:pt-20 md:pb-28 lg:grid-cols-12 lg:gap-x-12">
+  <div class="lg:col-span-7">
+    {eyebrow && <p class="eyebrow text-brand-300">{eyebrow}</p>}
+    <h1 class="text-display text-ink-50 max-w-display">{title}</h1>
+  </div>
+  {intro && (
+    <p class="text-lg font-light text-brand-100 max-w-measure lg:col-span-5 lg:col-start-8 lg:self-end">
+      {intro}
+    </p>
+  )}
+</div>

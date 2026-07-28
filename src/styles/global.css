@@ -7,34 +7,195 @@
    precede every other statement in a stylesheet, and the @tailwind directives
    above expand to thousands of rules, so the browser would discard it. */
 
-body { font-family:"Neue Haas Unica", Helvetica, sans-serif; }
+@layer base {
+  /* Only the tokens this stylesheet actually consumes. Fifteen were mirrored here
+     originally and nine had no consumer — a parallel palette drifting out of step
+     with the real one in tailwind.config.mjs. Utilities cover everything else. */
+  :root {
+    --ink-50:    #FBF9F7;
+    --ink-900:   #1D1917;
+    --brand-300: #FFAB5C;
+    --brand-500: #D83B2E;
+    --brand-800: #6D012D;
+  }
 
-/* Caps the content column while leaving section backgrounds full-bleed.
-   Padding-based rather than a wrapper element, so the flex/grid layouts that
-   call sites put directly on <section> keep working. */
-.section-shell {
-  --section-max: 90rem; /* 1440px */
-  --section-gutter: 2rem;
-  padding-inline: max(var(--section-gutter), calc((100% - var(--section-max)) / 2));
+  html {
+    scroll-behavior: smooth;
+    /* The nav is not sticky, but in-page anchors (/#clients) should not land
+       flush against the viewport edge. */
+    scroll-padding-top: 2rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: "Neue Haas Unica", "Unica Fallback", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    background-color: var(--ink-50);
+    color: var(--ink-900);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings default to Bold and inherit the tracking/leading baked into each
+     fontSize step in the Tailwind config, so display type can never again fall
+     back to line-height 1.0 with zero tracking. */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Was entirely absent — browser default outline only, near-invisible on the
+     dark grounds. No border-radius here: `outline` already follows the element's
+     own radius, and setting one gave square elements a 2px round on focus —
+     visibly notching the case-study grid's 1px divider lines. */
+  :focus-visible {
+    outline: 2px solid var(--brand-500);
+    outline-offset: 3px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--brand-300);
+  }
+
+  ::selection {
+    background: var(--brand-300);
+    color: var(--brand-800);
+  }
+
+  img, svg, video {
+    max-width: 100%;
+    height: auto;
+  }
 }
-@media (min-width: 768px)  { .section-shell { --section-gutter: 4rem; } }
-@media (min-width: 1150px) { .section-shell { --section-gutter: 6rem; } }
 
-.animate-banner {
-    animation: continuousScroll 4s infinite;
+@layer components {
+  /* Caps the content column while leaving section backgrounds full-bleed.
+     Padding-based rather than a wrapper element, so the flex/grid layouts that
+     call sites put directly on <section> keep working.
+
+     The gutter is fluid rather than stepped. It used to jump 1.5rem -> 3rem at
+     768px and -> 4.5rem at 1024px, and at both of those points the gutter grew
+     faster than the viewport did, so the content column got NARROWER as the
+     screen got wider: 719px at 767px -> 672px at 768px, and 927px -> 880px at
+     1024px. An iPad in portrait rendered less usable width than a phone. */
+  .section-shell {
+    --section-max: 82.5rem; /* 1320px */
+    padding-inline: max(clamp(1.5rem, 5vw, 4.5rem), calc((100% - var(--section-max)) / 2));
+  }
+
+  /* Small caps-and-tracking label used as a section eyebrow. Replaces the
+     `<p class="font-light">What We Do</p>` pattern, which had no tracking.
+
+     Owns its own bottom spacing. The eyebrow-to-heading distance previously had
+     three different values for one relationship — 32px from the deleted
+     `.eyebrow-rule`'s pb-8, 24px from an `mt-6` on the heading, and 56px where
+     both a pb-8 and a parent flex gap applied. */
+  .eyebrow {
+    @apply text-label uppercase font-medium pb-6;
+  }
+
+  /* Long-form copy — blog posts, the privacy policy.
+
+     Descendant selectors rather than utility classes on each element, because
+     markdown output has no classes to hang them on. The old approach was to
+     safelist `list-disc`, `list-inside`, `text-justify` etc. in the Tailwind
+     config so they survived the JIT purge; this needs no safelist at all. */
+  /* Centred, not left-aligned. It was pinned to the left edge of the 1320px
+     section band, so on a wide window a ~580px column of text sat with 700px of
+     empty page beside it. The original rationale was that it shared a left edge
+     with the title and byline — but those are in the dark block above, far
+     enough away that the alignment never read. 72ch rather than 68 gives the
+     column a little more presence at the sizes long-form actually gets read at. */
+  .prose-fm {
+    @apply text-ink-700;
+    max-width: 72ch;
+    margin-inline: auto;
+  }
+  .prose-fm > * + * { margin-top: 1.4em; }
+
+  .prose-fm p,
+  .prose-fm li {
+    @apply text-lg font-light leading-relaxed;
+    /* Was `text-justify` at ~160 characters per line, which rivered badly.
+       Ragged-right at a 68ch measure needs no hyphenation crutch. */
+    hyphens: auto;
+  }
+
+  .prose-fm h1 { @apply text-3xl text-ink-900; margin-top: 2.2em; }
+  .prose-fm h2 { @apply text-2xl text-ink-900; margin-top: 2em; }
+  .prose-fm h3 { @apply text-xl text-ink-900; margin-top: 1.8em; }
+  .prose-fm h4 { @apply text-lg font-bold text-ink-900; margin-top: 1.6em; }
+  .prose-fm h1:first-child,
+  .prose-fm h2:first-child,
+  .prose-fm h3:first-child,
+  .prose-fm h4:first-child { margin-top: 0; }
+
+  .prose-fm ul { @apply list-disc; padding-left: 1.4em; }
+  .prose-fm ol { @apply list-decimal; padding-left: 1.4em; }
+  .prose-fm li::marker { @apply text-brand-600; }
+  .prose-fm li + li { margin-top: 0.5em; }
+
+  .prose-fm a {
+    @apply text-brand-600 underline decoration-1 underline-offset-4 transition-colors duration-200;
+    text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  }
+  .prose-fm a:hover {
+    @apply text-brand-800;
+    text-decoration-color: currentColor;
+  }
+
+  .prose-fm img { @apply rounded-lg; margin-top: 2em; margin-bottom: 2em; }
+
+  /* Five posts embed SlideShare/YouTube with hardcoded width="476" or "560"
+     attributes in the markdown. Those overflowed the viewport on phones and
+     scrolled the whole page sideways. Overriding here fixes every embed
+     without editing the content. */
+  .prose-fm iframe {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    @apply rounded-lg;
+  }
+  /* Markdown wraps some embeds in <div align="center">, which centres the
+     iframe but doesn't constrain it. */
+  .prose-fm div[align="center"] { max-width: 100%; }
+  .prose-fm strong { @apply font-medium text-ink-900; }
+  .prose-fm blockquote {
+    @apply border-l-2 border-brand-300 pl-6 text-xl font-light text-ink-900;
+    font-style: normal;
+  }
+
+  /* Link underline that sits below the baseline and thickens on hover, rather
+     than the previous no-underline / colour-swap-only treatment. */
+  .link {
+    @apply underline decoration-1 underline-offset-4 transition-colors duration-200;
+    text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  }
+  .link:hover {
+    text-decoration-color: currentColor;
+  }
 }
 
-@keyframes continuousScroll {
-    0%,
-    100% {
-        left: 0;
-    }
+/* No scroll-driven entrance animation. A `.reveal` that started at opacity 0 was
+   tried and dropped: any path where the timeline fails to resolve leaves the
+   content permanently invisible, and the layout does not need it. Motion here is
+   limited to hover and focus, where it can only ever be additive.
 
-    50% {
-        left: 50%;
-    }
-}
+   `.text-balance` / `.text-pretty` were hand-written here too; Tailwind 3.4 ships
+   both natively, so the copies were shadowing the framework for no reason. */
 
-ul.tool-list li:nth-child(2n+1) {
-    color: #313978;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

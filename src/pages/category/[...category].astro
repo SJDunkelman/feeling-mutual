@@ -1,11 +1,12 @@
 ---
-import { getAllPosts, byDateDesc } from '../../lib/posts';
+import { getAllPosts, byDateDesc, categoryNamePlural } from '../../lib/posts';
 import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/Section.astro';
-import NavigationBar from '../../components/NavigationBar.astro';
+import PageHero from '../../components/PageHero.astro';
 import Footer from '../../components/Footer.astro';
 import GetInTouch from '../../components/GetInTouch.astro';
-import { ArrowLeft, ArrowRight } from '@lucide/astro';
+import PostCard from '../../components/PostCard.astro';
+import { ArrowLeft } from '@lucide/astro';
 
 export async function getStaticPaths() {
   const posts = await getAllPosts();
@@ -22,59 +23,46 @@ export async function getStaticPaths() {
 
 const { posts, category } = Astro.props;
 const sortedPosts = byDateDesc(posts);
-
-const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1).replace('-', ' ');
-
-function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-}
-
-function truncateText(text: string, maxLength: number): string {
-  if (text.length <= maxLength) return text;
-  return text.substring(0, maxLength) + '...';
-}
+const categoryDisplay = categoryNamePlural(category);
 ---
 
-<Layout title={`${categoryDisplay} | Feeling Mutual`}>
-  <Section class="bg-offwhite py-6 xl:py-16">
-    <NavigationBar logoColour="maroon" />
+<Layout title={`${categoryDisplay} | Feeling Mutual`} description={`Feeling Mutual posts in ${categoryDisplay}`}>
+  <Section tone="deep" pad="none">
+    <PageHero
+      eyebrow="Category"
+      title={categoryDisplay}
+      intro={`${sortedPosts.length} ${sortedPosts.length === 1 ? 'post' : 'posts'}.`}
+    />
+  </Section>
 
-    <div class="py-8">
-      <p class="text-gold font-light mb-2">Category</p>
-      <h1 class="text-5xl font-semibold text-gold mb-4">{categoryDisplay}</h1>
-      <a href="/blog" class="text-tomato hover:underline">
-        <ArrowLeft class="inline w-4 h-4 mr-2" /> Back to all posts
-      </a>
-    </div>
+  <Section tone="paper" pad="lg">
+    <a
+      href="/blog"
+      class="group inline-flex items-center gap-2.5 pb-28 text-base font-medium text-brand-600 transition-colors duration-text hover:text-brand-800"
+    >
+      <ArrowLeft class="w-4 h-4 transition-transform duration-300 ease-out-soft group-hover:-translate-x-1" />
+      All posts
+    </a>
 
-    <!-- Blog Posts Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-8">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {sortedPosts.map((post: any) => (
-        <a href={`/blog/${post.slug}`} class="group">
-          <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-            {post.data.showcaseImage && (
-              <img
-                src={post.data.showcaseImage.src}
-                alt={post.data.title}
-                class="w-full h-48 object-cover"
-              />
-            )}
-            <div class="p-4">
-              <p class="text-sm text-gold/75 mb-2">{formatDate(post.data.date)}</p>
-              <h3 class="text-xl font-semibold text-maroon group-hover:text-tomato transition-colors">
-                {post.data.title}
-              </h3>
-              <p class="text-gold font-light mt-2">{truncateText(post.data.description, 100)}</p>
-              <p class="text-tomato mt-4 font-medium">Read More <ArrowRight class="inline w-4 h-4" /></p>
-            </div>
-          </div>
-        </a>
+        <PostCard
+          href={`/blog/${post.slug}`}
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.date}
+          image={post.data.showcaseImage}
+          category={post.data.category}
+          showCategory={false}
+        />
       ))}
     </div>
   </Section>
 
-  <Section class="bg-maroon py-6">
-    <GetInTouch textColour="offwhite" />
-    <Footer textColour="offwhite" />
+  <Section tone="ink" pad="lg">
+    <GetInTouch tone="dark" />
+    <div class="pt-24">
+      <Footer tone="dark" />
+    </div>
   </Section>
 </Layout>

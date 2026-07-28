@@ -1,25 +1,50 @@
 ---
+/*
+  Client logos arrive as raster PNGs on their own white backgrounds, in wildly
+  different aspect ratios. The 2021 grid put them in white tiles on the gold
+  band, where they read as a logo dump. Here they sit on the page ground with a
+  hairline cell, desaturated until hover — so the row reads as one quiet
+  credibility line and the client names, not the artwork, carry the section.
+*/
 import { getCollection } from 'astro:content';
+import { ArrowUpRight } from '@lucide/astro';
 
 const caseStudies = await getCollection('featured-case-studies');
 ---
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-8">
+<!--
+  The interior cell lines stay — six client logos at wildly different aspect
+  ratios and weights genuinely need cells or they read as a scatter, and once
+  every decorative rule elsewhere is gone this is the site's only ruled object,
+  which makes it an accent rather than a tic. The outer frame is gone: it was
+  what made the block read as a spreadsheet.
+
+  The arrow no longer hides until hover — `opacity-0` meant it never appeared at
+  all on touch, roughly half of traffic. It rests at 40% and comes up on hover.
+-->
+<ul class="grid grid-cols-2 md:grid-cols-3 gap-px bg-ink-200">
   {caseStudies.map((study) => (
-    <!-- Fixed height rather than aspect-square: square tiles grew with the
-         viewport and reached ~500px a side on wide displays, swamping the page. -->
-    <a href={`/blog/${study.slug}`} class="group relative block overflow-hidden rounded-lg h-44 md:h-48">
-      {study.data.showcaseImage && (
-        <img
-          src={study.data.showcaseImage.src}
-          alt={study.data.showcaseTitle}
-          class="w-full h-full object-contain bg-white p-6 group-hover:scale-105 transition-transform duration-300"
-        />
-      )}
-      <div class="absolute inset-0 bg-maroon/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-center p-4">
-        <h3 class="text-xl font-semibold text-sandybrown">{study.data.showcaseTitle}</h3>
-        <p class="text-pink text-sm mt-2">Read the {study.data.subCategory} Case Study</p>
-      </div>
-    </a>
+    <li class="bg-ink-50">
+      <a
+        href={`/blog/${study.slug}`}
+        class="group flex h-full flex-col justify-between gap-6 p-6 md:p-8 transition-colors hover:bg-ink-100"
+      >
+        {study.data.showcaseImage && (
+          <img
+            src={study.data.showcaseImage.src}
+            alt={study.data.showcaseTitle}
+            loading="lazy"
+            class="h-11 w-auto max-w-[9rem] object-contain object-left opacity-70 grayscale transition-[opacity,filter] duration-image group-hover:opacity-100 group-hover:grayscale-0"
+          />
+        )}
+        <div class="flex items-end justify-between gap-3">
+          <div class="flex flex-col gap-1">
+            <span class="text-caption uppercase tracking-[0.12em] text-ink-600">{study.data.subCategory}</span>
+            <span class="text-base font-medium text-ink-900">{study.data.showcaseTitle}</span>
+          </div>
+          <ArrowUpRight class="w-5 h-5 shrink-0 text-brand-500 opacity-40 transition-[opacity,transform] group-hover:opacity-100 group-hover:-translate-y-0.5" />
+        </div>
+      </a>
+    </li>
   ))}
-</div>
+</ul>
