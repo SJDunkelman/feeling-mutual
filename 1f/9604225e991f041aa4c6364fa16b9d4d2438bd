@@ -1,0 +1,43 @@
+src/content/blog/what-makes-online-qual-more-authentic-than-traditional-methods/index.md
+  s_09d0b4fb54a8c5::t_e4833e0af36f47 1-20
+docs/CMS-SETUP.md
+  s_09d0b4fb54a8c5::t_3778e9bf7e9d80 124-142
+  s_09d0b4fb54a8c5::t_25ca6991bd3c8b 121-123
+  s_09d0b4fb54a8c5::t_77c8122482535f 143-145
+  s_09d0b4fb54a8c5::t_1a06eb98d560e9 1-120,146
+docs/WRITING-GUIDE.md
+  s_09d0b4fb54a8c5::t_37666dcb507ff9 76-80
+  s_09d0b4fb54a8c5::t_8824bb8bd80879 73-75
+  s_09d0b4fb54a8c5::t_5669a81384cac4 81-83
+  s_09d0b4fb54a8c5::t_0ef860d2b76163 1-72
+src/content/blog/what-does-agile-online-qualitative-research-mean/index.md
+  s_09d0b4fb54a8c5::t_e4833e0af36f47 1-19
+public/admin/index.html
+  s_245655c1071ec9::t_6e88716ca4d2c0 1-19
+public/admin/config.yml
+  s_09d0b4fb54a8c5::t_57852cbfc499c9 1-229
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "1f9604225e991f041aa4c6364fa16b9d4d2438bd",
+  "prompts": {},
+  "sessions": {
+    "s_09d0b4fb54a8c5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "917c6c27-0f1b-498d-a278-6f6a7ccc2f97",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Simon Dunkelman <simon@dunkelman.xyz>"
+    },
+    "s_245655c1071ec9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cba9811b-3078-48b0-8b94-ed56c5e14210",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Simon Dunkelman <simon@dunkelman.xyz>"
+    }
+  }
+}
