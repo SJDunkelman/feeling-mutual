@@ -15,10 +15,6 @@ EasyJet and their ad agency VCCP wanted to understand the emotional journey of t
 <img src="./plane.jpeg" alt="Plane wing" style="height: 300px;" />
 </div>
 
-<br/>
-
 We recruited customers in Italy, France and the UK and asked them to complete a diary of any touchpoints that were nudging them towards a particular destination. They drew abstract pictures of how they felt and recorded key aspects of the experience of booking with us.
-
-<br/>
 
 The work identified new opportunities for customer engagement and helped shape a new marketing and advertising campaign. 
