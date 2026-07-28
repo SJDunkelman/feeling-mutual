@@ -34,22 +34,22 @@ const categoryDisplay = post.data.category.charAt(0).toUpperCase() + post.data.c
   <Section tone="deep" pad="none">
     <NavigationBar tone="dark" cta />
 
-    <div class="pt-12 pb-20 md:pt-16 md:pb-28">
+    <div class="pt-14 pb-20 md:pt-20 md:pb-28">
       <nav aria-label="Breadcrumb" class="pb-10">
         <ol class="flex flex-wrap items-center gap-2 text-caption text-brand-100/70">
-          <li><a href="/" class="transition-colors duration-200 hover:text-brand-300">Home</a></li>
+          <li><a href="/" class="transition-colors duration-text hover:text-brand-300">Home</a></li>
           <li aria-hidden="true">/</li>
-          <li><a href="/blog" class="transition-colors duration-200 hover:text-brand-300">Blog</a></li>
+          <li><a href="/blog" class="transition-colors duration-text hover:text-brand-300">Blog</a></li>
           <li aria-hidden="true">/</li>
           <li>
-            <a href={`/category/${post.data.category}`} class="transition-colors duration-200 hover:text-brand-300">
+            <a href={`/category/${post.data.category}`} class="transition-colors duration-text hover:text-brand-300">
               {categoryDisplay}
             </a>
           </li>
         </ol>
       </nav>
 
-      <h1 class="text-4xl text-ink-50 max-w-[20ch]">{post.data.title}</h1>
+      <h1 class="text-4xl text-ink-50 max-w-display">{post.data.title}</h1>
 
       <div class="flex items-center gap-4 pt-12">
         <ProfilePicture imageSrc="/images/tom_profile.jpg" alt="Tom Woodnutt" size="md" />

@@ -15,9 +15,12 @@
   Every tone is validated to WCAG AA — see docs/BRAND-AUDIT-2026.md §2.4.
 */
 
+// Only the tones and pads that have call sites. `paper-alt`, `accent`, `tint` and
+// `pad="sm"` were declared and never used — a Props union advertising states the
+// site never renders.
 interface Props {
-  tone?: 'paper' | 'paper-alt' | 'warm' | 'deep' | 'ink' | 'accent' | 'tint';
-  pad?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
+  tone?: 'paper' | 'warm' | 'deep' | 'ink';
+  pad?: 'none' | 'md' | 'lg' | 'xl';
   class?: string;
   id?: string;
 }
@@ -26,18 +29,14 @@ const { tone = 'paper', pad = 'lg', class: className = '', id } = Astro.props;
 
 // Static strings — nothing interpolated, so Tailwind's JIT can see every one.
 const tones: Record<string, string> = {
-  'paper':     'bg-ink-50 text-ink-900',
-  'paper-alt': 'bg-ink-100 text-ink-900',
-  'warm':      'bg-brand-50 text-ink-900',
-  'deep':      'on-dark bg-brand-800 text-brand-100',
-  'ink':       'on-dark bg-ink-900 text-ink-200',
-  'accent':    'bg-brand-300 text-brand-800',
-  'tint':      'bg-brand-100 text-brand-800',
+  'paper': 'bg-ink-50 text-ink-900',
+  'warm':  'bg-brand-50 text-ink-900',
+  'deep':  'on-dark bg-brand-800 text-brand-100',
+  'ink':   'on-dark bg-ink-900 text-ink-200',
 };
 
 const pads: Record<string, string> = {
   'none': '',
-  'sm':   'py-16',
   'md':   'py-20 md:py-24',
   'lg':   'py-24 md:py-32',
   'xl':   'py-28 md:py-40',

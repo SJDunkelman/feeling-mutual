@@ -5,43 +5,50 @@ import PageHero from '../components/PageHero.astro';
 import Footer from '../components/Footer.astro';
 import GetInTouch from '../components/GetInTouch.astro';
 
-/* The four modules are a genuine sequence — you win the work, then plan it,
-   then run it — so the numbering carries information rather than decorating. */
+/*
+  These are NOT a sequence.
+
+  The redesign shipped a heading reading "Four modules, run in sequence" and a
+  comment here asserting "you win the work, then plan it, then run it", then
+  numbered them 01-04 to match. That rationale was invented. The pre-migration
+  page (87f6c6b^, src/pages/training.js) was a tab switcher — `useState("Win")`
+  with four buttons — headed "Choose one or more of the following training
+  modules", under "4 modules that will inspire better Online Qual".
+
+  So: no numbering, and a heading that says what is actually on offer.
+*/
 const modules = [
-  { n: '01', title: 'Win', body: 'Learn how to pitch and win online qualitative projects. Understand client needs and position your offering effectively.' },
-  { n: '02', title: 'Plan', body: 'Design effective online qualitative research projects. Choose the right methods and platforms for your objectives.' },
-  { n: '03', title: 'Run', body: 'Execute online qualitative projects with confidence. Master moderation techniques and participant engagement.' },
-  { n: '04', title: 'Psychology', body: 'Understand the psychology behind online behaviour. Apply behavioural science to improve research quality.' },
+  { title: 'Win', body: 'Learn how to pitch and win online qualitative projects. Understand client needs and position your offering effectively.' },
+  { title: 'Plan', body: 'Design effective online qualitative research projects. Choose the right methods and platforms for your objectives.' },
+  { title: 'Run', body: 'Execute online qualitative projects with confidence. Master moderation techniques and participant engagement.' },
+  { title: 'Psychology', body: 'Understand the psychology behind online behaviour. Apply behavioural science to improve research quality.' },
 ];
 ---
 
 <Layout title="Training | Feeling Mutual" description="Online qualitative research training courses - upskill your team in digital ethnography and online qual methods">
   <Section tone="deep" pad="none">
+    <!-- No eyebrow: it was the literal last word of the heading below it. -->
     <PageHero
-      eyebrow="Training"
       title="Online qualitative research training"
       intro="Upskill your team to conduct more insightful and profitable online qualitative research."
     />
   </Section>
 
   <Section tone="paper" pad="lg">
-    <div class="grid gap-x-12 gap-y-14 lg:grid-cols-12">
-      <div class="lg:col-span-4">
-        <p class="eyebrow eyebrow-rule text-brand-600">Course modules</p>
-        <h2 class="text-3xl text-ink-900 max-w-display">Four modules, run in sequence</h2>
-      </div>
+    <div class="grid gap-x-12 lg:grid-cols-12">
+      <h2 class="text-3xl text-ink-900 max-w-display lg:col-span-4">
+        Four modules. Take one or take all four.
+      </h2>
 
-      <ol class="flex flex-col lg:col-span-7 lg:col-start-6">
+      <!-- 64px of gap rather than five hairlines around four rows. -->
+      <ul class="mt-12 flex flex-col gap-16 lg:col-span-7 lg:col-start-6 lg:mt-0 lg:pt-1">
         {modules.map((m) => (
-          <li class="flex gap-8 border-b border-ink-300/70 py-8 first:border-t">
-            <span class="text-caption font-medium tabular-nums text-brand-600 pt-1.5">{m.n}</span>
-            <div class="flex flex-col gap-2">
-              <h3 class="text-xl text-ink-900">{m.title}</h3>
-              <p class="text-base font-light text-ink-600 max-w-measure">{m.body}</p>
-            </div>
+          <li class="flex flex-col gap-2">
+            <h3 class="text-xl text-ink-900">{m.title}</h3>
+            <p class="text-base font-light text-ink-600 max-w-measure">{m.body}</p>
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   </Section>
 

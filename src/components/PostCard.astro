@@ -3,9 +3,13 @@
   Shared by /blog and /category/*, which previously carried two near-identical
   copies of the same markup.
 
-  Was a white card with a shadow that deepened on hover. Now a hairline cell on
-  the page ground, so a grid of them reads as an index rather than a stack of
-  floating tiles.
+  No outline. The card carried `border border-ink-200 bg-ink-50` inside a section
+  that is itself `bg-ink-50`, so the fill was a literal no-op and the border was
+  doing 100% of the work — 68 of the 78 hairline edges on /blog came from this
+  one component. Text now sits flush to the image's left edge, which is a
+  stronger alignment device than the box was, and the radius lives on the image.
+
+  Hover affordance is unchanged: the title takes brand-600 and the arrow moves.
 */
 import { ArrowRight } from '@lucide/astro';
 
@@ -28,18 +32,18 @@ const categoryDisplay = category
 ---
 
 <article class="h-full">
-  <a href={href} class="group flex h-full flex-col overflow-hidden rounded-lg border border-ink-200 bg-ink-50 transition-colors duration-300 hover:border-brand-300">
+  <a href={href} class="group flex h-full flex-col">
     {image && (
-      <div class="aspect-[16/10] overflow-hidden bg-ink-100">
+      <div class="aspect-[16/10] overflow-hidden rounded-lg bg-ink-100">
         <img
           src={image.src}
           alt=""
           loading="lazy"
-          class="h-full w-full object-cover transition-transform duration-700 ease-out-soft group-hover:scale-[1.03]"
+          class="h-full w-full object-cover transition-transform duration-image group-hover:scale-[1.03]"
         />
       </div>
     )}
-    <div class="flex flex-1 flex-col gap-3 p-6">
+    <div class="flex flex-1 flex-col gap-3 pt-5">
       <div class="flex items-center gap-3 text-caption text-ink-600">
         <time datetime={iso}>{formatted}</time>
         {categoryDisplay && (
@@ -49,13 +53,13 @@ const categoryDisplay = category
           </>
         )}
       </div>
-      <h2 class="text-xl text-ink-900 transition-colors duration-200 group-hover:text-brand-600 text-balance">
+      <h2 class="text-xl text-ink-900 transition-colors duration-text group-hover:text-brand-600 text-balance">
         {title}
       </h2>
       <p class="text-sm font-light text-ink-600">{description}</p>
       <span class="mt-auto inline-flex items-center gap-2 pt-4 text-caption font-medium text-brand-600">
-        Read more
-        <ArrowRight class="w-4 h-4 transition-transform duration-300 ease-out-soft group-hover:translate-x-1" />
+        Read the post
+        <ArrowRight class="w-4 h-4 translate-y-px transition-transform group-hover:translate-x-0.5" />
       </span>
     </div>
   </a>

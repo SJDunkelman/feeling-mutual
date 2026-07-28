@@ -25,14 +25,12 @@ const t = tone === 'dark'
       logo:    'text-brand-300 hover:text-ink-50',
       link:    'text-brand-100 hover:text-ink-50',
       ctaBtn:  'bg-brand-300 text-brand-800 hover:bg-ink-50',
-      divider: 'border-brand-100/25',
       burger:  'text-brand-100 hover:text-ink-50',
     }
   : {
       logo:    'text-brand-800 hover:text-brand-600',
       link:    'text-ink-700 hover:text-brand-600',
       ctaBtn:  'bg-brand-800 text-brand-50 hover:bg-brand-600',
-      divider: 'border-ink-300',
       burger:  'text-ink-700 hover:text-brand-600',
     };
 
@@ -46,14 +44,17 @@ const links = [
 
 <header class="w-full">
   <nav class="flex items-center justify-between gap-8 py-7">
-    <a href="/" class={`shrink-0 transition-colors duration-200 ${t.logo}`} aria-label="Feeling Mutual — home">
+    <a href="/" class={`shrink-0 transition-colors duration-text ${t.logo}`} aria-label="Feeling Mutual — home">
       <Logo variant="full" class="w-44 md:w-48" />
     </a>
 
-    <ul class="hidden lg:flex items-center gap-10">
+    <!-- `md:` not `lg:`: the links plus the CTA measure 460px and the logo 192px,
+         so the row fits from about 800px. It was showing a burger at 900px with
+         586px of free space. `md:gap-6` absorbs the 768px case. -->
+    <ul class="hidden md:flex items-center gap-6 lg:gap-10">
       {links.map(l => (
         <li>
-          <a href={l.href} class={`text-sm font-normal tracking-wide transition-colors duration-200 ${t.link}`}>
+          <a href={l.href} class={`text-sm font-normal tracking-wide transition-colors duration-text ${t.link}`}>
             {l.label}
           </a>
         </li>
@@ -62,7 +63,7 @@ const links = [
         <li>
           <a
             href="mailto:tom@feelingmutual.com"
-            class={`inline-flex rounded-md px-5 py-2.5 text-sm font-medium transition-colors duration-200 ${t.ctaBtn}`}
+            class={`inline-flex rounded-md px-5 py-2.5 text-sm font-medium transition-colors duration-text ${t.ctaBtn}`}
           >
             Say hello
           </a>
@@ -70,8 +71,10 @@ const links = [
       )}
     </ul>
 
+    <!-- `-m-2.5 p-2.5` takes the hit area to 46x46 without moving the glyph; it
+         was 26x26, above the WCAG 2.5.8 minimum but well under the 44x44 target. -->
     <button
-      class={`lg:hidden transition-colors duration-200 ${t.burger}`}
+      class={`-m-2.5 p-2.5 md:hidden transition-colors duration-text ${t.burger}`}
       id="mobile-menu-btn"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -82,17 +85,20 @@ const links = [
     </button>
   </nav>
 
-  <div class="lg:hidden hidden pb-6" id="mobile-menu">
-    <ul class={`flex flex-col border-t ${t.divider}`}>
+  <!-- No rules between items: an open drawer is already delimited by being open,
+       and five hairlines in a panel this small was the same tic as the rest of
+       the site. Spacing separates the rows. -->
+  <div class="md:hidden hidden pb-6" id="mobile-menu">
+    <ul class="flex flex-col gap-1 pt-2">
       {links.map(l => (
-        <li class={`border-b ${t.divider}`}>
-          <a href={l.href} class={`block py-4 text-lg transition-colors duration-200 ${t.link}`}>{l.label}</a>
+        <li>
+          <a href={l.href} class={`block py-3 text-lg transition-colors duration-text ${t.link}`}>{l.label}</a>
         </li>
       ))}
       <li class="pt-6">
         <a
           href="mailto:tom@feelingmutual.com"
-          class={`inline-flex rounded-md px-5 py-3 text-base font-medium transition-colors duration-200 ${t.ctaBtn}`}
+          class={`inline-flex rounded-md px-5 py-3 text-base font-medium transition-colors duration-text ${t.ctaBtn}`}
         >
           Say hello
         </a>

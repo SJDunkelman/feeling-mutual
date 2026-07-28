@@ -31,14 +31,14 @@ const categoryDisplay = category.charAt(0).toUpperCase() + category.slice(1).rep
     <PageHero
       eyebrow="Category"
       title={categoryDisplay}
-      intro={`${sortedPosts.length} ${sortedPosts.length === 1 ? 'post' : 'posts'} in this category.`}
+      intro={`${sortedPosts.length} ${sortedPosts.length === 1 ? 'post' : 'posts'}.`}
     />
   </Section>
 
   <Section tone="paper" pad="lg">
     <a
       href="/blog"
-      class="group inline-flex items-center gap-2.5 pb-14 text-base font-medium text-brand-600 transition-colors duration-200 hover:text-brand-800"
+      class="group inline-flex items-center gap-2.5 pb-28 text-base font-medium text-brand-600 transition-colors duration-text hover:text-brand-800"
     >
       <ArrowLeft class="w-4 h-4 transition-transform duration-300 ease-out-soft group-hover:-translate-x-1" />
       All posts

@@ -12,19 +12,29 @@ import { ArrowUpRight } from '@lucide/astro';
 const caseStudies = await getCollection('featured-case-studies');
 ---
 
-<ul class="grid grid-cols-2 md:grid-cols-3 gap-px bg-ink-200 border border-ink-200">
+<!--
+  The interior cell lines stay — six client logos at wildly different aspect
+  ratios and weights genuinely need cells or they read as a scatter, and once
+  every decorative rule elsewhere is gone this is the site's only ruled object,
+  which makes it an accent rather than a tic. The outer frame is gone: it was
+  what made the block read as a spreadsheet.
+
+  The arrow no longer hides until hover — `opacity-0` meant it never appeared at
+  all on touch, roughly half of traffic. It rests at 40% and comes up on hover.
+-->
+<ul class="grid grid-cols-2 md:grid-cols-3 gap-px bg-ink-200">
   {caseStudies.map((study) => (
     <li class="bg-ink-50">
       <a
         href={`/blog/${study.slug}`}
-        class="group flex h-full flex-col justify-between gap-6 p-6 md:p-8 transition-colors duration-300 hover:bg-ink-100"
+        class="group flex h-full flex-col justify-between gap-6 p-6 md:p-8 transition-colors hover:bg-ink-100"
       >
         {study.data.showcaseImage && (
           <img
             src={study.data.showcaseImage.src}
             alt={study.data.showcaseTitle}
             loading="lazy"
-            class="h-11 w-auto max-w-[9rem] object-contain object-left opacity-70 grayscale transition duration-500 ease-out-soft group-hover:opacity-100 group-hover:grayscale-0"
+            class="h-11 w-auto max-w-[9rem] object-contain object-left opacity-70 grayscale transition-[opacity,filter] duration-image group-hover:opacity-100 group-hover:grayscale-0"
           />
         )}
         <div class="flex items-end justify-between gap-3">
@@ -32,7 +42,7 @@ const caseStudies = await getCollection('featured-case-studies');
             <span class="text-caption uppercase tracking-[0.12em] text-ink-600">{study.data.subCategory}</span>
             <span class="text-base font-medium text-ink-900">{study.data.showcaseTitle}</span>
           </div>
-          <ArrowUpRight class="w-5 h-5 shrink-0 text-brand-500 opacity-0 -translate-x-1 translate-y-1 transition duration-300 ease-out-soft group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0" />
+          <ArrowUpRight class="w-5 h-5 shrink-0 text-brand-500 opacity-40 transition-[opacity,transform] group-hover:opacity-100 group-hover:-translate-y-0.5" />
         </div>
       </a>
     </li>

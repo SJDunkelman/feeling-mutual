@@ -9,37 +9,39 @@ import CustomerReviewCard from '../components/CustomerReviewCard.astro';
 import CaseStudyGrid from '../components/CaseStudyGrid.astro';
 import AwardsMarquee from '../components/AwardsMarquee.astro';
 import { Image } from 'astro:assets';
-import { Recycle, BadgeCheck, HeartPulse, ArrowRight, ArrowUpRight } from '@lucide/astro';
+import { ArrowRight, ArrowUpRight } from '@lucide/astro';
 
 import TimWhirledgeProfile from '../images/profiles/tim-whirledge.png';
 import TomStazickerProfile from '../images/profiles/tom-stazicker.png';
 import FranWaltonProfile from '../images/profiles/fran-walton.png';
 import TomWoodnuttProfile from '../images/tom_full.jpg';
 
+/* Icons removed. `Recycle` is the universal recycling symbol — it does not mean
+   iteration; `BadgeCheck` is a social-media verification convention; `HeartPulse`
+   is an ECG trace. None of the three carried information about the word beside
+   it, and each put a coloured glyph ahead of the title in the reading order. */
 const principles = [
   {
-    icon: Recycle,
     title: 'Agile',
     body: 'Research is only agile if it is',
     emphasis: 'collaborative',
     href: '/blog/what-does-agile-online-qualitative-research-mean',
   },
   {
-    icon: BadgeCheck,
     title: 'Authentic',
     body: 'Research can only be trusted if it is',
     emphasis: 'authentic',
     href: '/blog/what-makes-online-qual-more-authentic-than-traditional-methods',
   },
   {
-    icon: HeartPulse,
     title: 'Inspiring',
     body: 'Research is only valuable if it inspires',
     emphasis: 'better decisions',
     // No href: the 2021 site linked this to
     // /blog/why-is-online-qual-more-inspiring-than-traditional-methods, which
-    // has never existed and returned a 404. Rendered as plain text until the
-    // post is written, rather than pointed somewhere it doesn't belong.
+    // has never existed and returned a 404. The two linked rows carry a visible
+    // arrow, so this one reads as non-interactive rather than looking identical
+    // to its siblings and silently doing nothing.
     href: null,
   },
 ];
@@ -63,12 +65,12 @@ const principles = [
         <div class="flex flex-wrap items-center gap-x-8 gap-y-4">
           <a
             href="/services"
-            class="group inline-flex items-center gap-2.5 rounded-md bg-brand-300 px-6 py-3.5 text-base font-medium text-brand-800 transition-colors duration-200 hover:bg-ink-50"
+            class="group inline-flex items-center gap-2.5 rounded-md bg-brand-300 px-6 py-3.5 text-base font-medium text-brand-800 transition-colors duration-text hover:bg-ink-50"
           >
             Research
             <ArrowRight class="w-4 h-4 transition-transform duration-300 ease-out-soft group-hover:translate-x-1" />
           </a>
-          <a href="/training" class="link text-base text-brand-100 transition-colors duration-200 hover:text-brand-300">
+          <a href="/training" class="link text-base text-brand-100 transition-colors duration-text hover:text-brand-300">
             Training
           </a>
         </div>
@@ -80,15 +82,24 @@ const principles = [
 
   <!-- WHAT WE DO — neutral ground, asymmetric split, colour only as accent -->
   <Section id="what-we-do" tone="paper" pad="lg">
-    <div class="grid gap-x-12 gap-y-14 lg:grid-cols-12">
-      <div class="flex flex-col lg:col-span-6">
-        <p class="eyebrow eyebrow-rule text-brand-600">What we do</p>
-        <h2 class="text-display text-ink-900 max-w-display">
-          Curate authentic conversations between brands and people
-        </h2>
-      </div>
+    <!-- The eyebrow takes its own full-width row so the heading and the copy are
+         siblings in the next one. Previously the eyebrow and heading were a single
+         grid child and the copy was its sibling, so both pinned to the same row
+         line and the copy sat 39px ABOVE the heading's cap-top — optically locked
+         to the caption rather than the heading.
 
-      <div class="flex flex-col gap-6 lg:col-span-5 lg:col-start-8 lg:pt-4">
+         `lg:pt-1.5` is optical cap compensation, not a fudge: text-display runs
+         line-height 1.0 on a 1.5em content box so its first line sits 20px above
+         its own box top, while text-lg at 1.55 sits 0.5px below. The 6.78px delta
+         resolves to sub-pixel across the whole lg range. -->
+    <div class="grid gap-x-12 lg:grid-cols-12">
+      <p class="eyebrow text-brand-600 lg:col-span-12">What we do</p>
+
+      <h2 class="text-display text-ink-900 max-w-display lg:col-span-6 lg:row-start-2">
+        Curate authentic conversations between brands and people
+      </h2>
+
+      <div class="mt-12 flex flex-col gap-6 lg:col-span-5 lg:col-start-8 lg:row-start-2 lg:mt-0 lg:pt-1.5">
         <p class="text-lg font-light text-ink-600 max-w-measure">
           We provide a range of online qualitative research services through our international
           network of senior consultants and specialist partners.
@@ -100,49 +111,52 @@ const principles = [
       </div>
     </div>
 
-    <div class="grid gap-x-10 gap-y-12 pt-20 sm:grid-cols-2 lg:grid-cols-4">
-      <ServiceCard slug="/services" icon="concierge-bell" title="Full Service"
+    <!-- gap-x-16 against the cards' 16px internal gap gives 4:1, which is what
+         proximity needs to group four items with no rule between them. It was
+         40:16, too close to read, which is why the top stubs felt load-bearing. -->
+    <div class="grid gap-x-16 gap-y-16 pt-28 sm:grid-cols-2 lg:grid-cols-4">
+      <ServiceCard slug="/services" title="Full Service"
                    description="Everything, from design to set up, moderation and reporting" />
-      <ServiceCard slug="/services" icon="drafting-compass" title="Project Design / Set Up"
+      <ServiceCard slug="/services" title="Project Design / Set Up"
                    description="Set-up and design that inspires deep engagement, vivid colour and strong validity" />
-      <ServiceCard slug="/services" icon="message-share" title="Moderation / Reporting"
+      <ServiceCard slug="/services" title="Moderation / Reporting"
                    description="We run strategic discussions and craft directional reports" />
-      <ServiceCard slug="/services" icon="graduation-cap" title="Training"
+      <ServiceCard slug="/services" title="Training"
                    description="We upskill researchers to do more insightful and profitable online qual" />
     </div>
   </Section>
 
   <!-- HOW WE WORK — a warm wash rather than a saturated band -->
   <Section id="how-we-work" tone="warm" pad="lg">
-    <div class="grid gap-x-12 gap-y-14 lg:grid-cols-12">
-      <div class="lg:col-span-5">
-        <p class="eyebrow eyebrow-rule text-brand-600">How we work</p>
-        <h2 class="text-3xl text-ink-900 max-w-display">
-          We inform agile workflows, with authentic insights that inspire better decisions
-        </h2>
-      </div>
+    <!-- Split B — list sections get a narrower heading column (4) than the
+         display-headed sections (6), so the two kinds of section read as two
+         kinds. Both still leave the same 160px void, so the page keeps one spine. -->
+    <div class="grid gap-x-12 lg:grid-cols-12">
+      <p class="eyebrow text-brand-600 lg:col-span-12">How we work</p>
 
-      <ul class="flex flex-col lg:col-span-6 lg:col-start-7">
+      <h2 class="text-3xl text-ink-900 max-w-display lg:col-span-4 lg:row-start-2">
+        We inform agile workflows, with authentic insights that inspire better decisions
+      </h2>
+
+      <!-- 64px of gap instead of four hairlines. That is the exact row-to-row
+           distance the `py-8` + rules produced, so the rhythm is unchanged. -->
+      <ul class="mt-12 flex flex-col gap-16 lg:col-span-7 lg:col-start-6 lg:row-start-2 lg:mt-0">
         {principles.map((p) => {
           const Wrapper = p.href ? 'a' : 'div';
           return (
             <li>
               <Wrapper
                 href={p.href ?? undefined}
-                class:list={[
-                  'flex items-start gap-6 border-b border-ink-300/70 py-8 first:border-t',
-                  p.href && 'group transition-colors duration-300 hover:border-brand-500',
-                ]}
+                class:list={['flex items-start gap-6', p.href && 'group']}
               >
-                <p.icon size={30} class="mt-1 shrink-0 text-brand-500 transition-transform duration-300 ease-out-soft group-hover:-translate-y-0.5" />
                 <div class="flex flex-col gap-2">
-                  <h3 class="text-xl text-ink-900">{p.title}</h3>
+                  <h3 class="text-xl text-ink-900 transition-colors duration-text group-hover:text-brand-600">{p.title}</h3>
                   <p class="text-base font-light text-ink-600">
                     {p.body} <span class="font-medium text-ink-900">{p.emphasis}</span>
                   </p>
                 </div>
                 {p.href && (
-                  <ArrowUpRight class="ml-auto mt-1 w-5 h-5 shrink-0 text-brand-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <ArrowUpRight class="ml-auto mt-1 w-5 h-5 shrink-0 text-brand-500 opacity-40 transition-[opacity,transform] group-hover:opacity-100 group-hover:-translate-y-0.5" />
                 )}
               </Wrapper>
             </li>
@@ -154,12 +168,12 @@ const principles = [
 
   <!-- CASE STUDIES — logos as quiet evidence on the page ground -->
   <Section id="clients" tone="paper" pad="lg">
-    <div class="flex flex-col gap-6 pb-14 md:flex-row md:items-end md:justify-between">
-      <div>
-        <p class="eyebrow eyebrow-rule text-brand-600">Case studies</p>
-        <h2 class="text-display text-ink-900 max-w-display">Examples of our work</h2>
-      </div>
-      <p class="text-lg font-light text-ink-600 max-w-measure md:pb-3">
+    <!-- Eyebrow cut: "Case studies" above "Examples of our work" is the definition
+         restated. `md:pb-3` cut too — items-end already baseline-aligns to 0.5px,
+         so the padding was 12px of pure error. -->
+    <div class="flex flex-col gap-6 pb-28 md:flex-row md:items-end md:justify-between">
+      <h2 class="text-display text-ink-900 max-w-display">Examples of our work</h2>
+      <p class="text-lg font-light text-ink-600 max-w-measure">
         We work across categories, from technology to media, FMCG, retail and more.
       </p>
     </div>
@@ -171,17 +185,15 @@ const principles = [
 
   <!-- WHAT CLIENTS SAY — the second and last full colour field -->
   <Section tone="deep" pad="lg">
-    <div class="flex flex-col gap-6 pb-14 md:flex-row md:items-end md:justify-between">
-      <div>
-        <p class="eyebrow eyebrow-rule text-brand-300">Our clients</p>
-        <h2 class="text-display text-ink-50 max-w-display">What clients say about us</h2>
-      </div>
+    <!-- Eyebrow cut — the client's own example: the heading already says it. -->
+    <div class="flex flex-col gap-6 pb-28 md:flex-row md:items-end md:justify-between">
+      <h2 class="text-display text-ink-50 max-w-display">What clients say about us</h2>
       <a
         href="/category/case-study"
-        class="group inline-flex shrink-0 items-center gap-2.5 text-base font-medium text-brand-300 transition-colors duration-200 hover:text-ink-50 md:pb-3"
+        class="group inline-flex shrink-0 items-center gap-2.5 text-base font-medium text-brand-300 transition-colors duration-text hover:text-ink-50"
       >
         Read the case studies
-        <ArrowRight class="w-4 h-4 transition-transform duration-300 ease-out-soft group-hover:translate-x-1" />
+        <ArrowRight class="w-4 h-4 translate-y-px transition-transform group-hover:translate-x-1" />
       </a>
     </div>
 
@@ -235,7 +247,11 @@ const principles = [
       </div>
 
       <div class="flex flex-col gap-6 lg:col-span-6 lg:col-start-7">
-        <p class="eyebrow eyebrow-rule text-brand-600">Why Feeling Mutual</p>
+        <!-- "Why Feeling Mutual" is stock site architecture that promises "why
+             choose us" while the copy answers "why we're called that". This is
+             also the only section where the eyebrow IS the heading — there is no
+             h2 in this column — so it needs to say something. -->
+        <p class="eyebrow text-brand-600">Our purpose</p>
         <p class="text-xl font-light text-ink-900 max-w-measure">
           We are an <span class="font-medium">award-winning</span> insight consultancy,
           specialising in <span class="font-medium">online and mobile qualitative</span> research.
@@ -254,7 +270,7 @@ const principles = [
         </p>
         <a
           href="/blog/why-are-we-called-feeling-mutual"
-          class="group mt-2 inline-flex items-center gap-2.5 self-start text-base font-medium text-brand-600 transition-colors duration-200 hover:text-brand-800"
+          class="group mt-2 inline-flex items-center gap-2.5 self-start text-base font-medium text-brand-600 transition-colors duration-text hover:text-brand-800"
         >
           Read why we are called Feeling Mutual
           <ArrowRight class="w-4 h-4 transition-transform duration-300 ease-out-soft group-hover:translate-x-1" />

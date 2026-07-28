@@ -8,26 +8,15 @@
    above expand to thousands of rules, so the browser would discard it. */
 
 @layer base {
-  /* Mirrors of the Tailwind tokens, for the handful of places that need a raw
-     value (gradients, shadows on coloured grounds, SVG fills). Single source of
-     truth is still tailwind.config.mjs — these are kept in step with it. */
+  /* Only the tokens this stylesheet actually consumes. Fifteen were mirrored here
+     originally and nine had no consumer — a parallel palette drifting out of step
+     with the real one in tailwind.config.mjs. Utilities cover everything else. */
   :root {
-    --ink-50:  #FBF9F7;
-    --ink-100: #F5F1EC;
-    --ink-200: #E3DBD2;
-    --ink-300: #D0C5B9;
-    --ink-500: #877B6E;
-    --ink-600: #685E54;
-    --ink-900: #1D1917;
-
-    --brand-100: #FEC8D2;
+    --ink-50:    #FBF9F7;
+    --ink-900:   #1D1917;
     --brand-300: #FFAB5C;
-    --brand-400: #FA5A50;
     --brand-500: #D83B2E;
-    --brand-600: #A81E33;
     --brand-800: #6D012D;
-
-    --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   html {
@@ -61,11 +50,12 @@
   }
 
   /* Was entirely absent — browser default outline only, near-invisible on the
-     dark grounds. */
+     dark grounds. No border-radius here: `outline` already follows the element's
+     own radius, and setting one gave square elements a 2px round on focus —
+     visibly notching the case-study grid's 1px divider lines. */
   :focus-visible {
     outline: 2px solid var(--brand-500);
     outline-offset: 3px;
-    border-radius: 2px;
   }
   .on-dark :focus-visible {
     outline-color: var(--brand-300);
@@ -85,29 +75,27 @@
 @layer components {
   /* Caps the content column while leaving section backgrounds full-bleed.
      Padding-based rather than a wrapper element, so the flex/grid layouts that
-     call sites put directly on <section> keep working. */
+     call sites put directly on <section> keep working.
+
+     The gutter is fluid rather than stepped. It used to jump 1.5rem -> 3rem at
+     768px and -> 4.5rem at 1024px, and at both of those points the gutter grew
+     faster than the viewport did, so the content column got NARROWER as the
+     screen got wider: 719px at 767px -> 672px at 768px, and 927px -> 880px at
+     1024px. An iPad in portrait rendered less usable width than a phone. */
   .section-shell {
     --section-max: 82.5rem; /* 1320px */
-    --section-gutter: 1.5rem;
-    padding-inline: max(var(--section-gutter), calc((100% - var(--section-max)) / 2));
+    padding-inline: max(clamp(1.5rem, 5vw, 4.5rem), calc((100% - var(--section-max)) / 2));
   }
-  @media (min-width: 768px)  { .section-shell { --section-gutter: 3rem; } }
-  @media (min-width: 1024px) { .section-shell { --section-gutter: 4.5rem; } }
 
   /* Small caps-and-tracking label used as a section eyebrow. Replaces the
-     `<p class="font-light">What We Do</p>` pattern, which had no tracking. */
-  .eyebrow {
-    @apply text-label uppercase font-medium;
-  }
+     `<p class="font-light">What We Do</p>` pattern, which had no tracking.
 
-  /* Thin rule that runs under an eyebrow — the structural device that replaces
-     a full-bleed colour change as the section separator. */
-  .eyebrow-rule {
-    @apply flex items-center gap-4 pb-8;
-  }
-  .eyebrow-rule::after {
-    content: "";
-    @apply h-px flex-1 bg-current opacity-25;
+     Owns its own bottom spacing. The eyebrow-to-heading distance previously had
+     three different values for one relationship — 32px from the deleted
+     `.eyebrow-rule`'s pb-8, 24px from an `mt-6` on the heading, and 56px where
+     both a pb-8 and a parent flex gap applied. */
+  .eyebrow {
+    @apply text-label uppercase font-medium pb-6;
   }
 
   /* Long-form copy — blog posts, the privacy policy.
@@ -166,7 +154,7 @@
     height: auto;
     margin-top: 2em;
     margin-bottom: 2em;
-    @apply rounded-lg border border-ink-200;
+    @apply rounded-lg;
   }
   /* Markdown wraps some embeds in <div align="center">, which centres the
      iframe but doesn't constrain it. */
@@ -188,15 +176,13 @@
   }
 }
 
-@layer utilities {
-  /* No scroll-driven entrance animation. A `.reveal` that started at opacity 0
-     was tried and dropped: any path where the timeline fails to resolve leaves
-     the content permanently invisible, and the layout does not need it. Motion
-     here is limited to hover and focus, where it can only ever be additive. */
+/* No scroll-driven entrance animation. A `.reveal` that started at opacity 0 was
+   tried and dropped: any path where the timeline fails to resolve leaves the
+   content permanently invisible, and the layout does not need it. Motion here is
+   limited to hover and focus, where it can only ever be additive.
 
-  .text-balance { text-wrap: balance; }
-  .text-pretty  { text-wrap: pretty; }
-}
+   `.text-balance` / `.text-pretty` were hand-written here too; Tailwind 3.4 ships
+   both natively, so the copies were shadowing the framework for no reason. */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

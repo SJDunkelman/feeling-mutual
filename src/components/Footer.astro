@@ -50,29 +50,34 @@ const year = new Date().getFullYear();
       <ul class="flex flex-wrap gap-x-8 gap-y-3">
         {links.map(l => (
           <li>
-            <a href={l.href} class={`text-sm transition-colors duration-200 ${t.link}`}>{l.label}</a>
+            <a href={l.href} class={`text-sm transition-colors duration-text ${t.link}`}>{l.label}</a>
           </li>
         ))}
       </ul>
     </nav>
 
-    <div class="flex items-center gap-6">
-      <a href="https://www.linkedin.com/company/feeling-mutual-limited/" class={`transition-colors duration-200 ${t.social}`} aria-label="Feeling Mutual on LinkedIn">
+    <!-- `-m-3 p-3` grows the hit area to 44x44 without moving the icons: these were
+         bare 20x20 anchors, under the 24x24 WCAG 2.5.8 minimum. The container gap
+         drops from 6 to 3 so the visible spacing is unchanged. -->
+    <div class="flex items-center gap-3">
+      <a href="https://www.linkedin.com/company/feeling-mutual-limited/" class={`-m-3 p-3 transition-colors duration-text ${t.social}`} aria-label="Feeling Mutual on LinkedIn">
         <Linkedin size={20} />
       </a>
-      <a href="https://twitter.com/tomwoodnutt" class={`transition-colors duration-200 ${t.social}`} aria-label="Tom Woodnutt on Twitter">
+      <a href="https://twitter.com/tomwoodnutt" class={`-m-3 p-3 transition-colors duration-text ${t.social}`} aria-label="Tom Woodnutt on Twitter">
         <Twitter size={20} />
       </a>
-      <a href="mailto:tom@feelingmutual.com" class={`transition-colors duration-200 ${t.social}`} aria-label="Email Feeling Mutual">
+      <a href="mailto:tom@feelingmutual.com" class={`-m-3 p-3 transition-colors duration-text ${t.social}`} aria-label="Email Tom">
         <Mail size={20} />
       </a>
     </div>
   </div>
 
-  <div class={`mt-12 flex flex-col gap-2 border-t pt-6 pb-10 md:flex-row md:justify-between ${t.divider}`}>
+  <!-- No second rule. Two hairlines inside ~200px read as a tic; the 48px offset
+       plus the drop to caption size at 60% opacity already marks this as terminal. -->
+  <div class="mt-12 flex flex-col gap-2 pb-10 md:flex-row md:justify-between">
     <p class={`text-caption ${t.meta}`}>© {year} Feeling Mutual Limited</p>
     <p class={`text-caption ${t.meta}`}>
-      <a href="/privacy-policy" class={`transition-colors duration-200 ${t.link}`}>Privacy policy</a>
+      <a href="/privacy-policy" class={`transition-colors duration-text ${t.link}`}>Privacy policy</a>
     </p>
   </div>
 </footer>
