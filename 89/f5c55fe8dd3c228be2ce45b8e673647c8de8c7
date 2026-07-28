@@ -1,0 +1,20 @@
+src/components/PostCard.astro
+  s_e95f03a6e77232::t_c3b6691feadd55 56-57,59-60
+  s_e95f03a6e77232::t_6fa39eec1c92c0 14-27,36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "89f5c55fe8dd3c228be2ce45b8e673647c8de8c7",
+  "prompts": {},
+  "sessions": {
+    "s_e95f03a6e77232": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "e1345b54-2a41-4215-b146-c5152864120f",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Simon Dunkelman <simon@dunkelman.xyz>"
+    }
+  }
+}
