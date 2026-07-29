@@ -4,3 +4,28 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Retired pages.
+#
+# These three were published for years and are indexed, linked from LinkedIn
+# posts and, in the case of the ICG piece, from theicg.co.uk. Deleting the
+# markdown removes the page from the build, so without these they would start
+# returning the 404 page — the exact complaint that got the case-study grid
+# rewritten. Each one sends the visitor to the nearest live equivalent instead.
+[[redirects]]
+  from = "/blog/what-is-best-practice-when-hiring-freelance-researchers"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/quirks-market-research-excellence-award-winner-2020"
+  to = "/blog"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/easy-jet"
+  to = "/#clients"
+  status = 301
+  force = true

@@ -1,0 +1,76 @@
+---
+/*
+  Replaces CaseStudyGrid.
+
+  That component read the `featured-case-studies` collection and rendered a
+  linked card per client — logo, type of work, and a route through to the
+  write-up. The section is now "who we work with" rather than "what we did", so
+  the names on it are no longer bounded by which projects happen to have a
+  published write-up. Three of the six here don't have one, and won't.
+
+  Hence a hardcoded list rather than a collection: adding a logo means adding an
+  image and a line, which is a developer job, not a CMS one. The case studies
+  themselves still publish to /blog and /category/case-study; they are just not
+  what this row is for any more.
+
+  Full colour at rest, not desaturated-until-hover. The old grid held the marks
+  in greyscale and restored colour on hover, which no touch device can trigger —
+  so on a phone the whole row was permanently grey. Same reasoning as the awards
+  strip: the marks are shown as their owners publish them.
+
+  Sizes are per-logo, not a shared height. A solid three-block BBC mark and a
+  hairline Virgin Pure oval set to one height read as wildly different weights,
+  so each is scaled to sit at the same optical size instead.
+*/
+import { Image } from 'astro:assets';
+
+import bbc from '../images/clients/bbc.png';
+import theAa from '../images/clients/the-aa.png';
+import sony from '../images/clients/sony.png';
+import google from '../images/clients/google.png';
+import virginPure from '../images/clients/virgin-pure.png';
+import amazon from '../images/clients/amazon.png';
+
+// `h` is the display height in px at desktop; the mobile size is 0.8x of it,
+// applied through the wrapper's font-size-independent inline height below.
+const clients = [
+  { src: bbc,        alt: 'BBC',         h: 28 },
+  { src: theAa,      alt: 'The AA',      h: 36 },
+  { src: sony,       alt: 'Sony',        h: 28 },
+  { src: google,     alt: 'Google',      h: 32 },
+  { src: virginPure, alt: 'Virgin Pure', h: 44 },
+  { src: amazon,     alt: 'Amazon',      h: 33 },
+];
+---
+
+<ul class="client-row grid grid-cols-2 gap-x-8 gap-y-14 sm:grid-cols-3 md:gap-x-12 lg:grid-cols-6 lg:gap-x-8">
+  {clients.map((client) => (
+    <li class="flex items-center justify-center">
+      {/* Sources are 160px tall, so the largest mark here (44px) still has 3.6x
+          for high-density displays. `height` is passed so Astro emits the file
+          at that size rather than at source resolution. */}
+      <Image
+        src={client.src}
+        alt={client.alt}
+        height={160}
+        class="w-auto max-w-full"
+        style={`--h: ${client.h}px`}
+        loading="lazy"
+      />
+    </li>
+  ))}
+</ul>
+
+<style>
+  /* Height set here rather than as a Tailwind class: the values are per-logo
+     and arbitrary, so they would each need their own JIT-visible literal. */
+  .client-row :global(img) {
+    height: calc(var(--h) * 0.8);
+  }
+
+  @media (min-width: 768px) {
+    .client-row :global(img) {
+      height: var(--h);
+    }
+  }
+</style>

@@ -17,14 +17,20 @@ import { ArrowRight } from '@lucide/astro';
 interface Props {
   slug: string;
   title: string;
+  /* The benefit, in four or five words — "Find the right idea." It carries the
+     card, so it is set at body size in the ink-900 heading colour and the method
+     below it drops to the muted grey. Without the split, the card is a title and
+     a paragraph of method, which is what the section was criticised for. */
+  lead?: string;
   description: string;
 }
 
-const { slug, title, description } = Astro.props;
+const { slug, title, lead, description } = Astro.props;
 ---
 
-<a href={slug} class="group flex flex-col gap-4">
+<a href={slug} class="group flex flex-col gap-3">
   <h3 class="text-lg font-bold text-ink-900 transition-colors duration-text group-hover:text-brand-600">{title}</h3>
+  {lead && <p class="text-base text-ink-900">{lead}</p>}
   <p class="text-sm font-light text-ink-600">{description}</p>
   <span class="mt-auto inline-flex items-center gap-2 pt-4 text-caption font-medium text-brand-600">
     Learn more

@@ -152,7 +152,9 @@ collections:
     label: Case Studies
     label_singular: Case Study
     description: >-
-      Client work featured in the case study grid on the home page.
+      Write-ups of client work. These appear on the blog page and under
+      Case studies, at /category/case-study. The logo row on the home page is a
+      fixed list of client marks and is not published from here.
     folder: src/content/featured-case-studies
     create: true
     path: '{{slug}}/index'
@@ -181,7 +183,7 @@ collections:
         name: showcaseImage
         widget: image
         required: true
-        hint: The client's logo, shown on the case study card.
+        hint: The client's logo, shown on the case study card on the blog page.
 
       - label: Type of work
         name: subCategory
