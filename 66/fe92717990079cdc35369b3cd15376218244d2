@@ -1,0 +1,55 @@
+docs/WRITING-GUIDE.md
+  s_86d9786b0a233e::t_9a13ab3221d46b 61,63,67-70
+  s_86d9786b0a233e::t_4368ab3a58142a 71
+.gitignore
+  s_86d9786b0a233e::t_e465c8984b0641 72-74
+netlify.toml
+  s_86d9786b0a233e::t_24f9f56d26fbf5 7-31
+src/components/NavigationBar.astro
+  s_86d9786b0a233e::t_65c15ebba77824 40
+src/pages/services.astro
+  s_86d9786b0a233e::t_02bec17d8681c4 10-11,13-17,19-24,28-31,34-37,40-43,46,48-50
+  s_86d9786b0a233e::t_895013d99eb284 55,60-61
+  s_86d9786b0a233e::t_1cc0d168d2222b 77,79,84
+src/components/PostCard.astro
+  s_86d9786b0a233e::t_bcaccda65f2534 67-68
+  s_86d9786b0a233e::t_42f2ba935a7962 29
+  s_86d9786b0a233e::t_c683e840be4860 55-59,66,69-70
+  s_86d9786b0a233e::t_74670860b6661b 60-65
+src/components/ClientLogos.astro
+  s_86d9786b0a233e::t_9894270be272a1 1-76
+src/content/blog/why-our-approach-is-more-inspiring-than-traditional-research/index.md
+  s_86d9786b0a233e::t_42f6437cb38296 1-25
+src/components/Footer.astro
+  s_86d9786b0a233e::t_16503f764c0da2 35
+src/components/ServiceCard.astro
+  s_86d9786b0a233e::t_a0957b8a427add 20-24,28,31,33
+src/components/AwardsMarquee.astro
+  s_86d9786b0a233e::t_19acfd05f1c0a2 53-58
+src/pages/index.astro
+  s_86d9786b0a233e::t_2022addc290a1b 51-54,56,70,72,77
+  s_86d9786b0a233e::t_fd4a26eb718750 9
+  s_86d9786b0a233e::t_8f152ae56adaf6 40,42-46
+  s_86d9786b0a233e::t_b18ace0a7ec57f 57-66,71,75
+  s_86d9786b0a233e::t_9573c93d657c5d 113,118,123-128,132-143
+  s_86d9786b0a233e::t_f255a3540e63d9 187-193,195-206,211
+public/admin/config.yml
+  s_86d9786b0a233e::t_59302a831ff692 186
+  s_86d9786b0a233e::t_2949f9de1973c5 155-157
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "66fe92717990079cdc35369b3cd15376218244d2",
+  "prompts": {},
+  "sessions": {
+    "s_86d9786b0a233e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4ae526a1-88f6-423b-9205-c90e94005e5b",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Simon Dunkelman <simon@dunkelman.xyz>"
+    }
+  }
+}
