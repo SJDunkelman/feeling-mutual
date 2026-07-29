@@ -26,6 +26,7 @@
 */
 import { Image } from 'astro:assets';
 import { ArrowRight } from '@lucide/astro';
+import Logo from './Logo.astro';
 import { categoryName } from '../lib/posts';
 
 interface Props {
@@ -51,6 +52,22 @@ const isLogo = category === 'case-study';
 
 <article class="h-full">
   <a href={href} class="group flex h-full flex-col">
+    {/* Fallback panel when a post has no showcase image.
+        `showcaseImage` is optional in the schema, and a card without one used to
+        render no tile at all — so in a grid its date and title started level
+        with its neighbours' photographs, ~250px above their text. The mark on
+        the brand ground holds the row instead. The CMS makes the field required,
+        so this only ever applies to posts written straight into the repo.
+
+        aria-hidden sits on the wrapper rather than being an empty title on the
+        Logo: that component stamps role="img" onto the SVG, and role="img" with
+        an empty label is a node screen readers may still stop on. Hiding the
+        subtree is unambiguous, and the card's link text carries the meaning. */}
+    {!image && (
+      <div class="flex aspect-[16/10] items-center justify-center overflow-hidden rounded-lg bg-brand-800" aria-hidden="true">
+        <Logo variant="symbol" class="w-16 text-brand-300 transition-transform duration-image group-hover:scale-[1.06]" />
+      </div>
+    )}
     {image && (
       <div class="aspect-[16/10] overflow-hidden rounded-lg bg-ink-100">
         <Image

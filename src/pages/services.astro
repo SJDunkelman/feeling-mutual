@@ -7,47 +7,58 @@ import GetInTouch from '../components/GetInTouch.astro';
 import { ArrowRight } from '@lucide/astro';
 
 /*
-  Copy restored verbatim from the pre-migration page (87f6c6b^, src/pages/services.js).
+  Rewritten around what the client gets rather than which parts of the job we
+  take on.
 
-  The Dec 2025 Astro migration rewrote this page from scratch and replaced these
-  with generated filler — "ensures seamless execution from start to finish",
-  "tailored to your specific needs", "actionable insights for your business
-  decisions" — which say nothing a competitor couldn't also say.
+  The previous four — Full Service / Project Design / Moderation / Training —
+  split the offer by which stages of a study Feeling Mutual runs. That is a
+  useful thing for a research buyer to know at the point of quoting, and a poor
+  thing to lead with: it describes the shape of the contract, not the reason to
+  sign one, and three of the four amounted to white-labelling.
 
-  What the originals do, and the replacements didn't, is explain that the offer is
-  MODULAR: three of the four describe taking on only the parts the client can't do
-  themselves. That is the actual sales proposition.
+  These four split it by what the client is trying to find out, which is how the
+  brief arrives. Each carries the benefit first, then the scope, then the method
+  that delivers it, so the method is still on the page — it just isn't the
+  headline any more.
+
+  `id` on each is what /#discover etc. on the home page cards land on.
 */
 const services = [
   {
-    title: 'Full Service',
-    body: 'We take your brief and then design the most robust sample and method. We also assemble an expert team for moderation and reporting.',
+    id: 'discover',
+    title: 'Discover',
+    lead: 'Find the right idea.',
+    body: 'Discovery research into unmet needs, tensions and opportunities for ideas. Using online auto-ethnography in real-world contexts.',
   },
   {
-    title: 'Project Design / Set Up',
-    body: 'If you can moderate and report, we can just design the method and sample, and / or set up the platform, and / or recruit and incentivise participants.',
+    id: 'optimise',
+    title: 'Optimise',
+    lead: 'Make the idea better.',
+    body: 'Testing propositions, features, creative ideas, scripts, designs and messaging, to improve them. Using collaborative qualitative research.',
   },
   {
-    title: 'Moderation / Reporting',
-    body: 'If you set up the project yourself, we can provide expert moderators in any market and if required, we can analyse and report.',
+    id: 'validate',
+    title: 'Validate',
+    lead: 'Know the idea works.',
+    body: 'Testing at scale to measure reactions to ideas with statistical rigour. Using quantitative surveys including AI moderation.',
   },
   {
+    id: 'training',
     title: 'Training',
-    body: 'We also offer training to upskill researchers so they can win, plan and run online and mobile qualitative studies that are more insightful and profitable.',
-    // Names the course rather than saying "our training" — it is sold under this
-    // exact name, and the migration had dropped every reference to it.
-    link: { href: '/training', label: 'See Online Qual Mastery' },
+    lead: 'Upskill your research team.',
+    body: 'Do more insightful online qualitative research.',
+    link: { href: '/training', label: 'Learn more about our training' },
   },
 ];
 ---
 
-<Layout title="Services | Feeling Mutual" description="Online qualitative research services - Full Service, Project Design, Moderation and Reporting">
+<Layout title="Services | Feeling Mutual" description="Discover, optimise and validate ideas through research — discovery, qualitative testing, quantitative validation and training.">
   <Section tone="deep" pad="none">
     <!-- No eyebrow: the nav, the page title, the footer and the intro copy all say
          "services" already — it appeared five times on one screen. -->
     <PageHero
-      title="Online qualitative research"
-      intro="We provide a range of online qualitative research services through our international network of senior consultants and specialist partners."
+      title="Inspiring ideas that transform"
+      intro="Discover, optimise and validate ideas through research."
     />
   </Section>
 
@@ -63,12 +74,14 @@ const services = [
     <ul class="grid gap-x-12 gap-y-28 lg:grid-cols-12">
       {services.map((s, i) => (
         <li
+          id={s.id}
           class:list={[
-            'flex flex-col gap-4 lg:col-span-5',
+            'flex flex-col gap-3 scroll-mt-16 lg:col-span-5',
             i % 2 === 1 && 'lg:col-start-8 lg:mt-20',
           ]}
         >
           <h2 class="text-xl text-ink-900">{s.title}</h2>
+          <p class="text-lg text-ink-900">{s.lead}</p>
           <p class="text-base font-light text-ink-600">{s.body}</p>
           {s.link && (
             <a href={s.link.href} class="group inline-flex items-center gap-2.5 self-start pt-1 text-base font-medium text-brand-600 transition-colors duration-text hover:text-brand-800">

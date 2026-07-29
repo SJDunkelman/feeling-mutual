@@ -58,11 +58,16 @@ again. The old version is replaced.
 ## Adding a case study
 
 Same as an article, but click **Case Studies** in the left-hand menu instead.
-These are the ones that appear on the home page. There are two extra boxes:
+They appear on the blog page and under Case studies. There are two extra boxes:
 
-- **Card title** — the heading on the case study card on the home page.
+- **Card title** — the heading on the case study card.
 - **Type of work** — a short label like "Customer Journey" or "Brand Strategy
   Development".
+
+**The client logos on the home page are separate.** That row is a fixed list of
+marks — BBC, The AA, Sony, Google, Virgin Pure, Amazon — and it isn't published
+from here. Adding or swapping a logo means sending the artwork over, so it can
+be sized to sit properly alongside the others.
 
 ## A few things worth knowing
 

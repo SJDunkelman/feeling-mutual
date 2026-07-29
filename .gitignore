@@ -69,3 +69,6 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Claude Code local scratch (agent worktrees, session state) — never part of the site
+.claude/
